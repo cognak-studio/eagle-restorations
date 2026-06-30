@@ -22,3 +22,5 @@ public/wp-content/uploads/**/*.jpg
 public/wp-content/uploads/**/*.jpeg
 public/wp-content/uploads/**/*.PNG
 public/wp-content/uploads/**/*.JPG
+# heavy source PNG for the OG image — only the optimized .jpg is deployed
+public/og-image.png

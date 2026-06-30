@@ -1,6 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
-import { company } from '../data/site.js';
+import { company, formEndpoint } from '../data/site.js';
 ---
 <Base title="Contact" description="Contact Eagle Restorations for historic restoration, seismic retrofit, and adobe reconstruction projects in California.">
   <section class="page-head">
@@ -31,9 +31,15 @@ import { company } from '../data/site.js';
         </div>
       </div>
 
-      <!-- TODO: set FORM_ENDPOINT to a Formspree (https://formspree.io) form ID or other handler.
-           Until then the form posts nowhere. Vercel static hosting has no built-in form backend. -->
-      <form class="contact-form" name="contact" method="POST" action="https://formspree.io/f/REPLACE_ME">
+      <form
+        class="contact-form"
+        id="contactForm"
+        name="contact"
+        method="POST"
+        action={formEndpoint || undefined}
+        data-endpoint={formEndpoint}
+        data-mailto={company.email}
+      >
         <p class="form-note">Have a question? Send us a message.</p>
         <div class="row">
           <label>Name<input type="text" name="name" required /></label>
@@ -41,7 +47,10 @@ import { company } from '../data/site.js';
         </div>
         <label>Phone<input type="tel" name="phone" /></label>
         <label>Message<textarea name="message" rows="6" required></textarea></label>
+        <!-- honeypot: bots fill this, humans don't -->
+        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="hp" aria-hidden="true" />
         <button type="submit" class="btn">Send Message</button>
+        <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
       </form>
     </div>
   </section>
@@ -75,9 +84,50 @@ import { company } from '../data/site.js';
   .contact-form input:focus, .contact-form textarea:focus { outline: 2px solid var(--gold); border-color: var(--gold); }
   .row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
   .contact-form .btn { border: 0; cursor: pointer; margin-top: 6px; }
+  .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+  .form-status { margin: 14px 0 0; font-size: 0.95rem; min-height: 1.2em; }
+  .form-status.ok { color: #2e7d32; }
+  .form-status.err { color: #c0392b; }
 
   @media (max-width: 760px) {
     .contact-grid { grid-template-columns: 1fr; gap: 32px; }
     .row { grid-template-columns: 1fr; }
   }
 </style>
+
+<script>
+  const form = document.getElementById('contactForm');
+  const status = document.getElementById('formStatus');
+  form?.addEventListener('submit', async (e) => {
+    if (form.querySelector('[name="_gotcha"]')?.value) { e.preventDefault(); return; }
+    const endpoint = form.dataset.endpoint;
+    const data = new FormData(form);
+    if (!endpoint) {
+      // No backend configured yet — fall back to opening the visitor's email client.
+      e.preventDefault();
+      const to = form.dataset.mailto;
+      const subject = encodeURIComponent(`Website enquiry from ${data.get('name') || ''}`);
+      const body = encodeURIComponent(
+        `Name: ${data.get('name') || ''}\nEmail: ${data.get('email') || ''}\nPhone: ${data.get('phone') || ''}\n\n${data.get('message') || ''}`
+      );
+      window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
+      return;
+    }
+    e.preventDefault();
+    status.textContent = 'Sending…';
+    status.className = 'form-status';
+    try {
+      const res = await fetch(endpoint, { method: 'POST', body: data, headers: { Accept: 'application/json' } });
+      if (res.ok) {
+        form.reset();
+        status.textContent = 'Thanks — your message has been sent. We\'ll be in touch soon.';
+        status.className = 'form-status ok';
+      } else {
+        throw new Error('bad response');
+      }
+    } catch (err) {
+      status.textContent = 'Something went wrong. Please email us directly at ' + form.dataset.mailto + '.';
+      status.className = 'form-status err';
+    }
+  });
+</script>

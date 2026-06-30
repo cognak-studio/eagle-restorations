@@ -1,0 +1,17 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "redirects": [
+    { "source": "/portfolio/:slug", "destination": "/projects/:slug", "permanent": true },
+    { "source": "/portfolio", "destination": "/projects", "permanent": true },
+    { "source": "/portfolio/", "destination": "/projects/", "permanent": true },
+    { "source": "/home", "destination": "/", "permanent": true },
+    { "source": "/home-page-2", "destination": "/", "permanent": true },
+    { "source": "/about", "destination": "/about-and-services/", "permanent": true },
+    { "source": "/services", "destination": "/about-and-services/", "permanent": true },
+    { "source": "/press", "destination": "/press-awards/", "permanent": true },
+    { "source": "/awards", "destination": "/press-awards/", "permanent": true },
+    { "source": "/altadena", "destination": "/altadena-fire/", "permanent": true },
+    { "source": "/wp-admin", "destination": "/", "permanent": false },
+    { "source": "/wp-login.php", "destination": "/", "permanent": false }
+  ]
+}

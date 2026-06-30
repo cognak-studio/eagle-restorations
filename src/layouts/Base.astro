@@ -7,6 +7,37 @@ import { company } from '../data/site.js';
 const { title, description } = Astro.props;
 const fullTitle = title ? `${title} | ${company.name}` : company.name;
 const desc = description || `${company.shortName} specializes in the restoration and seismic repair of historic buildings throughout California.`;
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const ogImage = new URL('/og-image.jpg', Astro.site).href;
+
+const orgSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'GeneralContractor',
+  name: company.name,
+  alternateName: company.shortName,
+  url: 'https://eagle-restorations.com',
+  email: company.email,
+  telephone: company.phone,
+  image: ogImage,
+  logo: 'https://eagle-restorations.com/eagle-restorations-logo.svg',
+  description: desc,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: '5441 Cogswell Rd Suite A',
+    addressLocality: 'Arcadia',
+    addressRegion: 'CA',
+    postalCode: '91006',
+    addressCountry: 'US',
+  },
+  areaServed: { '@type': 'State', name: 'California' },
+  knowsAbout: [
+    'Historic Restoration',
+    'Seismic Retrofit',
+    'Adobe Restoration',
+    'Structural Repair',
+    'Fire Restoration',
+  ],
+};
 ---
 <!doctype html>
 <html lang="en">
@@ -15,6 +46,7 @@ const desc = description || `${company.shortName} specializes in the restoration
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{fullTitle}</title>
     <meta name="description" content={desc} />
+    <link rel="canonical" href={canonical} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -25,6 +57,14 @@ const desc = description || `${company.shortName} specializes in the restoration
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={desc} />
     <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:site_name" content={company.name} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={desc} />
+    <meta name="twitter:image" content={ogImage} />
+    <script type="application/ld+json" set:html={JSON.stringify(orgSchema)} />
   </head>
   <body>
     <Header />

@@ -45,6 +45,12 @@ const featured = featuredSlugs
   .filter(Boolean);
 const aboutImg = portfolio.find((p) => p.slug === 'mission-san-miguel')?.image
   ?? featured[0]?.image;
+
+// Every project image across the site, for the about-section slideshow
+const slideshowImages = [...new Set(
+  portfolio.filter((p) => p.image).map((p) => localImage(p.image))
+)];
+const firstSlide = localImage(aboutImg) || slideshowImages[0];
 ---
 <Base>
   <!-- Hero -->
@@ -71,9 +77,12 @@ const aboutImg = portfolio.find((p) => p.slug === 'mission-san-miguel')?.image
   <section class="section">
     <div class="container about-grid">
       <div class="about-media">
-        {aboutImg
-          ? <img src={localImage(aboutImg)} alt="Historic restoration by Eagle Restorations" />
-          : <div class="img-placeholder">Project photo</div>}
+        <div class="slideshow" id="aboutSlideshow" role="img"
+             aria-label="A rotating gallery of Eagle Restorations projects">
+          <img class="slide is-active" data-layer="0" src={firstSlide}
+               alt="Historic restoration project by Eagle Restorations" />
+          <img class="slide" data-layer="1" alt="" aria-hidden="true" />
+        </div>
       </div>
       <div class="about-copy">
         <h2 class="eyebrow">About Eagle Restorations</h2>
@@ -194,18 +203,50 @@ const aboutImg = portfolio.find((p) => p.slug === 'mission-san-miguel')?.image
     gap: 56px;
     align-items: center;
   }
-  .about-media img, .img-placeholder {
+  .slideshow {
+    position: relative;
     width: 100%;
-    border-radius: var(--radius);
     aspect-ratio: 4 / 3;
-    object-fit: cover;
+    border-radius: 6px;
+    overflow: hidden;
+    cursor: pointer;
+    background: var(--bg-light);
+    animation: float 7s ease-in-out infinite;
+    box-shadow:
+      0 2px 6px rgba(20, 18, 12, 0.10),
+      0 18px 34px -12px rgba(20, 18, 12, 0.34),
+      0 36px 60px -24px rgba(20, 18, 12, 0.30);
   }
-  .img-placeholder {
-    background: repeating-linear-gradient(45deg, #e9edf0, #e9edf0 12px, #eef1f3 12px, #eef1f3 24px);
-    display: grid;
-    place-items: center;
-    color: #9aa3aa;
-    font-size: 0.9rem;
+  .slide {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.85s ease;
+  }
+  .slide.is-active { opacity: 1; }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+      box-shadow:
+        0 2px 6px rgba(20, 18, 12, 0.10),
+        0 18px 34px -12px rgba(20, 18, 12, 0.34),
+        0 36px 60px -24px rgba(20, 18, 12, 0.30);
+    }
+    50% {
+      transform: translateY(-10px);
+      box-shadow:
+        0 4px 10px rgba(20, 18, 12, 0.08),
+        0 30px 48px -14px rgba(20, 18, 12, 0.28),
+        0 52px 80px -28px rgba(20, 18, 12, 0.24);
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .slideshow { animation: none; }
+    .slide { transition: none; }
   }
   .lead { font-weight: 700; font-size: 1.18rem; color: var(--ink); }
 
@@ -297,3 +338,81 @@ const aboutImg = portfolio.find((p) => p.slug === 'mission-san-miguel')?.image
     .svc-grid, .feat-grid { grid-template-columns: 1fr; }
   }
 </style>
+
+<script define:vars={{ images: slideshowImages }}>
+  (function () {
+    const box = document.getElementById('aboutSlideshow');
+    if (!box || !Array.isArray(images) || images.length < 2) return;
+
+    const layers = box.querySelectorAll('.slide');
+    let active = box.querySelector('.slide.is-active') || layers[0];
+    let hidden = layers[0] === active ? layers[1] : layers[0];
+    let current = active.getAttribute('src');
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const INTERVAL = 4200;
+    let timer = null;
+    let paused = false;
+
+    function pickNext() {
+      let next;
+      do {
+        next = images[Math.floor(Math.random() * images.length)];
+      } while (next === current && images.length > 1);
+      return next;
+    }
+
+    function advance() {
+      const next = pickNext();
+      const pre = new Image();
+      const swap = function () {
+        hidden.src = next;
+        hidden.classList.add('is-active');
+        active.classList.remove('is-active');
+        const tmp = active; active = hidden; hidden = tmp;
+        current = next;
+      };
+      pre.onload = swap;
+      pre.onerror = swap;
+      pre.src = next;
+    }
+
+    function start() { stop(); if (!paused) timer = setInterval(advance, INTERVAL); }
+    function stop() { if (timer) { clearInterval(timer); timer = null; } }
+
+    box.addEventListener('mouseenter', function () { paused = true; stop(); });
+    box.addEventListener('mouseleave', function () { paused = false; start(); });
+    box.addEventListener('click', function () { advance(); start(); });
+
+    if (!reduce) start();
+  })();
+</script>
+
+<script>
+  const nums = document.querySelectorAll('.stat-num');
+  if (nums.length) {
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((en) => {
+        if (!en.isIntersecting) return;
+        io.unobserve(en.target);
+        const el = en.target;
+        const m = el.textContent.trim().match(/^(\d[\d,]*)(\D*)$/);
+        if (!m) return;
+        const target = parseInt(m[1].replace(/,/g, ''), 10);
+        const suffix = m[2] || '';
+        if (reduce) { el.textContent = target.toLocaleString() + suffix; return; }
+        const dur = 1500;
+        const t0 = performance.now();
+        function tick(now) {
+          const p = Math.min((now - t0) / dur, 1);
+          const eased = 1 - Math.pow(1 - p, 3);
+          el.textContent = Math.round(eased * target).toLocaleString() + suffix;
+          if (p < 1) requestAnimationFrame(tick);
+          else el.textContent = target.toLocaleString() + suffix;
+        }
+        requestAnimationFrame(tick);
+      });
+    }, { threshold: 0.5 });
+    nums.forEach((n) => io.observe(n));
+  }
+</script>

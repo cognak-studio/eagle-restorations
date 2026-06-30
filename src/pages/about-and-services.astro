@@ -33,39 +33,45 @@ const dirImg = portfolio.find((p) => p.slug === 'leland-stanford-mansion')?.imag
   <section class="page-head">
     <div class="container">
       <h1>About Eagle Restorations</h1>
+      <p class="muted">Three decades of restoring California's landmarks &mdash; with the craft, sensitivity, and discipline that historic and structural work demands.</p>
     </div>
   </section>
 
   <section class="section">
-    <div class="container narrow">
-      <p class="lead">
-        Eagle Restorations Group, Inc. is licensed as a Class 'B' General Building Contractor in the
-        State of California, License No. 465977, and is fully bonded and insured.
-      </p>
-      <p>
-        Eagle specializes in the restoration and seismic repair and upgrading of historic buildings.
-        Incorporated in 1991, Eagle has completed over 80 projects, ranging in value up to 4.3 million
-        dollars. Eagle emphasizes a high level of craft and restoration knowledge in all aspects of its
-        work, and routinely works to the Secretary of the Interior's Standards for the Treatment of
-        Historic Properties.
-      </p>
-      <p>
-        Over 40 of Eagle's past and current projects have local, state, or federal historic landmark
-        designations, and many are open to the public as interpretive museums. Eagle is experienced in
-        working under the auspices of different governmental agencies, and in meeting both the technical
-        and administrative requirements of historic restoration work.
-      </p>
-      <p>
-        Eagle maintains a core group of experienced restoration craftspeople who are "hands-on" on its
-        projects, in addition to doing the estimating and supervisory work. Eagle is a Partner in the
-        California Preservation Foundation and enjoys established relationships with skilled restoration
-        subcontractors covering the full range of trades required by restoration work and seismic
-        retrofitting.
-      </p>
-      <p class="recog muted">
-        Our work has been recognized by the California Preservation Foundation, the Governor of the
-        State of California, the Getty Conservation Institute, the City of San Diego, and more.
-      </p>
+    <div class="container intro-grid">
+      <div class="intro-media">
+        <img src="/about.png" alt="Eagle Restorations craftsmanship on a historic interior" />
+      </div>
+      <div class="intro-copy">
+        <p class="lead">
+          Eagle Restorations Group, Inc. is licensed as a Class 'B' General Building Contractor in the
+          State of California, License No. 465977, and is fully bonded and insured.
+        </p>
+        <p>
+          Eagle specializes in the restoration and seismic repair and upgrading of historic buildings.
+          Incorporated in 1991, Eagle has completed over 80 projects, ranging in value up to 4.3 million
+          dollars. Eagle emphasizes a high level of craft and restoration knowledge in all aspects of its
+          work, and routinely works to the Secretary of the Interior's Standards for the Treatment of
+          Historic Properties.
+        </p>
+        <p>
+          Over 40 of Eagle's past and current projects have local, state, or federal historic landmark
+          designations, and many are open to the public as interpretive museums. Eagle is experienced in
+          working under the auspices of different governmental agencies, and in meeting both the technical
+          and administrative requirements of historic restoration work.
+        </p>
+        <p>
+          Eagle maintains a core group of experienced restoration craftspeople who are "hands-on" on its
+          projects, in addition to doing the estimating and supervisory work. Eagle is a Partner in the
+          California Preservation Foundation and enjoys established relationships with skilled restoration
+          subcontractors covering the full range of trades required by restoration work and seismic
+          retrofitting.
+        </p>
+        <p class="recog muted">
+          Our work has been recognized by the California Preservation Foundation, the Governor of the
+          State of California, the Getty Conservation Institute, the City of San Diego, and more.
+        </p>
+      </div>
     </div>
   </section>
 
@@ -101,9 +107,7 @@ const dirImg = portfolio.find((p) => p.slug === 'leland-stanford-mansion')?.imag
   <section class="section section-light">
     <div class="container dir-grid">
       <div class="dir-media">
-        {dirImg
-          ? <img src={localImage(dirImg)} alt="Eagle Restorations project" />
-          : <div class="img-placeholder"></div>}
+        <img src="/jeff-seidner.png" alt="Jeff Seidner, President of Eagle Restorations" />
       </div>
       <div>
         <h2 class="eyebrow">Jeff Seidner</h2>
@@ -127,8 +131,22 @@ const dirImg = portfolio.find((p) => p.slug === 'leland-stanford-mansion')?.imag
 <style>
   .page-head { background: var(--bg-light); padding: 70px 0; }
   .page-head h1 { font-size: clamp(2.4rem, 5vw, 3.6rem); margin: 0; }
-  .narrow { max-width: 800px; }
-  .lead { font-weight: 700; font-size: 1.25rem; }
+  .page-head .muted { margin: 14px 0 0; max-width: 52ch; font-size: 1.05rem; }
+
+  .intro-grid {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 48px;
+    align-items: stretch;
+  }
+  .intro-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--radius);
+    display: block;
+  }
+  .intro-copy .lead { font-weight: 700; font-size: 1.25rem; }
   .recog { font-style: italic; margin-top: 18px; }
 
   .svc-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
@@ -149,5 +167,10 @@ const dirImg = portfolio.find((p) => p.slug === 'leland-stanford-mansion')?.imag
   .role { font-family: var(--font-head); color: var(--brand-dark); text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.8rem; margin-top: -10px; }
 
   @media (max-width: 940px) { .svc-grid { grid-template-columns: repeat(2, 1fr); } }
-  @media (max-width: 720px) { .svc-grid { grid-template-columns: 1fr; } .dir-grid { grid-template-columns: 1fr; gap: 26px; } }
+  @media (max-width: 720px) {
+    .svc-grid { grid-template-columns: 1fr; }
+    .dir-grid { grid-template-columns: 1fr; gap: 26px; }
+    .intro-grid { grid-template-columns: 1fr; gap: 28px; }
+    .intro-media img { aspect-ratio: 4 / 3; height: auto; }
+  }
 </style>

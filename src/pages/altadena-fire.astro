@@ -14,17 +14,22 @@ import { company, formEndpoint } from '../data/site.js';
   </section>
 
   <section class="section">
-    <div class="container intro">
-      <p class="lead">
-        Eagle Restorations Group was founded in California's Foothill communities, and our goal is to
-        help rebuild and restore Altadena and Pasadena with character and integrity. Our specialty is
-        period-authentic craftsmanship with modern performance standards.
-      </p>
-      <p>
-        For residents rebuilding custom homes, ERG is uniquely qualified to offer end-to-end project
-        support &mdash; including pre-construction planning, cost estimating, entitlement, schedule
-        development, and construction &mdash; in collaboration with architects, engineers, and designers.
-      </p>
+    <div class="container intro-grid">
+      <div class="intro-media">
+        <img src="/altadena.jpg" alt="The Altadena and Pasadena foothills, affected by wildfire" />
+      </div>
+      <div class="intro-copy">
+        <p class="lead">
+          Eagle Restorations Group was founded in California's Foothill communities, and our goal is to
+          help rebuild and restore Altadena and Pasadena with character and integrity. Our specialty is
+          period-authentic craftsmanship with modern performance standards.
+        </p>
+        <p>
+          For residents rebuilding custom homes, ERG is uniquely qualified to offer end-to-end project
+          support &mdash; including pre-construction planning, cost estimating, entitlement, schedule
+          development, and construction &mdash; in collaboration with architects, engineers, and designers.
+        </p>
+      </div>
     </div>
   </section>
 
@@ -88,8 +93,20 @@ import { company, formEndpoint } from '../data/site.js';
   }
   .page-head h1 { font-size: clamp(2.4rem, 5vw, 3.6rem); margin: 0; }
 
-  .intro { max-width: 800px; }
-  .intro .lead { font-weight: 700; font-size: 1.25rem; }
+  .intro-grid {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 48px;
+    align-items: stretch;
+  }
+  .intro-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--radius);
+    display: block;
+  }
+  .intro-copy .lead { font-weight: 700; font-size: 1.25rem; }
 
   .contact-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 56px; align-items: start; }
   .contact-info .eyebrow { margin-bottom: 16px; }
@@ -125,6 +142,8 @@ import { company, formEndpoint } from '../data/site.js';
   @media (max-width: 760px) {
     .contact-grid { grid-template-columns: 1fr; gap: 32px; }
     .row { grid-template-columns: 1fr; }
+    .intro-grid { grid-template-columns: 1fr; gap: 28px; }
+    .intro-media img { aspect-ratio: 4 / 3; height: auto; }
   }
 </style>
 

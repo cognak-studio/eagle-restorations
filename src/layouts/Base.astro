@@ -73,6 +73,48 @@ const orgSchema = {
     </main>
     <Footer />
 
+    <script is:inline>
+      (function () {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        var sel = [
+          '.hero-kicker', '.hero h1', '.hero-sub', '.hero-cta',
+          '.page-head h1', '.page-head p',
+          'main .eyebrow', 'main .lead',
+          '.about-media', '.about-copy p', '.about-copy .link-gold',
+          '.stat', '.svc-card', '.feat-head', '.feat-card', '.proj-card',
+          '.contact-info .info-item', '.contact-form',
+          '.ft-cta-text', '.ft-col'
+        ].join(',');
+        var els = Array.prototype.slice.call(document.querySelectorAll(sel));
+        if (!els.length) return;
+        document.documentElement.classList.add('reveal-ready');
+
+        var groups = new Map();
+        els.forEach(function (el) {
+          el.setAttribute('data-reveal', '');
+          var p = el.parentElement;
+          var arr = groups.get(p) || [];
+          arr.push(el);
+          groups.set(p, arr);
+        });
+        groups.forEach(function (arr) {
+          arr.forEach(function (el, i) {
+            el.style.transitionDelay = Math.min(i * 70, 420) + 'ms';
+          });
+        });
+
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) {
+            if (e.isIntersecting) {
+              io.unobserve(e.target);
+              e.target.classList.add('is-visible');
+            }
+          });
+        }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+        els.forEach(function (el) { io.observe(el); });
+      })();
+    </script>
+
     <script>
       import Lenis from 'lenis';
 

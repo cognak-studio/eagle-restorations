@@ -117,8 +117,8 @@ img { max-width: 100%; display: block; }
   background: var(--gold);
   color: var(--brand-dark);
   font-family: var(--font-head);
-  font-weight: 600;
-  font-size: 0.95rem;
+  font-weight: 700;
+  font-size: 0.8rem;
   letter-spacing: 0.02em;
   padding: 15px 30px;
   border-radius: var(--radius);

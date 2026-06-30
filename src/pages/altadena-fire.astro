@@ -1,0 +1,116 @@
+---
+import Base from '../layouts/Base.astro';
+import { company } from '../data/site.js';
+---
+<Base
+  title="Rebuilding Altadena"
+  description="Eagle Restorations Group helps Altadena and Pasadena residents rebuild and restore fire-affected homes with period-authentic craftsmanship and modern performance standards."
+>
+  <section class="page-head">
+    <div class="container">
+      <p class="kicker">Altadena &amp; Pasadena Fire Rebuilding</p>
+      <h1>Rebuilding Altadena. Together.</h1>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container intro">
+      <p class="lead">
+        Eagle Restorations Group was founded in California's Foothill communities, and our goal is to
+        help rebuild and restore Altadena and Pasadena with character and integrity. Our specialty is
+        period-authentic craftsmanship with modern performance standards.
+      </p>
+      <p>
+        For residents rebuilding custom homes, ERG is uniquely qualified to offer end-to-end project
+        support &mdash; including pre-construction planning, cost estimating, entitlement, schedule
+        development, and construction &mdash; in collaboration with architects, engineers, and designers.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section-light">
+    <div class="container contact-grid">
+      <div class="contact-info">
+        <h2 class="eyebrow">Contact Us for Rebuilding</h2>
+        <p class="muted">
+          Tell us about your property and what you're planning. We'll help you map out the path to
+          rebuilding.
+        </p>
+        <div class="info-item">
+          <h3>Office</h3>
+          <p>5441 Cogswell Rd, Suite A<br />Arcadia, CA 91006</p>
+        </div>
+        <div class="info-item">
+          <h3>Email</h3>
+          <p><a href={`mailto:${company.email}`}>{company.email}</a></p>
+        </div>
+        <div class="info-item">
+          <h3>Phone</h3>
+          <p><a href={`tel:${company.phoneHref}`}>{company.phone}</a></p>
+        </div>
+      </div>
+
+      <!-- TODO: set action to a Formspree (https://formspree.io) form ID or other handler. -->
+      <form class="contact-form" name="altadena-rebuild" method="POST" action="https://formspree.io/f/REPLACE_ME">
+        <p class="form-note">Start your rebuild</p>
+        <div class="row">
+          <label>Name<input type="text" name="name" required /></label>
+          <label>Email<input type="email" name="email" required /></label>
+        </div>
+        <label>Phone<input type="tel" name="phone" /></label>
+        <label>Property Address<input type="text" name="address" /></label>
+        <label>How can we help?<textarea name="message" rows="5" required></textarea></label>
+        <button type="submit" class="btn">Send Message</button>
+      </form>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .page-head { background: var(--bg-light); padding: 70px 0; }
+  .kicker {
+    font-family: var(--font-head);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.8rem;
+    color: var(--brand-dark);
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  .page-head h1 { font-size: clamp(2.4rem, 5vw, 3.6rem); margin: 0; }
+
+  .intro { max-width: 800px; }
+  .intro .lead { font-weight: 700; font-size: 1.25rem; }
+
+  .contact-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 56px; align-items: start; }
+  .contact-info .eyebrow { margin-bottom: 16px; }
+  .contact-info > .muted { margin-bottom: 26px; max-width: 38ch; }
+  .info-item { margin-bottom: 22px; }
+  .info-item h3 {
+    font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em;
+    color: var(--brand-dark); margin-bottom: 6px;
+  }
+  .info-item p { font-size: 1.1rem; margin: 0; }
+
+  .contact-form { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 34px; }
+  .form-note { font-family: var(--font-head); font-weight: 600; font-size: 1.15rem; margin-bottom: 20px; }
+  .contact-form label {
+    display: block; margin-bottom: 16px;
+    font-family: var(--font-head); font-size: 0.82rem; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.05em; color: var(--ink-soft);
+  }
+  .contact-form input, .contact-form textarea {
+    display: block; width: 100%; margin-top: 6px;
+    font-family: var(--font-body); font-size: 1rem;
+    padding: 12px 14px; border: 1px solid var(--line); border-radius: var(--radius);
+    background: #fff; color: var(--ink);
+  }
+  .contact-form input:focus, .contact-form textarea:focus { outline: 2px solid var(--gold); border-color: var(--gold); }
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .contact-form .btn { border: 0; cursor: pointer; margin-top: 6px; }
+
+  @media (max-width: 760px) {
+    .contact-grid { grid-template-columns: 1fr; gap: 32px; }
+    .row { grid-template-columns: 1fr; }
+  }
+</style>

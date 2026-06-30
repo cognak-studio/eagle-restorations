@@ -22,7 +22,7 @@ export const nav = [
 
 export const announcement = {
   text: 'Affected by the fires in Altadena? We are here to help you rebuild',
-  href: '/contact/',
+  href: '/altadena-fire/',
 };
 
 export const stats = [

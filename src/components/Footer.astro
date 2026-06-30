@@ -1,44 +1,119 @@
 ---
-import { company } from '../data/site.js';
+import { company, nav } from '../data/site.js';
 const year = new Date().getFullYear();
+
+const services = [
+  'Historic Restoration',
+  'Seismic & Structural Retrofit',
+  'Adobe Restoration & Reconstruction',
+  'Building Materials Restoration',
+];
 ---
 <footer class="site-footer">
+  <!-- CTA band -->
+  <div class="ft-cta">
+    <div class="container ft-cta-inner">
+      <p class="ft-cta-text">Have a landmark to restore?</p>
+      <a href="/contact/" class="btn">Plan Your Restoration</a>
+    </div>
+  </div>
+
+  <!-- Columns -->
+  <div class="container ft-cols">
+    <div class="ft-col">
+      <p class="ft-head">Explore</p>
+      <ul>
+        {nav.map((item) => <li><a href={item.href}>{item.label}</a></li>)}
+      </ul>
+    </div>
+
+    <div class="ft-col">
+      <p class="ft-head">Services</p>
+      <ul>
+        {services.map((s) => <li><a href="/about-and-services/">{s}</a></li>)}
+      </ul>
+    </div>
+
+    <div class="ft-col">
+      <p class="ft-head">Contact</p>
+      <ul>
+        <li><a href={`mailto:${company.email}`}>{company.email}</a></li>
+        <li><a href={`tel:${company.phoneHref}`}>{company.phone}</a></li>
+        <li>{company.address}</li>
+        <li class="muted-line">{company.hours}</li>
+      </ul>
+    </div>
+  </div>
+
   <div class="container">
-    <p class="ft-eyebrow">Let's Work Together</p>
-    <p class="ft-line"><a href={`mailto:${company.email}`}>{company.email}</a></p>
-    <p class="ft-line">{company.address}</p>
-    <p class="ft-line"><a href={`tel:${company.phoneHref}`}>{company.phone}</a></p>
-    <p class="ft-copy">&copy; {year} {company.shortName}, Inc. | All rights reserved</p>
+    <div class="ft-legal">
+      &copy; {year} {company.name} &middot; {company.license} &middot; Bonded &amp; Insured
+    </div>
   </div>
 </footer>
 
 <style>
   .site-footer {
     background: var(--footer);
-    color: #fff;
-    text-align: center;
-    padding: 70px 0 48px;
+    color: #f3f3f3;
   }
-  .ft-eyebrow {
-    font-family: var(--font-head);
-    text-transform: uppercase;
-    letter-spacing: 0.18em;
-    font-size: 0.82rem;
-    color: #cfcfcf;
-    margin-bottom: 22px;
+
+  /* CTA band */
+  .ft-cta { background: #1e1e1e; }
+  .ft-cta-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 26px 24px;
   }
-  .ft-line {
+  .ft-cta-text {
+    margin: 0;
     font-family: var(--font-head);
     font-weight: 600;
-    font-size: clamp(1.3rem, 3vw, 1.9rem);
-    color: var(--gold);
-    margin: 4px 0;
+    font-size: clamp(1.15rem, 2.4vw, 1.45rem);
+    color: #fff;
   }
-  .ft-line a { color: var(--gold); }
-  .ft-line a:hover { color: #fff; text-decoration: none; }
-  .ft-copy {
-    margin-top: 34px;
-    color: #9a9a9a;
-    font-size: 0.85rem;
+  .ft-cta .btn { flex: none; }
+
+  /* Columns */
+  .ft-cols {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    padding-top: 52px;
+    padding-bottom: 12px;
+  }
+  .ft-head {
+    font-family: var(--font-head);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    font-size: 0.72rem;
+    color: var(--gold);
+    margin: 0 0 18px;
+  }
+  .ft-col ul { list-style: none; margin: 0; padding: 0; }
+  .ft-col li { margin: 0 0 12px; font-size: 0.95rem; color: #cfcfcf; line-height: 1.5; }
+  .ft-col a { color: #cfcfcf; }
+  .ft-col a:hover { color: var(--gold); text-decoration: none; }
+  .ft-col .muted-line { color: #9a9a9a; }
+
+  /* Legal */
+  .ft-legal {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 28px;
+    padding: 22px 0 30px;
+    font-size: 0.8rem;
+    color: #8f8f8f;
+  }
+
+  @media (max-width: 760px) {
+    .ft-cta-inner { padding: 22px 24px; }
+    .ft-cols {
+      grid-template-columns: 1fr;
+      gap: 32px;
+      padding-top: 40px;
+    }
   }
 </style>

@@ -16,8 +16,9 @@ const path = Astro.url.pathname;
       {nav.map((item) => (
         <a
           href={item.href}
+          data-label={item.label}
           class={path.startsWith(item.href) && item.href !== '/' ? 'active' : ''}
-        >{item.label}</a>
+        ><span class="nav-label">{item.label}</span></a>
       ))}
     </nav>
 
@@ -69,13 +70,24 @@ const path = Astro.url.pathname;
     gap: 30px;
   }
   .main-nav a {
+    display: inline-grid;
     font-family: var(--font-head);
     font-weight: 500;
     color: var(--ink);
-    font-size: 1.02rem;
+    font-size: 0.85rem;
+  }
+  .main-nav a .nav-label { grid-area: 1 / 1; }
+  /* hidden bold ghost reserves width so hover-bolding doesn't shift siblings */
+  .main-nav a::after {
+    content: attr(data-label);
+    grid-area: 1 / 1;
+    font-weight: 700;
+    visibility: hidden;
   }
   .main-nav a:hover { color: var(--gold-dark); text-decoration: none; }
-  .main-nav a.active { color: var(--gold-dark); font-weight: 700; text-decoration: none; }
+  .main-nav a.active { color: var(--gold-dark); text-decoration: none; }
+  .main-nav a:hover .nav-label,
+  .main-nav a.active .nav-label { font-weight: 700; }
 
   .quote-btn { flex: none; }
 

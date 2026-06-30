@@ -130,7 +130,9 @@ img { max-width: 100%; display: block; }
 }
 
 .btn {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   background: var(--gold);
   color: var(--brand-dark);
   font-family: var(--font-head);
@@ -138,6 +140,7 @@ img { max-width: 100%; display: block; }
   font-size: 0.8rem;
   letter-spacing: 0.02em;
   padding: 15px 30px;
+  border: 1.5px solid transparent;
   border-radius: var(--radius);
   text-transform: uppercase;
   transition: background 0.18s ease;

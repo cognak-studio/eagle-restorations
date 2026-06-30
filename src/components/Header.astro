@@ -21,7 +21,7 @@ const path = Astro.url.pathname;
       ))}
     </nav>
 
-    <a href="/contact/" class="btn quote-btn">Request a Consultation</a>
+    <a href="/contact/" class="btn quote-btn">Plan Your Restoration</a>
 
     <button class="nav-toggle" aria-label="Menu" id="navToggle">
       <span></span><span></span><span></span>
@@ -30,7 +30,7 @@ const path = Astro.url.pathname;
 
   <div class="mobile-nav" id="mobileNav">
     {nav.map((item) => <a href={item.href}>{item.label}</a>)}
-    <a href="/contact/" class="btn">Request a Consultation</a>
+    <a href="/contact/" class="btn">Plan Your Restoration</a>
   </div>
 </header>
 

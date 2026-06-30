@@ -1,6 +1,6 @@
 [
  {
-  "title": "Balboa Park Spreckles Organ Pavilion",
+  "title": "Balboa Park Spreckels Organ Pavilion",
   "slug": "spreckles-organ",
   "categories": [
    "Historic"
@@ -27,7 +27,7 @@
   ],
   "scope_label": "Scope of Work",
   "scope": "Upgrade electrical and replace 1600+ rosettes",
-  "displayTitle": "Balboa Park Spreckles Organ Pavilion"
+  "displayTitle": "Balboa Park Spreckels Organ Pavilion"
  },
  {
   "title": "Bank of Italy",
@@ -319,7 +319,7 @@
   ],
   "scope_label": "Scope of Work",
   "scope": "Seismic Retrofit and Adobe Repair, Plastering",
-  "displayTitle": "Casa de Bandini \u2013 Cosmopolitan Hotel"
+  "displayTitle": "Casa de Bandini – Cosmopolitan Hotel"
  },
  {
   "title": "Casa de Pedrorena",
@@ -385,7 +385,7 @@
   ],
   "scope_label": "Scope of Work",
   "scope": "Restoration of the Cocoanut Grove Coffee Shop/Lounge",
-  "displayTitle": "Cocoanut Grove \u2013 Ambassador Hotel"
+  "displayTitle": "Cocoanut Grove – Ambassador Hotel"
  },
  {
   "title": "Cooper Molera Adobe",
@@ -625,8 +625,8 @@
    }
   ],
   "scope_label": "Scope of Work",
-  "scope": "Restoration of ornate ceiling in the \u201cLa Novia Room.\u201d",
-  "displayTitle": "Hotel del Monte \u2013 Naval Post Graduate School"
+  "scope": "Restoration of ornate ceiling in the “La Novia Room.”",
+  "displayTitle": "Hotel del Monte – Naval Post Graduate School"
  },
  {
   "title": "Jensen-Alvarado Ranch",
@@ -665,7 +665,7 @@
   "displayTitle": "Jensen-Alvarado Ranch"
  },
  {
-  "title": "La Quinta Resort \u2013 Azur Adobe",
+  "title": "La Quinta Resort – Azur Adobe",
   "slug": "azur-adobe",
   "categories": [
    "Adobe",
@@ -694,10 +694,10 @@
   ],
   "scope_label": "Scope of Work",
   "scope": "Restoration, Plastering and Adobe Masonry",
-  "displayTitle": "La Quinta Resort \u2013 Azur Adobe"
+  "displayTitle": "La Quinta Resort – Azur Adobe"
  },
  {
-  "title": "Leo Carillo Ranch",
+  "title": "Leo Carrillo Ranch",
   "slug": "leo-carillo-ranch",
   "categories": [
    "Adobe",
@@ -731,7 +731,7 @@
   ],
   "scope_label": "Scope of Work",
   "scope": "Adobe Seismic Stabilization and Historical Restoration for Five Buildings",
-  "displayTitle": "Leo Carillo Ranch"
+  "displayTitle": "Leo Carrillo Ranch"
  },
  {
   "title": "Leonis Adobe",
@@ -975,7 +975,7 @@
   "displayTitle": "Mission San Luis Obispo"
  },
  {
-  "title": "Montebello Women\u2019s Club",
+  "title": "Montebello Women’s Club",
   "slug": "montebello-womens",
   "categories": [
    "Restoration",
@@ -1003,7 +1003,7 @@
   ],
   "scope_label": "Scope of Work",
   "scope": "Seismic Upgrade, Accessibility Upgrade and Interior Restoration",
-  "displayTitle": "Montebello Women\u2019s Club"
+  "displayTitle": "Montebello Women’s Club"
  },
  {
   "title": "Mount Whitney Fish Hatchery",
@@ -1037,7 +1037,7 @@
   "displayTitle": "Mount Whitney Fish Hatchery"
  },
  {
-  "title": "Old Governor\u2019s Mansion",
+  "title": "Old Governor’s Mansion",
   "slug": "governors-mansion",
   "categories": [
    "Historic",
@@ -1069,10 +1069,10 @@
   ],
   "scope_label": "Scope of Work",
   "scope": "Window Restoration Subcontractor and Exterior Historic Restoration of Ornate Wood Mansion",
-  "displayTitle": "Old Governor\u2019s Mansion"
+  "displayTitle": "Old Governor’s Mansion"
  },
  {
-  "title": "O\u2019Hara Adobe",
+  "title": "O’Hara Adobe",
   "slug": "ohara-adobe",
   "categories": [
    "Adobe",
@@ -1092,7 +1092,7 @@
    },
    {
     "label": "Owner",
-    "value": "Mr. & Mrs. Terence O\u2019Hara"
+    "value": "Mr. & Mrs. Terence O’Hara"
    },
    {
     "label": "Year Completed",
@@ -1101,7 +1101,7 @@
   ],
   "scope_label": "Scope of Work",
   "scope": "Adobe Seismic Repairs and Upgrade",
-  "displayTitle": "O\u2019Hara Adobe"
+  "displayTitle": "O’Hara Adobe"
  },
  {
   "title": "Orcutt Ranch Adobe",
@@ -1240,7 +1240,7 @@
    }
   ],
   "scope_label": "Scope of Work",
-  "scope": "URM Building Shell Restoration, Seismic Upgrade and Tenant Improvements in Partially Burned-out 1870\u2019s Brick Commercial Buildings",
+  "scope": "URM Building Shell Restoration, Seismic Upgrade and Tenant Improvements in Partially Burned-out 1870’s Brick Commercial Buildings",
   "displayTitle": "Peirano Building"
  },
  {
@@ -2513,7 +2513,7 @@
    }
   ],
   "scope_label": "Scope of Work",
-  "scope": "Complete construction of 1,000 square foot freestanding accessory dwelling unit (ADU) on private property\u2014from framing to finishing, including hardscape and pool",
+  "scope": "Complete construction of 1,000 square foot freestanding accessory dwelling unit (ADU) on private property—from framing to finishing, including hardscape and pool",
   "displayTitle": "Arcadia ADU"
  },
  {

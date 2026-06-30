@@ -39,22 +39,41 @@ const services = [
   },
 ];
 
-const featuredSlugs = ['leo-carillo-ranch', 'leland-stanford-mansion', 'spreckles-organ', 'rancho-los-cerritos'];
+const featuredSlugs = ['leo-carillo-ranch', 'bank-italy', 'spreckles-organ', 'rancho-los-cerritos'];
 const featured = featuredSlugs
   .map((s) => portfolio.find((p) => p.slug === s))
   .filter(Boolean);
-const aboutImg = featured[0]?.image;
+const aboutImg = portfolio.find((p) => p.slug === 'mission-san-miguel')?.image
+  ?? featured[0]?.image;
 ---
 <Base>
   <!-- Hero -->
   <section class="hero">
-    <div class="container">
-      <p class="hero-kicker">
-        <strong>{company.shortName}</strong> is a {company.licenseClass}.
-        <span class="lic">{company.license}</span>
-      </p>
-      <h1>Southern California's Premiere Historical and Structural Specialists</h1>
-      <a href="/contact/" class="btn">Get a Quote</a>
+    <div class="hero-grid">
+      <div class="hero-content">
+        <p class="hero-kicker">
+          Class&nbsp;'B' Licensed General Contractor
+          <span class="lic">{company.license} &middot; Bonded &amp; Insured</span>
+        </p>
+        <h1>Southern California's Premier Historical &amp; Structural Specialists</h1>
+        <p class="hero-sub">
+          For more than three decades, restoring California's landmarks to the
+          Secretary of the Interior's Standards for the Treatment of Historic Properties.
+        </p>
+        <div class="hero-cta">
+          <a href="/contact/" class="btn">Request a Consultation</a>
+          <a href="/projects/" class="btn btn-outline">View Our Work</a>
+        </div>
+      </div>
+      <div class="hero-media">
+        <img
+          src="/wp-content/uploads/2021/01/Leland-Stanford2.webp"
+          alt="The Leland Stanford Mansion, a California State Historic Landmark restored by Eagle Restorations"
+          width="1600"
+          height="833"
+          fetchpriority="high"
+        />
+      </div>
     </div>
   </section>
 
@@ -144,13 +163,76 @@ const aboutImg = featured[0]?.image;
 <style>
   .hero {
     background: var(--bg-light);
-    padding: 96px 0 104px;
     position: relative;
     overflow: hidden;
   }
-  .hero-kicker { font-size: 1.15rem; max-width: 640px; }
-  .hero-kicker .lic { display: block; color: var(--brand-dark); font-weight: 600; margin-top: 2px; }
-  .hero h1 { max-width: 14ch; margin: 22px 0 34px; }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.02fr 0.98fr;
+    align-items: stretch;
+    min-height: clamp(500px, 66vh, 660px);
+  }
+  .hero-content {
+    align-self: center;
+    padding: 72px max(48px, 5.5vw) 72px
+      max(24px, calc((100vw - var(--maxw)) / 2));
+    max-width: 760px;
+  }
+  .hero-kicker {
+    font-family: var(--font-head);
+    text-transform: uppercase;
+    letter-spacing: 0.13em;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--ink-soft);
+    margin: 0 0 22px;
+  }
+  .hero-kicker .lic {
+    display: block;
+    color: var(--gold-dark);
+    margin-top: 6px;
+  }
+  .hero h1 { margin: 0 0 22px; max-width: 16ch; }
+  .hero-sub {
+    font-size: 1.12rem;
+    color: var(--ink-soft);
+    max-width: 46ch;
+    margin: 0 0 34px;
+  }
+  .hero-cta { display: flex; flex-wrap: wrap; gap: 14px; }
+
+  .hero-media { position: relative; }
+  .hero-media img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  /* thin gold seam between content and image */
+  .hero-media::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 4px;
+    background: var(--gold);
+    z-index: 2;
+  }
+
+  @media (max-width: 860px) {
+    .hero-grid {
+      grid-template-columns: 1fr;
+      min-height: 0;
+    }
+    .hero-media {
+      order: -1;
+      height: 300px;
+    }
+    .hero-content {
+      padding: 48px 24px 52px;
+      max-width: none;
+    }
+  }
 
   .about-grid {
     display: grid;

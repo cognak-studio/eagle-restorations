@@ -3,7 +3,7 @@
 export const company = {
   name: 'Eagle Restorations Group, Inc.',
   shortName: 'Eagle Restorations',
-  tagline: "Southern California's Premiere Historical and Structural Specialists",
+  tagline: "Southern California's Premier Historical and Structural Specialists",
   license: 'License No. 465977',
   licenseClass: "Class 'B' general building contractor in the State of California",
   email: 'info@eagle-restorations.com',

@@ -14,6 +14,7 @@
   --font-head: 'Poppins', system-ui, sans-serif;
   --font-body: 'Mulish', system-ui, sans-serif;
   --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-display: 'Cormorant Garamond', Georgia, serif;
 }
 
 * { box-sizing: border-box; }
@@ -31,15 +32,27 @@ body {
 }
 
 h1, h2, h3, h4 {
-  font-family: var(--font-head);
   color: var(--ink);
-  font-weight: 700;
   line-height: 1.12;
   margin: 0 0 0.5em;
 }
 
-h1 { font-size: clamp(2.6rem, 6vw, 4.6rem); letter-spacing: -0.01em; }
-h2 { font-size: clamp(1.8rem, 3.4vw, 2.5rem); }
+/* Display headings: elegant serif for editorial gravity */
+h1, h2 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  line-height: 1.06;
+}
+
+/* Labels / smaller headings: keep crisp geometric sans */
+h3, h4 {
+  font-family: var(--font-head);
+  font-weight: 700;
+}
+
+h1 { font-size: clamp(2.8rem, 6vw, 5rem); }
+h2 { font-size: clamp(2.1rem, 3.8vw, 3rem); }
 h3 { font-size: 1.25rem; }
 
 p { margin: 0 0 1.1em; }

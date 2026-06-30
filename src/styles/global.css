@@ -22,11 +22,11 @@
   --line: #e3e3e3;
   --maxw: 1200px;
   --radius: 4px;
-  --font-head: 'Poppins', system-ui, sans-serif;
-  --font-body: 'Mulish', system-ui, sans-serif;
-  --font-serif: 'Cormorant Garamond', Georgia, serif;
-  --font-display: 'Cormorant Garamond', Georgia, serif;
-  --font-hero: 'Recoleta', 'Cormorant Garamond', Georgia, serif;
+  --font-head: 'Inter', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-serif: 'Inter', system-ui, sans-serif;
+  --font-display: 'Inter', system-ui, sans-serif;
+  --font-hero: 'Recoleta', 'Inter', system-ui, sans-serif;
 }
 
 * { box-sizing: border-box; }

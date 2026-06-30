@@ -16,7 +16,7 @@ export const company = {
 // Contact form handler. Create a free form at https://formspree.io (or Web3Forms),
 // then paste the endpoint URL here (e.g. 'https://formspree.io/f/abcdwxyz').
 // While empty, forms fall back to a mailto link so they still work.
-export const formEndpoint = '';
+export const formEndpoint = 'https://formspree.io/f/meeblakb';
 
 export const nav = [
   { label: 'Projects', href: '/projects/' },

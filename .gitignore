@@ -16,3 +16,9 @@ npm-debug.log*
 .idea/
 # vercel
 .vercel
+# original raster uploads — only the optimized .webp versions are tracked/deployed
+public/wp-content/uploads/**/*.png
+public/wp-content/uploads/**/*.jpg
+public/wp-content/uploads/**/*.jpeg
+public/wp-content/uploads/**/*.PNG
+public/wp-content/uploads/**/*.JPG

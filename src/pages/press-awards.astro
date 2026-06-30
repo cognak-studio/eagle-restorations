@@ -19,10 +19,10 @@ import awards from '../data/awards.json';
   <section class="section">
     <div class="container">
       {awards.length > 0 ? (
-        <div class="award-grid">
-          {awards.map((a) => (
+        <div class="award-masonry">
+          {awards.map((a, i) => (
             <figure class="award">
-              <img src={a.image} alt={a.title} loading="lazy" />
+              <img src={a.image} alt={a.title || `Eagle Restorations award ${i + 1}`} loading="lazy" />
               {a.title && <figcaption>{a.title}</figcaption>}
             </figure>
           ))}
@@ -49,9 +49,17 @@ import awards from '../data/awards.json';
   .page-head h1 { font-size: clamp(2.4rem, 5vw, 3.6rem); margin-bottom: 10px; }
   .page-head p { max-width: 64ch; font-size: 1.1rem; }
 
-  .award-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-  .award { margin: 0; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; background: #fff; }
-  .award img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; }
+  .award-masonry { columns: 3; column-gap: 22px; }
+  .award {
+    break-inside: avoid;
+    margin: 0 0 22px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
+  }
+  .award img { width: 100%; height: auto; display: block; }
   .award figcaption { padding: 12px 14px; font-size: 0.9rem; color: var(--ink-soft); }
 
   .recog-list { max-width: 620px; }
@@ -60,5 +68,6 @@ import awards from '../data/awards.json';
   .recog-list li { margin-bottom: 10px; font-size: 1.1rem; }
   .note { margin-top: 24px; font-style: italic; }
 
-  @media (max-width: 760px) { .award-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 760px) { .award-masonry { columns: 2; } }
+  @media (max-width: 480px) { .award-masonry { columns: 1; } }
 </style>

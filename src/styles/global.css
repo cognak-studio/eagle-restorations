@@ -1,6 +1,7 @@
 :root {
   --gold: #d8a428;
   --gold-dark: #b3851c;
+  --brand-dark: #231f20;
   --ink: #2c2c2c;
   --ink-soft: #5d5d5d;
   --bg: #ffffff;
@@ -43,7 +44,7 @@ h3 { font-size: 1.25rem; }
 
 p { margin: 0 0 1.1em; }
 
-a { color: var(--gold-dark); text-decoration: none; }
+a { color: var(--brand-dark); text-decoration: none; }
 a:hover { text-decoration: underline; }
 
 img { max-width: 100%; display: block; }
@@ -80,7 +81,7 @@ img { max-width: 100%; display: block; }
 .btn {
   display: inline-block;
   background: var(--gold);
-  color: #fff;
+  color: var(--brand-dark);
   font-family: var(--font-head);
   font-weight: 600;
   font-size: 0.95rem;
@@ -105,7 +106,7 @@ img { max-width: 100%; display: block; }
   letter-spacing: 0.04em;
   text-transform: uppercase;
   font-size: 0.85rem;
-  color: var(--gold-dark);
+  color: var(--brand-dark);
 }
 
 .muted { color: var(--ink-soft); }

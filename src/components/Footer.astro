@@ -1,0 +1,44 @@
+---
+import { company } from '../data/site.js';
+const year = new Date().getFullYear();
+---
+<footer class="site-footer">
+  <div class="container">
+    <p class="ft-eyebrow">Let's Work Together</p>
+    <p class="ft-line"><a href={`mailto:${company.email}`}>{company.email}</a></p>
+    <p class="ft-line">{company.address}</p>
+    <p class="ft-line"><a href={`tel:${company.phoneHref}`}>{company.phone}</a></p>
+    <p class="ft-copy">&copy; {year} {company.shortName}, Inc. | All rights reserved</p>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: var(--footer);
+    color: #fff;
+    text-align: center;
+    padding: 70px 0 48px;
+  }
+  .ft-eyebrow {
+    font-family: var(--font-head);
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 0.82rem;
+    color: #cfcfcf;
+    margin-bottom: 22px;
+  }
+  .ft-line {
+    font-family: var(--font-head);
+    font-weight: 600;
+    font-size: clamp(1.3rem, 3vw, 1.9rem);
+    color: var(--gold);
+    margin: 4px 0;
+  }
+  .ft-line a { color: var(--gold); }
+  .ft-line a:hover { color: #fff; text-decoration: none; }
+  .ft-copy {
+    margin-top: 34px;
+    color: #9a9a9a;
+    font-size: 0.85rem;
+  }
+</style>

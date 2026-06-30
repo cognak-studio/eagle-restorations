@@ -1,0 +1,134 @@
+---
+import Base from '../../layouts/Base.astro';
+import { localImage } from '../../data/site.js';
+import portfolio from '../../data/portfolio.json';
+
+export function getStaticPaths() {
+  return portfolio.map((p) => ({ params: { slug: p.slug }, props: { project: p } }));
+}
+
+const { project } = Astro.props;
+
+// Related: same primary category, excluding self
+const primary = project.categories[0];
+const related = portfolio
+  .filter((p) => p.slug !== project.slug && p.categories.includes(primary) && p.image)
+  .slice(0, 3);
+---
+<Base title={project.title} description={project.scope || `${project.title} — a restoration project by Eagle Restorations.`}>
+  <article class="proj">
+    <section class="proj-hero">
+      <div class="container proj-hero-inner">
+        <div class="proj-hero-text">
+          <p class="cat-line">{project.categories.join(' · ')}</p>
+          <h1>{project.title}</h1>
+        </div>
+        <a href="/projects/" class="link-gold back">&larr; All Projects</a>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container detail-grid">
+        <div class="detail-media">
+          {project.image
+            ? <img src={localImage(project.image)} alt={project.title} />
+            : <div class="img-placeholder"></div>}
+        </div>
+
+        <aside class="detail-facts">
+          {project.facts?.length > 0 && (
+            <dl>
+              {project.facts.map((f) => (
+                <div class="fact">
+                  <dt>{f.label}</dt>
+                  <dd>{f.value}</dd>
+                </div>
+              ))}
+            </dl>
+          )}
+        </aside>
+      </div>
+
+      {project.scope && (
+        <div class="container scope">
+          <h2 class="eyebrow">{project.scope_label || 'Scope of Work'}</h2>
+          <p>{project.scope}</p>
+        </div>
+      )}
+    </section>
+
+    {related.length > 0 && (
+      <section class="section section-light">
+        <div class="container">
+          <h2 class="eyebrow">Related Projects</h2>
+          <div class="rel-grid">
+            {related.map((p) => (
+              <a href={`/projects/${p.slug}/`} class="rel-card">
+                <div class="rel-media"><img src={localImage(p.image)} alt={p.title} loading="lazy" /></div>
+                <span class="rel-cat">{p.categories[0]}</span>
+                <span class="rel-title">{p.title}</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
+
+    <section class="cta">
+      <div class="container">
+        <h2>Have a restoration project in mind?</h2>
+        <a href="/contact/" class="btn">Get a Quote</a>
+      </div>
+    </section>
+  </article>
+</Base>
+
+<style>
+  .proj-hero { background: var(--bg-light); padding: 60px 0; }
+  .proj-hero-inner { display: flex; justify-content: space-between; align-items: flex-end; gap: 20px; flex-wrap: wrap; }
+  .cat-line {
+    font-family: var(--font-head);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.78rem;
+    color: var(--gold-dark);
+    margin-bottom: 8px;
+  }
+  .proj-hero h1 { font-size: clamp(2.2rem, 5vw, 3.4rem); margin: 0; }
+  .back { white-space: nowrap; }
+
+  .detail-grid { display: grid; grid-template-columns: 1.6fr 1fr; gap: 44px; align-items: start; }
+  .detail-media img, .detail-media .img-placeholder {
+    width: 100%; border-radius: var(--radius); object-fit: cover; aspect-ratio: 3 / 2;
+  }
+  .detail-facts dl { margin: 0; border-top: 2px solid var(--gold); }
+  .fact { padding: 16px 0; border-bottom: 1px solid var(--line); }
+  .fact dt {
+    font-family: var(--font-head); text-transform: uppercase; letter-spacing: 0.06em;
+    font-size: 0.72rem; color: var(--ink-soft); margin-bottom: 3px;
+  }
+  .fact dd { margin: 0; font-weight: 600; color: var(--ink); }
+
+  .scope { margin-top: 56px; max-width: 760px; }
+  .scope .eyebrow { font-size: 1.4rem; }
+  .scope p { font-size: 1.12rem; }
+
+  .rel-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .rel-card { display: block; }
+  .rel-card:hover { text-decoration: none; }
+  .rel-media { border-radius: var(--radius); overflow: hidden; aspect-ratio: 4 / 3; margin-bottom: 12px; }
+  .rel-media img { width: 100%; height: 100%; object-fit: cover; }
+  .rel-cat {
+    display: block; font-family: var(--font-head); text-transform: uppercase;
+    letter-spacing: 0.06em; font-size: 0.7rem; color: var(--gold-dark);
+  }
+  .rel-title { font-family: var(--font-head); font-weight: 600; color: var(--ink); }
+
+  .cta { background: var(--ink); color: #fff; text-align: center; padding: 70px 0; }
+  .cta h2 { color: #fff; margin-bottom: 26px; }
+
+  @media (max-width: 760px) {
+    .detail-grid { grid-template-columns: 1fr; gap: 28px; }
+    .rel-grid { grid-template-columns: 1fr; }
+  }
+</style>

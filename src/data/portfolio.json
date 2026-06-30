@@ -1,0 +1,2524 @@
+[
+ {
+  "title": "Balboa Park Spreckles Organ Pavilion",
+  "slug": "spreckles-organ",
+  "categories": [
+   "Historic"
+  ],
+  "image": "http://eagle-restorations.com/wp-content/uploads/2021/01/spreckles-organ.png",
+  "image_file": "spreckles-organ.png",
+  "facts": [
+   {
+    "label": "Location",
+    "value": "San Diego, CA"
+   },
+   {
+    "label": "Year Built",
+    "value": "1915"
+   },
+   {
+    "label": "Owner",
+    "value": "San Diego Department of Parks and Recreation"
+   },
+   {
+    "label": "Year Completed",
+    "value": "2005"
+   }
+  ],
+  "scope_label": "Scope of Work",
+  "scope": "Upgrade electrical and replace 1600+ rosettes"
+ },
+ {
+  "title": "Bank of Italy",
+  "slug": "bank-italy",
+  "categories": [
+   "Historic",
+   "Restoration",
+   "Seismic"
+  ],
+  "image": "http://eagle-restorations.com/wp-content/uploads/2021/01/Bank-of-Italy2.png",
+  "image_file": "Bank-of-Italy2.png",
+  "facts": [
+   {
+    "label": "Location",
+    "value": "Livermore, CA"
+   },
+   {
+    "label": "Listing",
+    "value": "Reg. No. (n/a), National Register of Historic Places"
+   },
+   {
+    "label": "Owner",
+    "value": "Lynn and Joan Sepala"
+   },
+   {
+    "label": "Year Completed",
+    "value": "1996"
+   }
+  ],
+  "scope_label": "Scope of Work",
+  "scope": "URM seismic retrofit and historic restoration, including tenant improvements, performed under Historic Tax Credit Certification by National Parks Service"
+ },
+ {
+  "title": "Alviso Adobe",
+  "slug": "alviso-adobe",
+  "categories": [
+   "Adobe",
+   "Seismic"
+  ],
+  "image": "http://eagle-restorations.com/wp-content/uploads/2021/01/alviso-adobe.png",
+  "image_file": "alviso-adobe.png",
+  "facts": [
+   {
+    "label": "Location",
+    "value": "Pleasanton, CA"
+   },
+   {
+    "label": "Year Built",
+    "value": "1896"
+   },
+   {
+    "label": "Owner",
+    "value": "City of Pleasanton"
+   },
+   {
+    "label": "Year Completed",
+    "value": "1996"
+   }
+  ],
+  "scope_label": "Scope of Work",
+  "scope": "Adobe Seismic Repairs and Upgrade"
+ },
+ {
+  "title": "Bear Building",
+  "slug": "bear-building",
+  "categories": [
+   "Historic",
+   "Restoration",
+   "Seismic"
+  ],
+  "image": "http://eagle-restorations.com/wp-content/uploads/2021/01/bear-building.png",
+  "image_file": "bear-building.png",
+  "facts": [
+   {
+    "label": "Location",
+    "value": "Pasadena, CA"
+   },
+   {
+    "label": "Year Built",
+    "value": "1921"
+   },
+   {
+    "label": "Owner",
+    "value": "Daniel Melonkoff"
+   },
+   {
+    "label": "Year Completed",
+    "value": "1989"
+   }
+  ],
+  "scope_label": "Scope of Work",
+  "scope": "URM seismic upgrade and exterior historic restoration"
+ },
+ {
+  "title": "1036 S. Bonnie Brae Street",
+  "slug": "bonnie-brae",
+  "categories": [
+   "Historic",
+   "Seismic"
+  ],
+  "image": "http://eagle-restorations.com/wp-content/uploads/2021/01/1036-Bonnie-Brae.png",
+  "image_file": "1036-Bonnie-Brae.png",
+  "facts": [
+   {
+    "label": "Location",
+    "value": "Los Angeles, CA"
+   },
+   {
+    "label": "Year Built",
+    "value": "1896"
+   },
+   {
+    "label": "Listing",
+    "value": "Reg. No. 87002401, National Register of Historic Places, City of Los Angeles Monument No. 99"
+   },
+   {
+    "label": "Owner",
+    "value": "Norma Mouton"
+   },
+   {
+    "label": "Year Completed",
+    "value": "1999"
+   }
+  ],
+  "scope_label": "Scope of Work",
+  "scope": "Foundation Replacement and Seismic Upgrade, Exterior Repairs"
+ },
+ {
+  "title": "Braley Building",
+  "slug": "braley-building",
+  "categories": [
+   "Historic"
+  ],
+  "image": "http://eagle-restorations.com/wp-content/uploads/2021/01/braley-building.png",
+  "image_file": "braley-building.png",
+  "facts": [
+   {
+    "label": "Location",
+    "value": "Pasadena, CA"
+   },
+   {
+    "label": "Year Built",
+    "value": "1926"
+   },
+   {
+    "label": "Listing",
+    "value": "Reg. No. (n/a), National Register of Historic Places"
+   },
+   {
+    "label": "Owner",
+    "value": "BWC Investments"
+   },
+   {
+    "label": "Year Completed",
+    "value": "1989"
+   }
+  ],
+  "scope_label": "Scope of Work",
+  "scope": "Historic Restoration and Tenant Improvements to Masonry Commercial Building"
+ },
+ {
+  "title": "California Science Center",
+  "slug": "ca-science-center",
+  "categories": [
+   "Historic"
+  ],
+  "image": "http://eagle-restorations.com/wp-content/uploads/2021/01/California_Science_Center_at_Exposition_Park_-_panoramio.png",
+  "image_file": "California_Science_Center_at_Exposition_Park_-_panoramio.png",
+  "facts": [
+   {
+    "label": "Location",
+    "value": "Los Angeles, CA"
+   },
+   {
+    "label": "Year Built",
+    "value": "1913"
+   },
+   {
+    "label": "Owner",
+    "value": "State of California"
+   },
+   {
+    "label": "Year Completed",
+    "value": "1998"
+   }
+  ],
+  "scope_label": "Scope of Work",
+  "scope": "Restoration of Historical Exterior Walls Incorporated in New Project, including Masonry, Replica Terra Cotta, Woodwork and Wood Window Restoration"
+ },
+ {
+  "title": "Calvary Presbyterian Church",
+  "slug": "calvary-church",
+  "categories": [
+   "Historic",
+   "Restoration"
+  ],
+  "image": "http://eagle-restorations.com/wp-content/uploads/2021/01/calvary-presbyterian.png",
+  "image_file": "calvary-presbyterian.png",
+  "facts": [
+   {
+    "label": "Location",
+    "value": "South Pasadena, CA"
+   },
+   {
+    "label": "Year Built",
+    "value": "1930"
+   },
+   {
+    "label": "Owner",
+    "value": "Calvary Presbyterian Church"
+   },
+   {
+    "label": "Year Completed",
+    "value": "1991"
+   }
+  ],
+  "scope_label": "Scope of Work",
+  "scope": "URM Seismic Upgrade, Re-roofing and Interior Restoration"
+ },
+ {
+  "title": "Casa de Adobe",
+  "slug": "casa-adobe",
+  "categories": [
+   "Historic",
+   "Restoration"
+  ],
+  "image": "http://eagle-restorations.com/wp-content/uploads/2021/01/casa-de-adobe.png",
+  "image_file": "casa-de-adobe.png",
+  "facts": [
+   {
+    "label": "Location",
+    "value": "Los Angeles, CA"
+   },
+   {
+    "label": "Year Built",
+    "value": "1920"
+   },
+   {
+    "label": "Owner",
+    "value": "Autry National Center"
+   },
+   {
+    "label": "Year Completed",
+    "value": "2007"
+   }
+  ],
+  "scope_label": "Scope of Work",
+  "scope": "Restoration of Orno and Chimney"
+ },
+ {
+  "title": "Casa de Bandini",
+  "slug": "casa-de-bandini",
+  "categories": [
+   "Adobe",
+   "Historic",
+   "Seismic"
+  ],
+  "image": "http://eagle-restorations.com/wp-content/uploads/2021/01/casa-de-bandini.png",
+  "image_file": "casa-de-bandini.png",
+  "facts": [
+   {
+    "label": "Location",
+    "value": "Old Town San Diego, CA"
+   },
+   {
+    "label": "Year Built",
+    "value": "1827"
+   },
+   {
+    "label": "Listing",
+    "value": "Reg. No. 72, California Historical Landmarks"
+   },
+   {
+    "label": "Owner",
+    "value": "California State Parks and Recreation"
+   },
+   {
+    "label": "Year Completed",
+    "value": "2009"
+   }
+  ],
+  "scope_label": "Scope of Work",
+  "scope": "Seismic Retrofit and Adobe Repair, Plastering"
+ },
+ {
+  "title": "Casa de Pedrorena",
+  "slug": "casa-pedrorena",
+  "categories": [
+   "Adobe",
+   "Historic"
+  ],
+  "image": "http://eagle-restorations.com/wp-content/uploads/2021/01/Casa-de-Pedrorena.png",
+  "image_file": "Casa-de-Pedrorena.png",
+  "facts": [
+   {
+    "label": "Location",
+    "value": "Old Town San Diego, CA"
+   },
+   {
+    "label": "Year Built",
+    "value": "1848"
+   },
+   {
+    "label": "Listing",
+    "value": "Reg. No. 70, California Historical Landmarks"
+   },
+   {
+    "label": "Owner",
+    "value": "California State Parks and Recreation"
+   },
+   {
+    "label": "Year Completed",
+    "value": "2006"
+   }
+  ],
+  "scope_label": "Scope of Work",
+  "scope": "Repair and Whitewash Exterior"
+ },
+ {
+  "title": "Cocoanut Grove",
+  "slug": "cocoanut-grove",
+  "categories": [
+   "Historic",
+   "Restoration"
+  ],
+  "image": "http://eagle-restorations.com/wp-content/uploads/2021/01/cocoanut-grove.png",
+  "image_file": "cocoanut-grove.png",
+  "facts": [
+   {
+    "label": "Location",
+    "value": "Los Angeles, CA"
+   },
+   {
+    "label": "Year Built",
+    "value": "1921-55 (Period of Historic Significance)"
+   },
+   {
+    "label": "Owner",
+    "value": "Los Angeles Unified School District"
+   },
+   {
+    "label": "Year Completed",
+    "value": "2010"
+   }
+  ],
+  "scope_label": "Scope of Work",
+  "scope": "Restoration of the Cocoanut Grove Coffee Shop/Lounge"
+ },
+ {
+  "title": "Cooper Molera Adobe",
+  "slug": "cooper-molera",
+  "categories": [
+   "Adobe",
+   "Historic"
+  ],
+  "image": "http://eagle-restorations.com/wp-content/uploads/2021/01/cooper-molera.png",
+  "image_file": "cooper-molera.png",
+  "facts": [
+   {
+    "label": "Location",
+    "value": "Monterey, CA"
+   },
+   {
+    "label": "Year Built",
+    "value": "1830"
+   },
+   {
+    "label": "Listing",
+    "value": "Compound is Contributing Element, Monterey Old Town National Historic Landmark, District No. 70000137"
+   },
+   {
+    "label": "Owner",
+    "value": "National Historic Trust"
+   },
+   {
+    "label": "Year Completed",
+    "value": "2011"
+   }
+  ],
+  "scope_label": "Scope of Work",
+  "scope": "Adobe Wall Repair, Adobe Masonry, Stone Repair"
+ },
+ {
+  "title": "Covarrubias Adobe",
+  "slug": "covarrubias-adobe",
+  "categories": [
+   "Adobe",
+   "Historic"
+  ],
+  "image": "http://eagle-restorations.com/wp-content/uploads/2021/01/covarrubias-casa.png",
+  "image_file": "covarrubias-casa.png",
+  "facts": [
+   {
+    "label": "Location",
+    "value": "Santa Barbara, CA"
+   },
+   {
+    "label": "Year Built",
+    "value": "1817"
+   },
+   {
+    "label": "Listing",
+    "value": "Reg. No. 308, California Historical Landmarks"
+   },
+   {
+    "label": "Owner",
+    "value": "Santa Barbara Historical Trust"
+   },
+   {
+    "label": "Year Completed",
+    "value": "2011"
+   }
+  ],
+  "scope_label": "Scope of Work",
+  "scope": "Lime Plastering, Adobe Repairs"
+ },
+ {
+  "title": "Leland Stanford Mansion",
+  "slug": "leland-stanford",
+  "categories": [
+   "Historic",
+   "Restoration",
+   "Seismic"
+  ],
+  "image": "http://eagle-restorations.com/wp-content/uploads/2021/01/Leland-Stanford2.png",
+  "image_file": "Leland-Stanford2.png",
+  "facts": [
+   {
+    "label": "Location",
+    "value": "Sacramento, CA"
+   },
+   {
+    "label": "Year Built",
+    "value": "c. 1857"
+   },
+   {
+    "label": "Listing",
+    "value": "Reg. No. 614, California Historical Landmarks"
+   },
+   {
+    "label": "Owner",
+    "value": "State of California"
+   },
+   {
+    "label": "Year Completed",
+    "value": "2000"
+   }
+  ],
+  "scope_label": "Scope of Work",
+  "scope": "Seismic Stabilization and Historic Restoration of Mansards, Cornices and Roof"
+ },
+ {
+  "title": "Episcopal Church of the Ascension",
+  "slug": "episcopal-church",
+  "categories": [
+   "Historic",
+   "Restoration",
+   "Seismic"
+  ],
+  "image": "http://eagle-restorations.com/wp-content/uploads/2021/01/Episcopal-Church.png",
+  "image_file": "Episcopal-Church.png",
+  "facts": [
+   {
+    "label": "Location",
+    "value": "Sierra Madre, CA"
+   },
+   {
+    "label": "Year Built",
+    "value": "1928 (Parish Hall)"
+   },
+   {
+    "label": "Listing",
+    "value": "Reg. No. 77000303, National Register of Historic Places, City of Sierra Madre Historic Landmark No. 3"
+   },
+   {
+    "label": "Owner",
+    "value": "Episcopal Church Of The Ascension"
+   },
+   {
+    "label": "Year Completed",
+    "value": "1996"
+   }
+  ],
+  "scope_label": "Scope of Work",
+  "scope": "Reconstruction and Seismic Upgrade of Parish Hall Wood and Stone Porch"
+ },
+ {
+  "title": "Flores Adobe",
+  "slug": "flores-adobe",
+  "categories": [
+   "Historic",
+   "Restoration",
+   "Seismic"
+  ],
+  "image": "http://eagle-restorations.com/wp-content/uploads/2021/01/Flores-Adobe.png",
+  "image_file": "Flores-Adobe.png",
+  "facts": [
+   {
+    "label": "Location",
+    "value": "South Pasadena, CA"
+   },
+   {
+    "label": "Year Built",
+    "value": "1850"
+   },
+   {
+    "label": "Listing",
+    "value": "Reg. No. 73000404, National Register of Historic Places"
+   },
+   {
+    "label": "Owner",
+    "value": "Virginia Wright"
+   },
+   {
+    "label": "Year Completed",
+    "value": "1993"
+   }
+  ],
+  "scope_label": "Scope of Work",
+  "scope": "Adobe Seismic Stabilization and Historical Restoration"
+ },
+ {
+  "title": "First United Methodist Church",
+  "slug": "first-united-methodist",
+  "categories": [
+   "Historic",
+   "Restoration",
+   "Seismic"
+  ],
+  "image": "http://eagle-restorations.com/wp-content/uploads/2021/01/first-united-methodist.png",
+  "image_file": "first-united-methodist.png",
+  "facts": [
+   {
+    "label": "Location",
+    "value": "Pasadena, CA"
+   },
+   {
+    "label": "Year Built",
+    "value": "c. 1925"
+   },
+   {
+    "label": "Owner",
+    "value": "First United Methodist Church"
+   },
+   {
+    "label": "Year Completed",
+    "value": "1992"
+   }
+  ],
+  "scope_label": "Scope of Work",
+  "scope": "URM Seismic Stabilization, and Restoration of Ornate Plaster Ceiling and Interior Woodwork"
+ },
+ {
+  "title": "Hotel del Monte",
+  "slug": "hotel-del-monte",
+  "categories": [
+   "Historic",
+   "Restoration"
+  ],
+  "image": "http://eagle-restorations.com/wp-content/uploads/2021/01/hotel-del-monte.png",
+  "image_file": "hotel-del-monte.png",
+  "facts": [
+   {
+    "label": "Location",
+    "value": "Monterey, CA"
+   },
+   {
+    "label": "Year Built",
+    "value": "1880"
+   },
+   {
+    "label": "Owner",
+    "value": "United States Navy"
+   },
+   {
+    "label": "Year Completed",
+    "value": "2003"
+   }
+  ],
+  "scope_label": "Scope of Work",
+  "scope": "Restoration of ornate ceiling in the \u201cLa Novia Room.\u201d"
+ },
+ {
+  "title": "Jensen-Alvarado Ranch",
+  "slug": "jensen-alvarado",
+  "categories": [
+   "Historic",
+   "Restoration",
+   "Seismic"
+  ],
+  "image": "http://eagle-restorations.com/wp-content/uploads/2021/01/Jensen-Alvarado.png",
+  "image_file": "Jensen-Alvarado.png",
+  "facts": [
+   {
+    "label": "Location",
+    "value": "Riverside, CA"
+   },
+   {
+    "label": "Year Built",
+    "value": "c. 1865"
+   },
+   {
+    "label": "Listing",
+    "value": "Reg. No. 943, California Historical Landmarks"
+   },
+   {
+    "label": "Owner",
+    "value": "City of Riverside"
+   },
+   {
+    "label": "Year Completed",
+    "value": "1994"
+   }
+  ],
+  "scope_label": "Scope of Work",
+  "scope": "URM Seismic Stabilization and Historic Restoration"
+ },
+ {
+  "title": "La Quinta Resort \u2013 Azur Adobe",
+  "slug": "azur-adobe",
+  "categories": [
+   "Adobe",
+   "Historic",
+   "Restoration"
+  ],
+  "image": "http://eagle-restorations.com/wp-content/uploads/2021/01/eagle-project.png",
+  "image_file": "eagle-project.png",
+  "facts": [
+   {
+    "label": "Location",
+    "value": "La Quinta, CA"
+   },
+   {
+    "label": "Year Built",
+    "value": "1923"
+   },
+   {
+    "label": "Owner",
+    "value": "Waldorf Astoria Resorts"
+   },
+   {
+    "label": "Year Completed",
+    "value": "2009"
+   }
+  ],
+  "scope_label": "Scope of Work",
+  "scope": "Restoration, Plastering and Adobe Masonry"
+ },
+ {
+  "title": "Leo Carillo Ranch",
+  "slug": "leo-carillo-ranch",
+  "categories": [
+   "Adobe",
+   "Historic",
+   "Restoration",
+   "Seismic"
+  ],
+  "image": "http://eagle-restorations.com/wp-content/uploads/2021/01/Leo-Carrillo-Ranch.png",
+  "image_file": "Leo-Carrillo-Ranch.png",
+  "facts": [
+   {
+    "label": "Location",
+    "value": "Carlsbad, CA"
+   },
+   {
+    "label": "Year Built",
+    "value": "1875"
+   },
+   {
+    "label": "Listing",
+    "value": "Reg. No. (N/A), National Register of Historic Places"
+   },
+   {
+    "label": "Owner",
+    "value": "City of Carlsbad"
+   },
+   {
+    "label": "Year Completed",
+    "value": "1993"
+   }
+  ],
+  "scope_label": "Scope of Work",
+  "scope": "Adobe Seismic Stabilization and Historical Restoration for Five Buildings"
+ },
+ {
+  "title": "Leonis Adobe",
+  "slug": "leonis-adobe",
+  "categories": [
+   "Adobe",
+   "Historic",
+   "Restoration",
+   "Seismic"
+  ],
+  "image": "http://eagle-restorations.com/wp-content/uploads/2021/01/leonis-adobe.png",
+  "image_file": "leonis-adobe.png",
+  "facts": [
+   {
+    "label": "Location",
+    "value": "Calabasas, CA"
+   },
+   {
+    "label": "Year Built",
+    "value": "1878"
+   },
+   {
+    "label": "Listing",
+    "value": "Reg. No. 75000433, National Register of Historic Places, City of Los Angeles Monument No. 1"
+   },
+   {
+    "label": "Owner",
+    "value": "Leonis Adobe Association"
+   },
+   {
+    "label": "Year Completed",
+    "value": "1996"
+   }
+  ],
+  "scope_label": "Scope of Work",
+  "scope": "Adobe Seismic Stabilization and Historical Restoration"
+ },
+ {
+  "title": "Logan Street Elementary School",
+  "slug": "logan-elementary",
+  "categories": [
+   "Historic",
+   "Restoration"
+  ],
+  "image": "http://eagle-restorations.com/wp-content/uploads/2021/01/eagle-project.png",
+  "image_file": "eagle-project.png",
+  "facts": [
+   {
+    "label": "Location",
+    "value": "Los Angeles, CA"
+   },
+   {
+    "label": "Year Built",
+    "value": "c. 1930"
+   },
+   {
+    "label": "Owner",
+    "value": "Los Angeles Unified School District"
+   },
+   {
+    "label": "Year Completed",
+    "value": "1999"
+   }
+  ],
+  "scope_label": "Scope of Work",
+  "scope": "Replacement of Existing Wood Windows with New to Match Originals"
+ },
+ {
+  "title": "Lopez Adobe",
+  "slug": "lopez-adobe",
+  "categories": [
+   "Adobe",
+   "Historic",
+   "Restoration",
+   "Seismic"
+  ],
+  "image": "http://eagle-restorations.com/wp-content/uploads/2021/01/Lopez-Adobe.png",
+  "image_file": "Lopez-Adobe.png",
+  "facts": [
+   {
+    "label": "Location",
+    "value": "San Fernando, CA"
+   },
+   {
+    "label": "Listing",
+    "value": "Reg. No. 71000157, National Register of Historic Places"
+   },
+   {
+    "label": "Owner",
+    "value": "City of San Fernando"
+   },
+   {
+    "label": "Year Completed",
+    "value": "1997"
+   }
+  ],
+  "scope_label": "Scope of Work",
+  "scope": "Adobe seismic stabilization and historic restoration"
+ },
+ {
+  "title": "Los Altos Apartments",
+  "slug": "los-altos-apartments",
+  "categories": [
+   "Seismic"
+  ],
+  "image": "http://eagle-restorations.com/wp-content/uploads/2021/01/los-altos-apartments.png",
+  "image_file": "los-altos-apartments.png",
+  "facts": [
+   {
+    "label": "Location",
+    "value": "Los Angeles, CA"
+   },
+   {
+    "label": "Year Built",
+    "value": "c. 1925"
+   },
+   {
+    "label": "Listing",
+    "value": "City of Los Angeles Monument No. 311"
+   },
+   {
+    "label": "Owner",
+    "value": "Stegin Real Estate"
+   },
+   {
+    "label": "Year Completed",
+    "value": "1991"
+   }
+  ],
+  "scope_label": "Scope of Work",
+  "scope": "URM seismic retrofit"
+ },
+ {
+  "title": "Lincoln State Monument Museum of New Mexico",
+  "slug": "lincoln-monument",
+  "categories": [
+   "Adobe",
+   "Historic",
+   "Restoration"
+  ],
+  "image": "http://eagle-restorations.com/wp-content/uploads/2021/01/eagle-project.png",
+  "image_file": "eagle-project.png",
+  "facts": [
+   {
+    "label": "Location",
+    "value": "Lincoln, NM"
+   },
+   {
+    "label": "Listing",
+    "value": "Reg. No. (n/a), National Register of Historic Places"
+   },
+   {
+    "label": "Owner",
+    "value": "State of New Mexico"
+   },
+   {
+    "label": "Year Completed",
+    "value": "1993"
+   }
+  ],
+  "scope_label": "Scope of Work",
+  "scope": "Adobe Plastering as Part of Research Project on Adobe Restoration Techniques, Sponsored by the Getty Foundation"
+ },
+ {
+  "title": "Mission San Miguel",
+  "slug": "mission-san-miguel",
+  "categories": [
+   "Adobe",
+   "Historic",
+   "Restoration",
+   "Seismic"
+  ],
+  "image": "http://eagle-restorations.com/wp-content/uploads/2021/01/mission-san-miguel1.png",
+  "image_file": "mission-san-miguel1.png",
+  "facts": [
+   {
+    "label": "Location",
+    "value": "San Miguel, CA"
+   },
+   {
+    "label": "Year Built",
+    "value": "1797"
+   },
+   {
+    "label": "Listing",
+    "value": "Reg. No. 326, California Historical Landmarks"
+   },
+   {
+    "label": "Owner",
+    "value": "Archdiocese of Monterey"
+   },
+   {
+    "label": "Year Completed",
+    "value": "2005-2010"
+   }
+  ],
+  "scope_label": "Scope of Work",
+  "scope": "Seismic Stabilization, Phase I-IV"
+ },
+ {
+  "title": "Mission San Luis Obispo",
+  "slug": "mission-slo",
+  "categories": [
+   "Adobe",
+   "Historic",
+   "Restoration",
+   "Seismic"
+  ],
+  "image": "http://eagle-restorations.com/wp-content/uploads/2021/01/Mission-SLO.png",
+  "image_file": "Mission-SLO.png",
+  "facts": [
+   {
+    "label": "Location",
+    "value": "San Luis Obispo, CA"
+   },
+   {
+    "label": "Year Built",
+    "value": "1790"
+   },
+   {
+    "label": "Listing",
+    "value": "Reg. No. 325, California Historical Landmarks"
+   },
+   {
+    "label": "Owner",
+    "value": "Archdiocese of Monterey"
+   },
+   {
+    "label": "Year Completed",
+    "value": "2007"
+   }
+  ],
+  "scope_label": "Scope of Work",
+  "scope": "Exterior Wood Restoration"
+ },
+ {
+  "title": "Montebello Women\u2019s Club",
+  "slug": "montebello-womens",
+  "categories": [
+   "Restoration",
+   "Seismic"
+  ],
+  "image": "http://eagle-restorations.com/wp-content/uploads/2021/01/eagle-project.png",
+  "image_file": "eagle-project.png",
+  "facts": [
+   {
+    "label": "Location",
+    "value": "Montebello, CA"
+   },
+   {
+    "label": "Year Built",
+    "value": "c. 1930"
+   },
+   {
+    "label": "Owner",
+    "value": "City of Montebello"
+   },
+   {
+    "label": "Year Completed",
+    "value": "1997"
+   }
+  ],
+  "scope_label": "Scope of Work",
+  "scope": "Seismic Upgrade, Accessibility Upgrade and Interior Restoration"
+ },
+ {
+  "title": "Mount Whitney Fish Hatchery",
+  "slug": "mt-whitney-hatchery",
+  "categories": [
+   "Restoration",
+   "Seismic"
+  ],
+  "image": "http://eagle-restorations.com/wp-content/uploads/2021/01/mt-whitney-fish-hatchery.png",
+  "image_file": "mt-whitney-fish-hatchery.png",
+  "facts": [
+   {
+    "label": "Location",
+    "value": "Independence, CA"
+   },
+   {
+    "label": "Year Built",
+    "value": "1916"
+   },
+   {
+    "label": "Owner",
+    "value": "California Department of Fish and Game"
+   },
+   {
+    "label": "Year Completed",
+    "value": "2002"
+   }
+  ],
+  "scope_label": "Scope of Work",
+  "scope": "Seismic Retrofit and Restoration"
+ },
+ {
+  "title": "Old Governor\u2019s Mansion",
+  "slug": "governors-mansion",
+  "categories": [
+   "Historic",
+   "Restoration"
+  ],
+  "image": "http://eagle-restorations.com/wp-content/uploads/2021/01/eagle-project-1.png",
+  "image_file": "eagle-project-1.png",
+  "facts": [
+   {
+    "label": "Location",
+    "value": "Sacramento, CA"
+   },
+   {
+    "label": "Year Built",
+    "value": "1877"
+   },
+   {
+    "label": "Listing",
+    "value": "Reg. No. 823, California Historical Landmarks"
+   },
+   {
+    "label": "Owner",
+    "value": "State of California"
+   },
+   {
+    "label": "Year Completed",
+    "value": "1997, 2000"
+   }
+  ],
+  "scope_label": "Scope of Work",
+  "scope": "Window Restoration Subcontractor and Exterior Historic Restoration of Ornate Wood Mansion"
+ },
+ {
+  "title": "O\u2019Hara Adobe",
+  "slug": "ohara-adobe",
+  "categories": [
+   "Adobe",
+   "Residential",
+   "Seismic"
+  ],
+  "image": "http://eagle-restorations.com/wp-content/uploads/2021/01/eagle-project.png",
+  "image_file": "eagle-project.png",
+  "facts": [
+   {
+    "label": "Location",
+    "value": "Toluca Lake, CA"
+   },
+   {
+    "label": "Year Built",
+    "value": "1920"
+   },
+   {
+    "label": "Owner",
+    "value": "Mr. & Mrs. Terence O\u2019Hara"
+   },
+   {
+    "label": "Year Completed",
+    "value": "1996"
+   }
+  ],
+  "scope_label": "Scope of Work",
+  "scope": "Adobe Seismic Repairs and Upgrade"
+ },
+ {
+  "title": "Orcutt Ranch Adobe",
+  "slug": "orcutt-ranch-adobe",
+  "categories": [
+   "Adobe",
+   "Seismic"
+  ],
+  "image": "http://eagle-restorations.com/wp-content/uploads/2021/01/Orcutt-Ranch.png",
+  "image_file": "Orcutt-Ranch.png",
+  "facts": [
+   {
+    "label": "Location",
+    "value": "West Hills, CA"
+   },
+   {
+    "label": "Year Built",
+    "value": "1920"
+   },
+   {
+    "label": "Listing",
+    "value": "City of Los Angeles Monument No. 31"
+   },
+   {
+    "label": "Owner",
+    "value": "City of Los Angeles"
+   },
+   {
+    "label": "Year Completed",
+    "value": "1994"
+   }
+  ],
+  "scope_label": "Scope of Work",
+  "scope": "Adobe Seismic Repairs"
+ },
+ {
+  "title": "Pasadena Playhouse",
+  "slug": "pasadena-playhouse",
+  "categories": [
+   "Restoration",
+   "Seismic"
+  ],
+  "image": "http://eagle-restorations.com/wp-content/uploads/2021/01/Pasadena-Playhouse-2.png",
+  "image_file": "Pasadena-Playhouse-2.png",
+  "facts": [
+   {
+    "label": "Location",
+    "value": "Pasadena, CA"
+   },
+   {
+    "label": "Year Built",
+    "value": "1924"
+   },
+   {
+    "label": "Listing",
+    "value": "Reg. No. 75000435, National Register of Historic Places, Reg. No. 887, California Historical Landmarks"
+   },
+   {
+    "label": "Owner",
+    "value": "Pasadena Playhouse Association"
+   },
+   {
+    "label": "Year Completed",
+    "value": "1995"
+   }
+  ],
+  "scope_label": "Scope of Work",
+  "scope": "URM Seismic Stabilization and Repairs"
+ },
+ {
+  "title": "Olivas Adobe",
+  "slug": "olivas-adobe",
+  "categories": [
+   "Adobe",
+   "Restoration"
+  ],
+  "image": "http://eagle-restorations.com/wp-content/uploads/2021/01/Olivas_Adobe.png",
+  "image_file": "Olivas_Adobe.png",
+  "facts": [
+   {
+    "label": "Location",
+    "value": "Ventura, CA"
+   },
+   {
+    "label": "Year Built",
+    "value": "1837-1949"
+   },
+   {
+    "label": "Listing",
+    "value": "Reg. No. 115, California Historical Landmarks"
+   },
+   {
+    "label": "Owner",
+    "value": "County of Ventura"
+   },
+   {
+    "label": "Year Completed",
+    "value": "2010"
+   }
+  ],
+  "scope_label": "Scope of Work",
+  "scope": "Adobe Masonry, Lime Plastering"
+ },
+ {
+  "title": "Peirano Building",
+  "slug": "peirano-building",
+  "categories": [
+   "Restoration",
+   "Seismic"
+  ],
+  "image": "http://eagle-restorations.com/wp-content/uploads/2021/01/eagle-project.png",
+  "image_file": "eagle-project.png",
+  "facts": [
+   {
+    "label": "Location",
+    "value": "Ventura, CA"
+   },
+   {
+    "label": "Year Built",
+    "value": "c. 1870"
+   },
+   {
+    "label": "Listing",
+    "value": "City of Buenaventura No. (n/a)"
+   },
+   {
+    "label": "Owner",
+    "value": "KL Associates"
+   },
+   {
+    "label": "Year Completed",
+    "value": "1998"
+   }
+  ],
+  "scope_label": "Scope of Work",
+  "scope": "URM Building Shell Restoration, Seismic Upgrade and Tenant Improvements in Partially Burned-out 1870\u2019s Brick Commercial Buildings"
+ },
+ {
+  "title": "Phillips Mansion",
+  "slug": "phillips-mansion",
+  "categories": [
+   "Historic",
+   "Restoration",
+   "Seismic"
+  ],
+  "image": "http://eagle-restorations.com/wp-content/uploads/2021/01/phillips-mansion.png",
+  "image_file": "phillips-mansion.png",
+  "facts": [
+   {
+    "label": "Location",
+    "value": "Pomona, CA"
+   },
+   {
+    "label": "Year Built",
+    "value": "1875"
+   },
+   {
+    "label": "Listing",
+    "value": "Reg. No. 74000525, National Register of Historic Places"
+   },
+   {
+    "label": "Owner",
+    "value": "Pomona Historical Society"
+   },
+   {
+    "label": "Year Completed",
+    "value": "1999"
+   }
+  ],
+  "scope_label": "Scope of Work",
+  "scope": "Exterior Restoration and URM Seismic Stabilization, Restoration and Reconstruction of Ornate Exterior Woodwork, and Restoration of Wood Windows"
+ },
+ {
+  "title": "Pinney House",
+  "slug": "pinney-house",
+  "categories": [
+   "Historic",
+   "Restoration"
+  ],
+  "image": "http://eagle-restorations.com/wp-content/uploads/2021/01/pinney-house.png",
+  "image_file": "pinney-house.png",
+  "facts": [
+   {
+    "label": "Location",
+    "value": "Sierra Madre, CA"
+   },
+   {
+    "label": "Year Built",
+    "value": "1887"
+   },
+   {
+    "label": "Listing",
+    "value": "City of Sierra Madre Historic Landmark No. 1"
+   },
+   {
+    "label": "Owner",
+    "value": "Janet Grater"
+   },
+   {
+    "label": "Year Completed",
+    "value": "1999"
+   }
+  ],
+  "scope_label": "Scope of Work",
+  "scope": "Exterior Woodwork Restoration"
+ },
+ {
+  "title": "Pio Pico Mansion",
+  "slug": "pio-pico",
+  "categories": [
+   "Adobe",
+   "Historic",
+   "Restoration",
+   "Seismic"
+  ],
+  "image": "http://eagle-restorations.com/wp-content/uploads/2021/01/pio-pico.png",
+  "image_file": "pio-pico.png",
+  "facts": [
+   {
+    "label": "Location",
+    "value": "Whittier, CA"
+   },
+   {
+    "label": "Year Built",
+    "value": "c. 1850"
+   },
+   {
+    "label": "Listing",
+    "value": "Reg. No. 127, California Historical Landmarks, Reg. No. 73000408, National Register of Historic Places"
+   },
+   {
+    "label": "Owner",
+    "value": "State of California"
+   },
+   {
+    "label": "Year Completed",
+    "value": "2001"
+   }
+  ],
+  "scope_label": "Scope of Work",
+  "scope": "Adobe Seismic Repair and Stabilization, Interior and Exterior Historic Restoration and Reconstruction of Previously-demolished Portions of the Building"
+ },
+ {
+  "title": "Pasadena Residence",
+  "slug": "pasadena-residence",
+  "categories": [
+   "Residential",
+   "Restoration",
+   "Seismic"
+  ],
+  "image": "http://eagle-restorations.com/wp-content/uploads/2021/01/eagle-project.png",
+  "image_file": "eagle-project.png",
+  "facts": [
+   {
+    "label": "Location",
+    "value": "Pasadena, CA"
+   },
+   {
+    "label": "Year Built",
+    "value": "c. 1904"
+   },
+   {
+    "label": "Owner",
+    "value": "Name withheld at request of owner"
+   },
+   {
+    "label": "Year Completed",
+    "value": "1993"
+   }
+  ],
+  "scope_label": "Scope of Work",
+  "scope": "12,000 s.f. URM (unreinforced masonry) seismic stabilization retrofit. Interior and exterior historic restoration."
+ },
+ {
+  "title": "Rancho Camulos",
+  "slug": "rancho-camulos",
+  "categories": [
+   "Adobe",
+   "Restoration",
+   "Seismic"
+  ],
+  "image": "http://eagle-restorations.com/wp-content/uploads/2021/01/Rancho-Camulos.png",
+  "image_file": "Rancho-Camulos.png",
+  "facts": [
+   {
+    "label": "Location",
+    "value": "Piru, CA"
+   },
+   {
+    "label": "Year Built",
+    "value": "1850"
+   },
+   {
+    "label": "Listing",
+    "value": "Reg. No. 553, California Historical Landmarks"
+   },
+   {
+    "label": "Owner",
+    "value": "Ms. Shirley Lorenz"
+   },
+   {
+    "label": "Year Completed",
+    "value": "1998, 2007"
+   }
+  ],
+  "scope_label": "Scope of Work",
+  "scope": "Adobe Seismic Stabilization, Restoration of Main House, and Restoration of Exterior Walls on Small Adobe"
+ },
+ {
+  "title": "Rancho Los Cerritos",
+  "slug": "rancho-los-cerritos",
+  "categories": [
+   "Adobe",
+   "Restoration",
+   "Seismic"
+  ],
+  "image": "http://eagle-restorations.com/wp-content/uploads/2021/01/Rancho-los-cerritos.png",
+  "image_file": "Rancho-los-cerritos.png",
+  "facts": [
+   {
+    "label": "Location",
+    "value": "Long Beach, CA"
+   },
+   {
+    "label": "Year Built",
+    "value": "1844"
+   },
+   {
+    "label": "Listing",
+    "value": "Reg. No. (n/a), National Register of Historic Places , Reg. No. 978, California Historical Landmarks"
+   },
+   {
+    "label": "Owner",
+    "value": "City of Long Beach"
+   },
+   {
+    "label": "Year Completed",
+    "value": "2002"
+   }
+  ],
+  "scope_label": "Scope of Work",
+  "scope": "Adobe Seismic Upgrade, and Exterior Historic Restoration including Adobe, Wood Doors and Windows, Tile Roof and Site Work"
+ },
+ {
+  "title": "San Gabriel Auditorium",
+  "slug": "san-gabriel-auditorium",
+  "categories": [
+   "Adobe",
+   "Seismic"
+  ],
+  "image": "http://eagle-restorations.com/wp-content/uploads/2021/01/San-Gabriel-Auditorium.png",
+  "image_file": "San-Gabriel-Auditorium.png",
+  "facts": [
+   {
+    "label": "Location",
+    "value": "San Gabriel, CA"
+   },
+   {
+    "label": "Year Built",
+    "value": "1920"
+   },
+   {
+    "label": "Owner",
+    "value": "City of San Gabriel"
+   },
+   {
+    "label": "Year Completed",
+    "value": "1998"
+   }
+  ],
+  "scope_label": "Scope of Work",
+  "scope": "Seismic Repair and Upgrading to Adobe and URM structure, including Crack Injection and Installation of Steel Bracing"
+ },
+ {
+  "title": "San Pedro Municipal Building",
+  "slug": "san-pedro-municipal",
+  "categories": [
+   "Restoration"
+  ],
+  "image": "http://eagle-restorations.com/wp-content/uploads/2021/01/san-pedro-municipal.png",
+  "image_file": "san-pedro-municipal.png",
+  "facts": [
+   {
+    "label": "Location",
+    "value": "San Pedro, CA"
+   },
+   {
+    "label": "Year Built",
+    "value": "1928"
+   },
+   {
+    "label": "Owner",
+    "value": "City of Los Angeles Department of General Services"
+   },
+   {
+    "label": "Year Completed",
+    "value": "1998"
+   }
+  ],
+  "scope_label": "Scope of Work",
+  "scope": "Subcontractor for Restoration of 225 Historic Wood Windows"
+ },
+ {
+  "title": "Second Church of Christ, Scientist of Los Angeles",
+  "slug": "christian-science-los-angeles",
+  "categories": [
+   "Restoration",
+   "Seismic"
+  ],
+  "image": "http://eagle-restorations.com/wp-content/uploads/2021/01/Second_Church_of_Christ_Scientist_Los_Angeles_c._1910.png",
+  "image_file": "Second_Church_of_Christ_Scientist_Los_Angeles_c._1910.png",
+  "facts": [
+   {
+    "label": "Location",
+    "value": "Los Angeles, CA"
+   },
+   {
+    "label": "Year Built",
+    "value": "1910"
+   },
+   {
+    "label": "Listing",
+    "value": "Reg. No. 87000576, National Register of Historic Places, City of Los Angeles Monument No. 57"
+   },
+   {
+    "label": "Owner",
+    "value": "Second Church Of Christ, Scientist Of Los Angeles"
+   },
+   {
+    "label": "Year Completed",
+    "value": "1991"
+   }
+  ],
+  "scope_label": "Scope of Work",
+  "scope": "Seismic Retrofit and Repair of URM Stone Spires, Re-roofing and Restoration of Ornate Plasterwork"
+ },
+ {
+  "title": "25 S. Baldwin Avenue",
+  "slug": "25-baldwin",
+  "categories": [
+   "Seismic"
+  ],
+  "image": "http://eagle-restorations.com/wp-content/uploads/2021/01/25-S-Baldwin.png",
+  "image_file": "25-S-Baldwin.png",
+  "facts": [
+   {
+    "label": "Location",
+    "value": "Sierra Madre, CA"
+   },
+   {
+    "label": "Year Built",
+    "value": "1925"
+   },
+   {
+    "label": "Year Completed",
+    "value": "1993"
+   }
+  ],
+  "scope_label": "Scope of Work",
+  "scope": "URM Retrofit"
+ },
+ {
+  "title": "Trinity Episcopal Church",
+  "slug": "trinity-episcopal",
+  "categories": [
+   "Restoration",
+   "Seismic"
+  ],
+  "image": "http://eagle-restorations.com/wp-content/uploads/2021/01/Trinity-Episcopal.png",
+  "image_file": "Trinity-Episcopal.png",
+  "facts": [
+   {
+    "label": "Location",
+    "value": "Santa Barbara, CA"
+   },
+   {
+    "label": "Year Built",
+    "value": "1920"
+   },
+   {
+    "label": "Listing",
+    "value": "Reg. No. (n/a), National Register of Historic Places"
+   },
+   {
+    "label": "Owner",
+    "value": "Trinity Episcopal Church"
+   },
+   {
+    "label": "Year Completed",
+    "value": "1995"
+   }
+  ],
+  "scope_label": "Scope of Work",
+  "scope": "URM Seismic Upgrade and Historic Restoration of Exterior Stonework, Tile Roofs and Ornate Interior Plasterwork"
+ },
+ {
+  "title": "Wells Halliday Mansion (Carl Bean AIDS Hospice)",
+  "slug": "wells-halliday",
+  "categories": [
+   "Restoration"
+  ],
+  "image": "http://eagle-restorations.com/wp-content/uploads/2021/01/eagle-project.png",
+  "image_file": "eagle-project.png",
+  "facts": [
+   {
+    "label": "Location",
+    "value": "Los Angeles, CA"
+   },
+   {
+    "label": "Year Built",
+    "value": "1901"
+   },
+   {
+    "label": "Listing",
+    "value": "City of Los Angeles Monument No. 458"
+   },
+   {
+    "label": "Owner",
+    "value": "AID People"
+   },
+   {
+    "label": "Year Completed",
+    "value": "1992"
+   }
+  ],
+  "scope_label": "Scope of Work",
+  "scope": "Historic Restoration and Adaptive Re-use"
+ },
+ {
+  "title": "Westminster Church",
+  "slug": "westminster-church",
+  "categories": [
+   "Restoration"
+  ],
+  "image": "http://eagle-restorations.com/wp-content/uploads/2021/01/Westminster.png",
+  "image_file": "Westminster.png",
+  "facts": [
+   {
+    "label": "Location",
+    "value": "Pasadena, CA"
+   },
+   {
+    "label": "Year Built",
+    "value": "1920"
+   },
+   {
+    "label": "Owner",
+    "value": "Westminster Church"
+   },
+   {
+    "label": "Year Completed",
+    "value": "1992"
+   }
+  ],
+  "scope_label": "Scope of Work",
+  "scope": "URM Seismic Repair and Upgrade, Restoration and Replication of Exterior Stonework"
+ },
+ {
+  "title": "Villa Riviera",
+  "slug": "villa-riviera",
+  "categories": [
+   "Restoration"
+  ],
+  "image": "http://eagle-restorations.com/wp-content/uploads/2021/02/Villa-Riviera.png",
+  "image_file": "Villa-Riviera.png",
+  "facts": [
+   {
+    "label": "Location",
+    "value": "Long Beach, CA"
+   },
+   {
+    "label": "Year Built",
+    "value": "1929"
+   },
+   {
+    "label": "Listing",
+    "value": "National Register of Historic Places"
+   },
+   {
+    "label": "Owner",
+    "value": "Villa Rivera Condominium Association"
+   },
+   {
+    "label": "Year Completed",
+    "value": "2020"
+   }
+  ],
+  "scope_label": "Scope of Work",
+  "scope": "Period authentic bathroom and historic tile restoration in owner-occupied unit"
+ },
+ {
+  "title": "Ortega Adobe",
+  "slug": "ortega-adobe",
+  "categories": [
+   "Restoration"
+  ],
+  "image": "http://eagle-restorations.com/wp-content/uploads/2021/02/Ortega-Adobe2.png",
+  "image_file": "Ortega-Adobe2.png",
+  "facts": [
+   {
+    "label": "Location",
+    "value": "San Buenaventura, CA"
+   },
+   {
+    "label": "Year Built",
+    "value": "1857"
+   },
+   {
+    "label": "Listing",
+    "value": "City of Ventura Historic Landmark No. 2"
+   },
+   {
+    "label": "Owner",
+    "value": "City of Ventura"
+   },
+   {
+    "label": "Year Completed",
+    "value": "2019"
+   }
+  ],
+  "scope_label": "Scope of Work",
+  "scope": "Shoring of interior beams and repair of lime plaster"
+ },
+ {
+  "title": "Reid-Baldwin Adobe",
+  "slug": "reid-baldwin",
+  "categories": [
+   "Adobe"
+  ],
+  "image": "http://eagle-restorations.com/wp-content/uploads/2021/02/reid-baldwin.png",
+  "image_file": "reid-baldwin.png",
+  "facts": [
+   {
+    "label": "Location",
+    "value": "Arcadia, CA"
+   },
+   {
+    "label": "Year Built",
+    "value": "1839"
+   },
+   {
+    "label": "Listing",
+    "value": "California Historic Landmark No. 368"
+   },
+   {
+    "label": "Owner",
+    "value": "County of Los Angeles"
+   },
+   {
+    "label": "Year Completed",
+    "value": "Ongoing"
+   }
+  ],
+  "scope_label": "Scope of Work",
+  "scope": "Structural seismic upgrades. Rebuild roof and veranda to emulate original design."
+ },
+ {
+  "title": "Orella Adobes",
+  "slug": "orella-adobes",
+  "categories": [
+   "Restoration"
+  ],
+  "image": "http://eagle-restorations.com/wp-content/uploads/2021/01/eagle-project.png",
+  "image_file": "eagle-project.png",
+  "facts": [
+   {
+    "label": "Location",
+    "value": "Goleta, CA"
+   },
+   {
+    "label": "Year Built",
+    "value": "c. 1798"
+   },
+   {
+    "label": "Listing",
+    "value": "Santa Barbara County Landmark No. 32"
+   },
+   {
+    "label": "Owner",
+    "value": "Humble Oil/Exxon"
+   },
+   {
+    "label": "Year Completed",
+    "value": "2018"
+   }
+  ],
+  "scope_label": "Scope of Work",
+  "scope": "Repair flood damage including removing mud debris and shoring up adobes for forthcoming restoration"
+ },
+ {
+  "title": "Wilson Court Bungalows at Caltech",
+  "slug": "caltech-bungalows",
+  "categories": [
+   "Restoration"
+  ],
+  "image": "http://eagle-restorations.com/wp-content/uploads/2021/02/bungalows1.png",
+  "image_file": "bungalows1.png",
+  "facts": [
+   {
+    "label": "Location",
+    "value": "Pasadena, CA"
+   },
+   {
+    "label": "Year Built",
+    "value": "c. 1920s"
+   },
+   {
+    "label": "Owner",
+    "value": "California Institute of Technology"
+   },
+   {
+    "label": "Year Completed",
+    "value": "2019"
+   }
+  ],
+  "scope_label": "Scope of Work",
+  "scope": "Relocate and restore eleven residential bungalow units to original historic design"
+ },
+ {
+  "title": "McCrea Ranch Bunkhouse",
+  "slug": "mccrea-ranch",
+  "categories": [
+   "Restoration"
+  ],
+  "image": "http://eagle-restorations.com/wp-content/uploads/2021/02/mccrea-ranch.png",
+  "image_file": "mccrea-ranch.png",
+  "facts": [
+   {
+    "label": "Location",
+    "value": "Thousand Oaks, CA"
+   },
+   {
+    "label": "Year Built",
+    "value": "1890"
+   },
+   {
+    "label": "Listing",
+    "value": "National Register of Historic Places"
+   },
+   {
+    "label": "Owner",
+    "value": "McCrea Trust"
+   },
+   {
+    "label": "Year Completed",
+    "value": "2018"
+   }
+  ],
+  "scope_label": "Scope of Work",
+  "scope": "Raise bunkhouse in order to remove and replace foundation"
+ },
+ {
+  "title": "El Molino Viejo",
+  "slug": "el-molino-viejo",
+  "categories": [
+   "Adobe"
+  ],
+  "image": "http://eagle-restorations.com/wp-content/uploads/2021/02/Old-Mill.png",
+  "image_file": "Old-Mill.png",
+  "facts": [
+   {
+    "label": "Location",
+    "value": "San Marino, CA"
+   },
+   {
+    "label": "Year Built",
+    "value": "1816"
+   },
+   {
+    "label": "Listing",
+    "value": "National Register of Historic Places, California Historical Landmark No. 302"
+   },
+   {
+    "label": "Owner",
+    "value": "City of San Marino"
+   },
+   {
+    "label": "Year Completed",
+    "value": "2016"
+   }
+  ],
+  "scope_label": "Scope of Work",
+  "scope": "Restoration and adobe repair/plaster of historic grist mill, Southern California's oldest commercial building. "
+ },
+ {
+  "title": "Mission San Antonio de Padua",
+  "slug": "mission-san-antonio",
+  "categories": [
+   "Adobe"
+  ],
+  "image": "http://eagle-restorations.com/wp-content/uploads/2021/02/San-Antonio.png",
+  "image_file": "San-Antonio.png",
+  "facts": [
+   {
+    "label": "Location",
+    "value": "Jolon, CA"
+   },
+   {
+    "label": "Year Built",
+    "value": "1771"
+   },
+   {
+    "label": "Listing",
+    "value": "National Register of Historic Places, California Historical Landmark No. 232"
+   },
+   {
+    "label": "Owner",
+    "value": "Diocese of Monterey"
+   },
+   {
+    "label": "Year Completed",
+    "value": "2015"
+   }
+  ],
+  "scope_label": "Scope of Work",
+  "scope": "Adobe restoration and historic woodwork restoration"
+ },
+ {
+  "title": "Craig Adobe",
+  "slug": "craig-adobe",
+  "categories": [
+   "Adobe"
+  ],
+  "image": "http://eagle-restorations.com/wp-content/uploads/2021/02/craig-adobe.png",
+  "image_file": "craig-adobe.png",
+  "facts": [
+   {
+    "label": "Location",
+    "value": "Pasadena, CA"
+   },
+   {
+    "label": "Year Built",
+    "value": "1869"
+   },
+   {
+    "label": "Listing",
+    "value": "National Register of Historic Places"
+   },
+   {
+    "label": "Year Completed",
+    "value": "2012"
+   }
+  ],
+  "scope_label": "Scope of Work",
+  "scope": "Repair cracking and damaged exterior walls. Rebuild second floor interior and restore to original historic condition."
+ },
+ {
+  "title": "Mission San Luis Rey",
+  "slug": "mission-san-luis",
+  "categories": [
+   "Adobe"
+  ],
+  "image": "http://eagle-restorations.com/wp-content/uploads/2021/02/Mission-San-Luis-Rey.png",
+  "image_file": "Mission-San-Luis-Rey.png",
+  "facts": [
+   {
+    "label": "Location",
+    "value": "Oceanside, CA"
+   },
+   {
+    "label": "Year Built",
+    "value": "1815"
+   },
+   {
+    "label": "Listing",
+    "value": "California Historical Landmark No. 239, U.S. National Historic Landmark"
+   },
+   {
+    "label": "Owner",
+    "value": "Diocese of San Diego"
+   },
+   {
+    "label": "Year Completed",
+    "value": "2010"
+   }
+  ],
+  "scope_label": "Scope of Work",
+  "scope": "Seismic retrofit for church and interior repairs "
+ },
+ {
+  "title": "Scottish Rite Cathedral",
+  "slug": "scottish-rite-cathedral",
+  "categories": [
+   "Historic"
+  ],
+  "image": "http://eagle-restorations.com/wp-content/uploads/2021/02/Scottish-Rite.png",
+  "image_file": "Scottish-Rite.png",
+  "facts": [
+   {
+    "label": "Location",
+    "value": "Pasadena, CA"
+   },
+   {
+    "label": "Year Built",
+    "value": "1925"
+   },
+   {
+    "label": "Owner",
+    "value": "Scottish Rite"
+   },
+   {
+    "label": "Year Completed",
+    "value": "2015"
+   }
+  ],
+  "scope_label": "Scope of Work",
+  "scope": "Replaster interior ceilings, repaint building interior to historic color palette "
+ },
+ {
+  "title": "Wawona Hotel",
+  "slug": "wawona-hotel",
+  "categories": [
+   "Historic"
+  ],
+  "image": "http://eagle-restorations.com/wp-content/uploads/2021/02/Wawona-Lobby2.png",
+  "image_file": "Wawona-Lobby2.png",
+  "facts": [
+   {
+    "label": "Location",
+    "value": "Yosemite, CA"
+   },
+   {
+    "label": "Year Built",
+    "value": "1876"
+   },
+   {
+    "label": "Listing",
+    "value": "National Register of Historic Places, National Historic Landmark"
+   },
+   {
+    "label": "Owner",
+    "value": "National Park Service"
+   },
+   {
+    "label": "Year Completed",
+    "value": "2012"
+   }
+  ],
+  "scope_label": "Scope of Work",
+  "scope": "Interior plaster repairs consistent with historic Victorian style"
+ },
+ {
+  "title": "Reyes Adobe",
+  "slug": "reyes-adobe",
+  "categories": [
+   "Adobe"
+  ],
+  "image": "http://eagle-restorations.com/wp-content/uploads/2021/01/eagle-project.png",
+  "image_file": "eagle-project.png",
+  "facts": [
+   {
+    "label": "Location",
+    "value": "Agoura Hills, CA"
+   },
+   {
+    "label": "Year Built",
+    "value": "1850"
+   },
+   {
+    "label": "Owner",
+    "value": "City of Agoura Hills"
+   },
+   {
+    "label": "Year Completed",
+    "value": "2014"
+   }
+  ],
+  "scope_label": "Scope of Work",
+  "scope": "Rebuild damaged orno"
+ },
+ {
+  "title": "DAR California State Headquarters",
+  "slug": "dar-ca-hq",
+  "categories": [
+   "Adobe"
+  ],
+  "image": "http://eagle-restorations.com/wp-content/uploads/2021/01/eagle-project.png",
+  "image_file": "eagle-project.png",
+  "facts": [
+   {
+    "label": "Location",
+    "value": "Glendora, CA"
+   },
+   {
+    "label": "Year Built",
+    "value": "1904"
+   },
+   {
+    "label": "Owner",
+    "value": "California State Society Daughters of the American Revolution"
+   },
+   {
+    "label": "Year Completed",
+    "value": "2014"
+   }
+  ],
+  "scope_label": "Scope of Work",
+  "scope": "Rebuild roof, restore damaged exterior wood beams, resurface interior wood floors, exterior paint to historic color palette"
+ },
+ {
+  "title": "Smugglers Cove Ranch",
+  "slug": "smugglers-ranch",
+  "categories": [
+   "Adobe"
+  ],
+  "image": "http://eagle-restorations.com/wp-content/uploads/2021/02/smugglers.png",
+  "image_file": "smugglers.png",
+  "facts": [
+   {
+    "label": "Location",
+    "value": "Santa Cruz Island, CA"
+   },
+   {
+    "label": "Year Built",
+    "value": "1889"
+   },
+   {
+    "label": "Owner",
+    "value": "United States Department of the Interior"
+   },
+   {
+    "label": "Year Completed",
+    "value": "2011"
+   },
+   {
+    "label": "Owner",
+    "value": "National Park Service"
+   }
+  ],
+  "scope_label": "Scope of Work",
+  "scope": "Seismic upgrade of two-story adobe and stone building. Plastering of exterior and interior walls. Rebuild and replace roof to historic specifications."
+ },
+ {
+  "title": "Beverly Park Residence",
+  "slug": "zanuck-residence",
+  "categories": [
+   "Residential"
+  ],
+  "image": "http://eagle-restorations.com/wp-content/uploads/2021/01/eagle-project.png",
+  "image_file": "eagle-project.png",
+  "facts": [
+   {
+    "label": "Location",
+    "value": "Beverly Park, CA"
+   },
+   {
+    "label": "Year Built",
+    "value": "N/A"
+   },
+   {
+    "label": "Year Completed",
+    "value": "2017"
+   }
+  ],
+  "scope_label": "Scope of Work",
+  "scope": "Restoration, repair, and installation of early-1900s fireplace from England in remodeled Zanuck estate."
+ },
+ {
+  "title": "Killingsworth, Brady & Smith Building",
+  "slug": "ksm-kbs-building",
+  "categories": [
+   "Historic"
+  ],
+  "image": "http://eagle-restorations.com/wp-content/uploads/2021/02/Killingsworth-KSM.png",
+  "image_file": "Killingsworth-KSM.png",
+  "facts": [
+   {
+    "label": "Location",
+    "value": "Long Beach, CA"
+   },
+   {
+    "label": "Year Built",
+    "value": "1955"
+   },
+   {
+    "label": "Listing",
+    "value": "City of Long Beach Historic Landmark"
+   },
+   {
+    "label": "Owner",
+    "value": "Kelly Sutherlin McLeod Architecture, Inc."
+   },
+   {
+    "label": "Year Completed",
+    "value": "2021"
+   }
+  ],
+  "scope_label": "Scope of Work",
+  "scope": "Roof restoration at offices of KSM Architecture, Inc., formerly the offices of Killingsworth, Brady & Smith, designed by noted architect Edward Killingsworth. The building is recognized for its Mid-Century Modern style and has won an Honor Award from the National American Institute of Architests (AIA). "
+ },
+ {
+  "title": "Melrose Hill Residence",
+  "slug": "melrose-hill",
+  "categories": [
+   "Fire Restoration",
+   "Historic",
+   "Residential"
+  ],
+  "image": "http://eagle-restorations.com/wp-content/uploads/2021/01/eagle-project.png",
+  "image_file": "eagle-project.png",
+  "facts": [
+   {
+    "label": "Location",
+    "value": "Los Angeles, CA"
+   },
+   {
+    "label": "Year Built",
+    "value": "c. 1920s"
+   },
+   {
+    "label": "Listing",
+    "value": "Los Angeles City HPOZ"
+   },
+   {
+    "label": "Year Completed",
+    "value": "2017"
+   }
+  ],
+  "scope_label": "Scope of Work",
+  "scope": "Fire restoration including rebuild of roof and ceilings and repairs to second floor fire damage"
+ },
+ {
+  "title": "L.A. County Hospital State Street Courtyard",
+  "slug": "county-hospital",
+  "categories": [
+   "Historic"
+  ],
+  "image": "http://eagle-restorations.com/wp-content/uploads/2021/02/LA-County-Hospital.png",
+  "image_file": "LA-County-Hospital.png",
+  "facts": [
+   {
+    "label": "Location",
+    "value": "Los Angeles, CA"
+   },
+   {
+    "label": "Year Built",
+    "value": "1885"
+   },
+   {
+    "label": "Owner",
+    "value": "LAC + USC Medical Center"
+   },
+   {
+    "label": "Year Completed",
+    "value": "2015"
+   }
+  ],
+  "scope_label": "Scope of Work",
+  "scope": "Installation of historic fixtures to upgrade power and lighting in entry courtyard"
+ },
+ {
+  "title": "Finis E. Yoakum House",
+  "slug": "yoakum-house",
+  "categories": [
+   "Restoration"
+  ],
+  "image": "http://eagle-restorations.com/wp-content/uploads/2021/02/Yoakum-House.png",
+  "image_file": "Yoakum-House.png",
+  "facts": [
+   {
+    "label": "Location",
+    "value": "Los Angeles, CA"
+   },
+   {
+    "label": "Year Built",
+    "value": "1915"
+   },
+   {
+    "label": "Listing",
+    "value": "Los Angeles Historic-Cultural Monument No. 287"
+   },
+   {
+    "label": "Year Completed",
+    "value": "2015"
+   }
+  ],
+  "scope_label": "Scope of Work",
+  "scope": "Debris removal and total fire restoration rebuild of basement and first floor. Restore second and third floors to original condition."
+ },
+ {
+  "title": "181 Oak Knoll",
+  "slug": "oak-knoll",
+  "categories": [
+   "Fire Restoration"
+  ],
+  "image": "http://eagle-restorations.com/wp-content/uploads/2021/02/Oak-Knoll3.png",
+  "image_file": "Oak-Knoll3.png",
+  "facts": [
+   {
+    "label": "Location",
+    "value": "Pasadena, CA"
+   },
+   {
+    "label": "Year Built",
+    "value": "c. 1950s"
+   },
+   {
+    "label": "Owner",
+    "value": "Private Owner"
+   },
+   {
+    "label": "Year Completed",
+    "value": "2015"
+   }
+  ],
+  "scope_label": "Scope of Work",
+  "scope": "Fire restoration of commercial building designed by Smith and Williams architects "
+ },
+ {
+  "title": "Grandview Substation",
+  "slug": "grandview-substation",
+  "categories": [
+   "Restoration"
+  ],
+  "image": "http://eagle-restorations.com/wp-content/uploads/2021/01/eagle-project.png",
+  "image_file": "eagle-project.png",
+  "facts": [
+   {
+    "label": "Location",
+    "value": "Glendale, CA"
+   },
+   {
+    "label": "Year Built",
+    "value": "1930"
+   },
+   {
+    "label": "Owner",
+    "value": "Glendale Water & Power"
+   },
+   {
+    "label": "Year Completed",
+    "value": "2015"
+   }
+  ],
+  "scope_label": "Scope of Work",
+  "scope": "Rebuild damaged facade"
+ },
+ {
+  "title": "La Pumada",
+  "slug": "la-pumada",
+  "categories": [
+   "Residential"
+  ],
+  "image": "http://eagle-restorations.com/wp-content/uploads/2021/01/eagle-project.png",
+  "image_file": "eagle-project.png",
+  "facts": [
+   {
+    "label": "Location",
+    "value": "Montecito, CA"
+   },
+   {
+    "label": "Year Built",
+    "value": "1929"
+   },
+   {
+    "label": "Owner",
+    "value": "Private Owner"
+   },
+   {
+    "label": "Year Completed",
+    "value": "2015, 2017, 2021"
+   }
+  ],
+  "scope_label": "Scope of Work",
+  "scope": "Phased restoration and repairs to historic garden statues at residential estate designed by Reginald Johnson"
+ },
+ {
+  "title": "EDAW Water Garden",
+  "slug": "edaw-water-garden",
+  "categories": [
+   "Restoration"
+  ],
+  "image": "http://eagle-restorations.com/wp-content/uploads/2021/02/EDAW-Water-Garden.png",
+  "image_file": "EDAW-Water-Garden.png",
+  "facts": [
+   {
+    "label": "Location",
+    "value": "Pasadena, CA"
+   },
+   {
+    "label": "Year Built",
+    "value": "1947"
+   },
+   {
+    "label": "Year Completed",
+    "value": "2013"
+   }
+  ],
+  "scope_label": "Scope of Work",
+  "scope": "Relocate Oriental-style water garden features to centralized area on campus. Restored components including pergola, statues, and fountains designed by EDAW (Eckbo, Dean, Austin, & Williams), a noted landscape architecture firm."
+ },
+ {
+  "title": "Pasadena Heritage House Headquarters",
+  "slug": "heritage-house-hq",
+  "categories": [
+   "Seismic"
+  ],
+  "image": "http://eagle-restorations.com/wp-content/uploads/2021/01/eagle-project.png",
+  "image_file": "eagle-project.png",
+  "facts": [
+   {
+    "label": "Location",
+    "value": "Pasadena, CA"
+   },
+   {
+    "label": "Year Built",
+    "value": "c. 1940s"
+   },
+   {
+    "label": "Owner",
+    "value": "Pasadena Historic Society"
+   },
+   {
+    "label": "Year Completed",
+    "value": "2011"
+   }
+  ],
+  "scope_label": "Scope of Work",
+  "scope": "Seismic retrofit of brick foundation"
+ },
+ {
+  "title": "Monrovia Residence",
+  "slug": "monrovia-residence",
+  "categories": [
+   "Residential"
+  ],
+  "image": "http://eagle-restorations.com/wp-content/uploads/2025/12/PXL_20240111_012608782_eagleweb.jpg",
+  "image_file": "PXL_20240111_012608782_eagleweb.jpg",
+  "facts": [
+   {
+    "label": "Location",
+    "value": "Monrovia, CA"
+   },
+   {
+    "label": "Year Built",
+    "value": "1924"
+   },
+   {
+    "label": "Year Completed",
+    "value": "2023"
+   }
+  ],
+  "scope_label": "Scope of Work",
+  "scope": "Complete interior update for Spanish revival residence in deferred maintenance: replace and refinish ceiling, crown moulding, and drywall. Recreate character-defining architectural details including interior arches and plaster fireplace. Kitchen upgrade and gut renovation of two bathrooms. Refinish original 1920s hardwood floors. Salvage and repair original 1920s double hung sash windows. Update knob and tube electrical throughout. Brace and bolt foundation in basement to current California seismic code. Construction of Spanish tile portico over exterior doors. "
+ },
+ {
+  "title": "Arcadia ADU",
+  "slug": "arcadia-adu",
+  "categories": [
+   "Residential"
+  ],
+  "image": "http://eagle-restorations.com/wp-content/uploads/2025/12/67115347170__F03A48FD-C734-4810-800C-8FD803FCE8AB.fullsizerender_eagleweb.jpg",
+  "image_file": "67115347170__F03A48FD-C734-4810-800C-8FD803FCE8AB.fullsizerender_eagleweb.jpg",
+  "facts": [
+   {
+    "label": "Location",
+    "value": "Arcadia, CA"
+   },
+   {
+    "label": "Year Built",
+    "value": "2022"
+   },
+   {
+    "label": "Year Completed",
+    "value": "2022"
+   }
+  ],
+  "scope_label": "Scope of Work",
+  "scope": "Complete construction of 1,000 square foot freestanding accessory dwelling unit (ADU) on private property\u2014from framing to finishing, including hardscape and pool"
+ },
+ {
+  "title": "Hindry House",
+  "slug": "hindry-house",
+  "categories": [
+   "Residential",
+   "Restoration"
+  ],
+  "image": "http://eagle-restorations.com/wp-content/uploads/2025/12/4-Temp-53_2180503_051a_KSM_Hindry_web2_eagleweb.jpg",
+  "image_file": "4-Temp-53_2180503_051a_KSM_Hindry_web2_eagleweb.jpg",
+  "facts": [
+   {
+    "label": "Location",
+    "value": "Pasadena, CA"
+   },
+   {
+    "label": "Year Built",
+    "value": "1910"
+   },
+   {
+    "label": "Owner",
+    "value": "Private Owner"
+   },
+   {
+    "label": "Year Completed",
+    "value": "2025"
+   }
+  ],
+  "scope_label": "Scope of Work",
+  "scope": "Two phases of repair to wood beams on second floor deck at historic California Craftsman style house by master architects Arthur and Alfred Heineman"
+ },
+ {
+  "title": "Will Rogers Historic State Park",
+  "slug": "will-rogers-hsp",
+  "categories": [
+   "Fire Restoration"
+  ],
+  "image": "http://eagle-restorations.com/wp-content/uploads/2025/12/Will-Rogers-Post-Fire_eagleweb.jpg",
+  "image_file": "Will-Rogers-Post-Fire_eagleweb.jpg",
+  "facts": [
+   {
+    "label": "Location",
+    "value": "Malibu, CA"
+   },
+   {
+    "label": "Year Built",
+    "value": "1925"
+   },
+   {
+    "label": "Owner",
+    "value": "State of California Department of Parks & Recreation"
+   },
+   {
+    "label": "Year Completed",
+    "value": "Ongoing"
+   }
+  ],
+  "scope_label": "Scope of Work",
+  "scope": "Fire restoration to reinforce three remaining main house chimneys following 2025 Palisades Fire. Provide immediate response to preserve remaining Visitor Center rafters and wood shake roofing. Remediate and protect remaining portion of fire-damaged historic blacksmith shop."
+ },
+ {
+  "title": "Westridge School",
+  "slug": "westridge-school",
+  "categories": [],
+  "image": "http://eagle-restorations.com/wp-content/uploads/2025/12/IMG_4510_eagleweb.jpg",
+  "image_file": "IMG_4510_eagleweb.jpg",
+  "facts": [
+   {
+    "label": "Location",
+    "value": "Pasadena, CA"
+   },
+   {
+    "label": "Owner",
+    "value": "Westridge School"
+   },
+   {
+    "label": "Year Completed",
+    "value": "2023"
+   }
+  ],
+  "scope_label": "Scope of Work",
+  "scope": "Custom construction of Westridge School for Girls' donor bench, utilizing poured and molded concrete, western red cedar, mortise and tenon construction, custom CNC patina metal with etched-glass inserts (by Judson Studios), with an etched 70lb bronze plaque. The bench enhances the historic presence in front of the 1906 Robert Pitcairn Jr. house."
+ }
+]

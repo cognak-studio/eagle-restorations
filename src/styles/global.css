@@ -1,0 +1,116 @@
+:root {
+  --gold: #c5a24e;
+  --gold-dark: #b0883a;
+  --ink: #2c2c2c;
+  --ink-soft: #5d5d5d;
+  --bg: #ffffff;
+  --bg-light: #eef1f3;
+  --bg-soft: #f6f7f8;
+  --footer: #292929;
+  --line: #e3e3e3;
+  --maxw: 1200px;
+  --radius: 4px;
+  --font-head: 'Poppins', system-ui, sans-serif;
+  --font-body: 'Mulish', system-ui, sans-serif;
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--ink);
+  background: var(--bg);
+  font-size: 17px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-head);
+  color: var(--ink);
+  font-weight: 700;
+  line-height: 1.12;
+  margin: 0 0 0.5em;
+}
+
+h1 { font-size: clamp(2.6rem, 6vw, 4.6rem); letter-spacing: -0.01em; }
+h2 { font-size: clamp(1.8rem, 3.4vw, 2.5rem); }
+h3 { font-size: 1.25rem; }
+
+p { margin: 0 0 1.1em; }
+
+a { color: var(--gold-dark); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+img { max-width: 100%; display: block; }
+
+.container {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section { padding: 84px 0; }
+.section-light { background: var(--bg-light); }
+.section-soft { background: var(--bg-soft); }
+
+/* gold-bar section heading */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 1.7rem;
+  margin: 0 0 36px;
+}
+.eyebrow::before {
+  content: "";
+  width: 5px;
+  height: 1.4em;
+  background: var(--gold);
+  border-radius: 2px;
+  flex: none;
+}
+
+.btn {
+  display: inline-block;
+  background: var(--gold);
+  color: #fff;
+  font-family: var(--font-head);
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  padding: 15px 30px;
+  border-radius: var(--radius);
+  text-transform: uppercase;
+  transition: background 0.18s ease;
+}
+.btn:hover { background: var(--gold-dark); text-decoration: none; }
+
+.btn-outline {
+  background: transparent;
+  color: var(--ink);
+  border: 1.5px solid var(--ink);
+}
+.btn-outline:hover { background: var(--ink); color: #fff; }
+
+.link-gold {
+  font-family: var(--font-head);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  color: var(--gold-dark);
+}
+
+.muted { color: var(--ink-soft); }
+
+@media (max-width: 768px) {
+  body { font-size: 16px; }
+  .section { padding: 56px 0; }
+}

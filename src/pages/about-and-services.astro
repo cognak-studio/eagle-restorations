@@ -1,0 +1,153 @@
+---
+import Base from '../layouts/Base.astro';
+import { localImage } from '../data/site.js';
+import portfolio from '../data/portfolio.json';
+
+const services = [
+  { title: 'Historic Restoration', items: [
+    'Commercial buildings, churches, and federal, state, and local landmarks',
+    'Materials restoration: stained glass, fine carpentry, stone and marble, light fixtures, statues and mouldings',
+    'Door and window fabrication and repair',
+  ]},
+  { title: 'Seismic & Structural Retrofit', items: [
+    'Structural support and bracing',
+    'Interior demo and retrofit',
+    'Foundation bolting',
+  ]},
+  { title: 'Adobe Restoration & Reconstruction', items: [
+    'Adobe mud plastering',
+    'Adobe block repairs and recreation',
+    'Adobe retrofitting',
+    'Period-authentic interior lime plastering',
+  ]},
+  { title: 'Building Materials Restoration', items: [
+    'Restoration of stained glass, fine carpentry, stone and marble, light fixtures, statues and mouldings',
+    'Repairs to brick, historic concrete, tile, and plaster',
+    'Door and window fabrication and repair',
+  ]},
+];
+
+const dirImg = portfolio.find((p) => p.slug === 'leland-stanford-mansion')?.image;
+---
+<Base title="About & Services" description="Eagle Restorations is a Class 'B' licensed general contractor specializing in historic restoration, seismic retrofit, and adobe reconstruction across California.">
+  <section class="page-head">
+    <div class="container">
+      <h1>About Eagle Restorations</h1>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <p class="lead">
+        Eagle Restorations Group, Inc. is licensed as a Class 'B' General Building Contractor in the
+        State of California, License No. 465977, and is fully bonded and insured.
+      </p>
+      <p>
+        Eagle specializes in the restoration and seismic repair and upgrading of historic buildings.
+        Incorporated in 1991, Eagle has completed over 80 projects, ranging in value up to 4.3 million
+        dollars. Eagle emphasizes a high level of craft and restoration knowledge in all aspects of its
+        work, and routinely works to the Secretary of the Interior's Standards for the Treatment of
+        Historic Properties.
+      </p>
+      <p>
+        Over 40 of Eagle's past and current projects have local, state, or federal historic landmark
+        designations, and many are open to the public as interpretive museums. Eagle is experienced in
+        working under the auspices of different governmental agencies, and in meeting both the technical
+        and administrative requirements of historic restoration work.
+      </p>
+      <p>
+        Eagle maintains a core group of experienced restoration craftspeople who are "hands-on" on its
+        projects, in addition to doing the estimating and supervisory work. Eagle is a Partner in the
+        California Preservation Foundation and enjoys established relationships with skilled restoration
+        subcontractors covering the full range of trades required by restoration work and seismic
+        retrofitting.
+      </p>
+      <p class="recog muted">
+        Our work has been recognized by the California Preservation Foundation, the Governor of the
+        State of California, the Getty Conservation Institute, the City of San Diego, and more.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section-light">
+    <div class="container">
+      <h2 class="eyebrow">Our Services</h2>
+      <div class="svc-grid">
+        {services.map((svc) => (
+          <article class="svc-card">
+            <h3>{svc.title}</h3>
+            <ul>{svc.items.map((i) => <li>{i}</li>)}</ul>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container quote-block">
+      <blockquote>
+        "We highly recommend Eagle Restorations. Due to their extensive experience with historic
+        masonry buildings, they approach a project with the appropriate sensitivity and propose
+        solutions to situations as they arise during construction. They demonstrate attention to
+        detail and pride in their work."
+      </blockquote>
+      <cite>
+        Ann E. Huston, Contracting Officer's Representative<br />
+        National Park Service at Channel Islands National Park
+      </cite>
+    </div>
+  </section>
+
+  <section class="section section-light">
+    <div class="container dir-grid">
+      <div class="dir-media">
+        {dirImg
+          ? <img src={localImage(dirImg)} alt="Eagle Restorations project" />
+          : <div class="img-placeholder"></div>}
+      </div>
+      <div>
+        <h2 class="eyebrow">Jeff Seidner</h2>
+        <p class="role">President</p>
+        <p>
+          A lifelong resident of Southern California with over 40 years of experience, Jeff began in
+          construction under his father's business, earned his contractor's license in 1984, and started
+          his own family-owned historic restoration and building business in 1991.
+        </p>
+        <p>
+          Jeff is a member of the California Preservation Foundation, the State of California Trust for
+          Historic Preservation Foundation, the Building Trades Association, and the National Association
+          of General Contractors. He has also served on the City of Sierra Madre Cultural Heritage
+          Commission.
+        </p>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .page-head { background: var(--bg-light); padding: 70px 0; }
+  .page-head h1 { font-size: clamp(2.4rem, 5vw, 3.6rem); margin: 0; }
+  .narrow { max-width: 800px; }
+  .lead { font-weight: 700; font-size: 1.25rem; }
+  .recog { font-style: italic; margin-top: 18px; }
+
+  .svc-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+  .svc-card { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 30px 26px; }
+  .svc-card h3 { margin-bottom: 16px; }
+  .svc-card ul { margin: 0; padding-left: 18px; }
+  .svc-card li { margin-bottom: 9px; color: var(--ink-soft); font-size: 0.96rem; }
+
+  .quote-block { max-width: 820px; text-align: center; }
+  blockquote {
+    margin: 0; font-family: var(--font-serif); font-weight: 500;
+    font-size: clamp(1.4rem, 3vw, 1.9rem); line-height: 1.45; color: var(--ink);
+  }
+  cite { display: block; margin-top: 22px; font-style: normal; color: var(--ink-soft); font-size: 0.95rem; }
+
+  .dir-grid { display: grid; grid-template-columns: 1fr 1.3fr; gap: 48px; align-items: center; }
+  .dir-media img, .dir-media .img-placeholder { width: 100%; border-radius: var(--radius); aspect-ratio: 4 / 5; object-fit: cover; }
+  .role { font-family: var(--font-head); color: var(--gold-dark); text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.8rem; margin-top: -10px; }
+
+  @media (max-width: 940px) { .svc-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 720px) { .svc-grid { grid-template-columns: 1fr; } .dir-grid { grid-template-columns: 1fr; gap: 26px; } }
+</style>

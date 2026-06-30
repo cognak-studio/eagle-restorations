@@ -1,0 +1,256 @@
+---
+import Base from '../layouts/Base.astro';
+import { company, stats, localImage } from '../data/site.js';
+import portfolio from '../data/portfolio.json';
+
+const services = [
+  {
+    title: 'Historic Restoration',
+    items: [
+      'Commercial buildings, churches, and federal, state, and local landmarks',
+      'Materials restoration: stained glass, fine carpentry, stone and marble, light fixtures, statues and mouldings',
+      'Door and window fabrication and repair',
+    ],
+  },
+  {
+    title: 'Seismic & Structural Retrofit',
+    items: [
+      'Structural support and bracing',
+      'Interior demo and retrofit',
+      'Foundation bolting',
+    ],
+  },
+  {
+    title: 'Adobe Restoration & Reconstruction',
+    items: [
+      'Adobe mud plastering',
+      'Adobe block repairs and recreation',
+      'Adobe retrofitting',
+      'Period-authentic interior lime plastering',
+    ],
+  },
+  {
+    title: 'Building Materials Restoration',
+    items: [
+      'Stained glass, fine carpentry, stone and marble, light fixtures, statues and mouldings',
+      'Repairs to brick, historic concrete, tile, and plaster',
+      'Door and window fabrication and repair',
+    ],
+  },
+];
+
+const featuredSlugs = ['leo-carillo-ranch', 'leland-stanford-mansion', 'spreckles-organ', 'rancho-los-cerritos'];
+const featured = featuredSlugs
+  .map((s) => portfolio.find((p) => p.slug === s))
+  .filter(Boolean);
+const aboutImg = featured[0]?.image;
+---
+<Base>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <p class="hero-kicker">
+        <strong>{company.shortName}</strong> is a {company.licenseClass}.
+        <span class="lic">{company.license}</span>
+      </p>
+      <h1>Southern California's Premiere Historical and Structural Specialists</h1>
+      <a href="/contact/" class="btn">Get a Quote</a>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="section">
+    <div class="container about-grid">
+      <div class="about-media">
+        {aboutImg
+          ? <img src={localImage(aboutImg)} alt="Historic restoration by Eagle Restorations" />
+          : <div class="img-placeholder">Project photo</div>}
+      </div>
+      <div class="about-copy">
+        <h2 class="eyebrow">About Eagle Restorations</h2>
+        <p class="lead">
+          {company.name} specializes in the restoration and seismic repair and upgrading of
+          historic buildings. Eagle was incorporated in 1991, and has completed over 80 projects,
+          ranging in value up to 4.3 million dollars.
+        </p>
+        <p>
+          Eagle emphasizes a high level of craft and restoration knowledge in all aspects of its
+          work, and routinely works to the Secretary of the Interior's Standards for the Treatment
+          of Historic Properties.
+        </p>
+        <p>
+          Eagle is experienced in working under the auspices of different governmental agencies, and
+          in meeting both the technical and administrative requirements of historic restoration work.
+          Its core group of experienced restoration craftspeople are "hands-on" on every project.
+        </p>
+        <a href="/about-and-services/" class="link-gold">Read More &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="stats-band">
+    <div class="container stats-grid">
+      {stats.map((s) => (
+        <div class="stat">
+          <div class="stat-num">{s.value}</div>
+          <div class="stat-label">{s.label}</div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="section section-light">
+    <div class="container">
+      <h2 class="eyebrow">Our Services</h2>
+      <div class="svc-grid">
+        {services.map((svc) => (
+          <article class="svc-card">
+            <h3>{svc.title}</h3>
+            <ul>
+              {svc.items.map((i) => <li>{i}</li>)}
+            </ul>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Projects -->
+  <section class="section">
+    <div class="container">
+      <div class="feat-head">
+        <h2 class="eyebrow">Featured Projects</h2>
+        <a href="/projects/" class="link-gold">View All Projects &rarr;</a>
+      </div>
+      <div class="feat-grid">
+        {featured.map((p) => (
+          <a href={`/projects/${p.slug}/`} class="feat-card">
+            {p.image
+              ? <img src={localImage(p.image)} alt={p.title} loading="lazy" />
+              : <div class="img-placeholder feat-ph"></div>}
+            <span class="feat-overlay">
+              <span class="feat-cat">{p.categories[0]}</span>
+              <span class="feat-title">{p.title}</span>
+            </span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .hero {
+    background: var(--bg-light);
+    padding: 96px 0 104px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-kicker { font-size: 1.15rem; max-width: 640px; }
+  .hero-kicker .lic { display: block; color: var(--gold-dark); font-weight: 600; margin-top: 2px; }
+  .hero h1 { max-width: 14ch; margin: 22px 0 34px; }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 56px;
+    align-items: center;
+  }
+  .about-media img, .img-placeholder {
+    width: 100%;
+    border-radius: var(--radius);
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+  }
+  .img-placeholder {
+    background: repeating-linear-gradient(45deg, #e9edf0, #e9edf0 12px, #eef1f3 12px, #eef1f3 24px);
+    display: grid;
+    place-items: center;
+    color: #9aa3aa;
+    font-size: 0.9rem;
+  }
+  .lead { font-weight: 700; font-size: 1.18rem; color: var(--ink); }
+
+  .stats-band { padding: 18px 0 64px; }
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+  }
+  .stat-num {
+    font-family: var(--font-head);
+    font-weight: 300;
+    font-size: clamp(3rem, 7vw, 5rem);
+    line-height: 1;
+    color: var(--ink);
+  }
+  .stat-label { color: var(--ink-soft); margin-top: 6px; }
+
+  .svc-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+  .svc-card {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 30px 26px;
+  }
+  .svc-card h3 { margin-bottom: 16px; }
+  .svc-card ul { margin: 0; padding-left: 18px; }
+  .svc-card li { margin-bottom: 9px; color: var(--ink-soft); font-size: 0.96rem; }
+
+  .feat-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .feat-head .eyebrow { margin-bottom: 28px; }
+  .feat-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+  .feat-card {
+    position: relative;
+    display: block;
+    border-radius: var(--radius);
+    overflow: hidden;
+    aspect-ratio: 16 / 10;
+  }
+  .feat-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+  .feat-ph { height: 100%; aspect-ratio: auto; }
+  .feat-card:hover img { transform: scale(1.04); }
+  .feat-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 22px;
+    background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 55%);
+    color: #fff;
+  }
+  .feat-cat {
+    font-family: var(--font-head);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.72rem;
+    color: var(--gold);
+  }
+  .feat-title { font-family: var(--font-head); font-weight: 600; font-size: 1.25rem; }
+
+  @media (max-width: 940px) {
+    .svc-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 720px) {
+    .about-grid { grid-template-columns: 1fr; gap: 30px; }
+    .stats-grid { grid-template-columns: 1fr; gap: 20px; text-align: center; }
+    .svc-grid, .feat-grid { grid-template-columns: 1fr; }
+  }
+</style>

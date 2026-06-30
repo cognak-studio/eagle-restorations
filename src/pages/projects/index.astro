@@ -1,0 +1,123 @@
+---
+import Base from '../../layouts/Base.astro';
+import { localImage } from '../../data/site.js';
+import portfolio from '../../data/portfolio.json';
+
+const order = ['Adobe', 'Fire Restoration', 'Historic', 'Residential', 'Restoration', 'Seismic'];
+const cats = order.filter((c) => portfolio.some((p) => p.categories.includes(c)));
+
+// Stable display order: items with images first, alphabetical
+const projects = [...portfolio].sort((a, b) => {
+  if (!!b.image - !!a.image) return !!b.image - !!a.image;
+  return a.title.localeCompare(b.title);
+});
+---
+<Base title="Projects" description="Explore Eagle Restorations' portfolio of historic, adobe, seismic, and structural restoration projects across California.">
+  <section class="page-head">
+    <div class="container">
+      <h1>Our Projects</h1>
+      <p class="muted">Over 80 completed projects in historic restoration, seismic retrofit, and adobe reconstruction across California.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="filters" id="filters">
+        <button class="filter active" data-cat="all">All Projects</button>
+        {cats.map((c) => <button class="filter" data-cat={c}>{c}</button>)}
+      </div>
+
+      <div class="proj-grid" id="grid">
+        {projects.map((p) => (
+          <a
+            href={`/projects/${p.slug}/`}
+            class="proj-card"
+            data-cats={p.categories.join('|')}
+          >
+            <div class="proj-media">
+              {p.image
+                ? <img src={localImage(p.image)} alt={p.title} loading="lazy" />
+                : <div class="img-placeholder"></div>}
+            </div>
+            <div class="proj-meta">
+              <span class="proj-cats">{p.categories.join(' · ') || 'Restoration'}</span>
+              <span class="proj-title">{p.title}</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .page-head { background: var(--bg-light); padding: 70px 0 60px; }
+  .page-head h1 { font-size: clamp(2.4rem, 5vw, 3.6rem); margin-bottom: 10px; }
+  .page-head p { max-width: 60ch; font-size: 1.1rem; }
+
+  .filters { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 36px; }
+  .filter {
+    font-family: var(--font-head);
+    font-weight: 500;
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 9px 18px;
+    border: 1px solid var(--line);
+    background: #fff;
+    color: var(--ink-soft);
+    border-radius: 100px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+  .filter:hover { border-color: var(--gold); color: var(--ink); }
+  .filter.active { background: var(--ink); color: #fff; border-color: var(--ink); }
+
+  .proj-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+  }
+  .proj-card { display: block; }
+  .proj-card:hover { text-decoration: none; }
+  .proj-card.hide { display: none; }
+  .proj-media {
+    border-radius: var(--radius);
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+    background: var(--bg-light);
+  }
+  .proj-media img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+  .img-placeholder { width: 100%; height: 100%; }
+  .proj-card:hover img { transform: scale(1.05); }
+  .proj-meta { padding: 14px 2px 0; }
+  .proj-cats {
+    display: block;
+    font-family: var(--font-head);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 0.7rem;
+    color: var(--gold-dark);
+    margin-bottom: 3px;
+  }
+  .proj-title { font-family: var(--font-head); font-weight: 600; font-size: 1.1rem; color: var(--ink); }
+
+  @media (max-width: 880px) { .proj-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 560px) { .proj-grid { grid-template-columns: 1fr; } }
+</style>
+
+<script>
+  const filters = document.getElementById('filters');
+  const cards = Array.from(document.querySelectorAll('.proj-card'));
+  filters?.addEventListener('click', (e) => {
+    const btn = e.target.closest('.filter');
+    if (!btn) return;
+    document.querySelectorAll('.filter').forEach((b) => b.classList.remove('active'));
+    btn.classList.add('active');
+    const cat = btn.dataset.cat;
+    cards.forEach((c) => {
+      const cats = (c.dataset.cats || '').split('|');
+      c.classList.toggle('hide', cat !== 'all' && !cats.includes(cat));
+    });
+  });
+</script>

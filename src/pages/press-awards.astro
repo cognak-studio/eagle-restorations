@@ -1,0 +1,64 @@
+---
+import Base from '../layouts/Base.astro';
+// Award images are pulled from the WordPress media library during the migration.
+// Populate src/data/awards.json with { title, image, category } entries once the
+// uploads folder is available; the grid renders automatically.
+import awards from '../data/awards.json';
+---
+<Base title="Press & Awards" description="Eagle Restorations has been recognized for excellence in historic restoration by the California Preservation Foundation, the State of California, and more.">
+  <section class="page-head">
+    <div class="container">
+      <h1>Recognition &amp; Awards</h1>
+      <p class="muted">
+        Eagle Restorations Group, Inc. has received many awards over the years for excellence in
+        historical restoration and renovation. Here are a few selections.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      {awards.length > 0 ? (
+        <div class="award-grid">
+          {awards.map((a) => (
+            <figure class="award">
+              <img src={a.image} alt={a.title} loading="lazy" />
+              {a.title && <figcaption>{a.title}</figcaption>}
+            </figure>
+          ))}
+        </div>
+      ) : (
+        <div class="recog-list">
+          <p class="lead">Eagle's work has been recognized by:</p>
+          <ul>
+            <li>California Preservation Foundation</li>
+            <li>Governor of the State of California</li>
+            <li>Getty Conservation Institute</li>
+            <li>City of San Diego</li>
+            <li>National Park Service</li>
+          </ul>
+          <p class="muted note">Award certificates and press features are being added.</p>
+        </div>
+      )}
+    </div>
+  </section>
+</Base>
+
+<style>
+  .page-head { background: var(--bg-light); padding: 70px 0; }
+  .page-head h1 { font-size: clamp(2.4rem, 5vw, 3.6rem); margin-bottom: 10px; }
+  .page-head p { max-width: 64ch; font-size: 1.1rem; }
+
+  .award-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .award { margin: 0; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; background: #fff; }
+  .award img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; }
+  .award figcaption { padding: 12px 14px; font-size: 0.9rem; color: var(--ink-soft); }
+
+  .recog-list { max-width: 620px; }
+  .recog-list .lead { font-family: var(--font-head); font-weight: 600; font-size: 1.25rem; }
+  .recog-list ul { padding-left: 20px; }
+  .recog-list li { margin-bottom: 10px; font-size: 1.1rem; }
+  .note { margin-top: 24px; font-style: italic; }
+
+  @media (max-width: 760px) { .award-grid { grid-template-columns: repeat(2, 1fr); } }
+</style>

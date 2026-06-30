@@ -36,6 +36,45 @@ export const stats = [
   { value: '1790', label: 'Oldest Historic Project' },
 ];
 
+// Single source of truth for service offerings — used on the About & Services
+// page, the footer, and the sitewide structured data (hasOfferCatalog) so the
+// schema never drifts from what's actually on the page.
+export const services = [
+  { title: 'Historic Restoration', items: [
+    'Commercial buildings, churches, and federal, state, and local landmarks',
+    'Materials restoration: stained glass, fine carpentry, stone and marble, light fixtures, statues and mouldings',
+    'Door and window fabrication and repair',
+  ]},
+  { title: 'Seismic & Structural Retrofit', items: [
+    'Structural support and bracing',
+    'Interior demo and retrofit',
+    'Foundation bolting',
+  ]},
+  { title: 'Adobe Restoration & Reconstruction', items: [
+    'Adobe mud plastering',
+    'Adobe block repairs and recreation',
+    'Adobe retrofitting',
+    'Period-authentic interior lime plastering',
+  ]},
+  { title: 'Building Materials Restoration', items: [
+    'Restoration of stained glass, fine carpentry, stone and marble, light fixtures, statues and mouldings',
+    'Repairs to brick, historic concrete, tile, and plaster',
+    'Door and window fabrication and repair',
+  ]},
+];
+
+// Founder / President — reused for the schema's `founder` + memberships.
+export const founder = {
+  name: 'Jeff Seidner',
+  jobTitle: 'President',
+  memberOf: [
+    'California Preservation Foundation',
+    'State of California Trust for Historic Preservation Foundation',
+    'Building Trades Association',
+    'National Association of General Contractors',
+  ],
+};
+
 // Map a WordPress media URL to a local public path.
 // e.g. http://eagle-restorations.com/wp-content/uploads/2021/01/x.png
 //   -> /wp-content/uploads/2021/01/x.png

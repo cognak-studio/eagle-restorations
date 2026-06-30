@@ -2,25 +2,32 @@
 import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import { company } from '../data/site.js';
+import { company, services, founder } from '../data/site.js';
 
 const { title, description } = Astro.props;
 const fullTitle = title ? `${title} | ${company.name}` : company.name;
 const desc = description || `${company.shortName} specializes in the restoration and seismic repair of historic buildings throughout California.`;
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
 const ogImage = new URL('/og-image.jpg', Astro.site).href;
+const siteUrl = new URL('/', Astro.site).href;
+const orgId = `${siteUrl}#organization`;
 
 const orgSchema = {
   '@context': 'https://schema.org',
   '@type': 'GeneralContractor',
+  '@id': orgId,
   name: company.name,
+  legalName: company.name,
   alternateName: company.shortName,
-  url: 'https://eagle-restorations.com',
+  slogan: company.tagline,
+  url: siteUrl,
   email: company.email,
   telephone: company.phone,
   image: ogImage,
-  logo: 'https://eagle-restorations.com/eagle-restorations-logo.svg',
+  logo: `${siteUrl}eagle-restorations-logo.svg`,
   description: desc,
+  priceRange: '$$$$',
+  foundingDate: '1991',
   address: {
     '@type': 'PostalAddress',
     streetAddress: '5441 Cogswell Rd Suite A',
@@ -29,13 +36,85 @@ const orgSchema = {
     postalCode: '91006',
     addressCountry: 'US',
   },
+  contactPoint: {
+    '@type': 'ContactPoint',
+    contactType: 'customer service',
+    telephone: company.phone,
+    email: company.email,
+    areaServed: 'US-CA',
+    availableLanguage: ['en'],
+  },
+  openingHoursSpecification: {
+    '@type': 'OpeningHoursSpecification',
+    dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+    opens: '09:00',
+    closes: '17:00',
+  },
   areaServed: { '@type': 'State', name: 'California' },
   knowsAbout: [
     'Historic Restoration',
     'Seismic Retrofit',
+    'Unreinforced Masonry (URM) Retrofit',
     'Adobe Restoration',
     'Structural Repair',
     'Fire Restoration',
+    "Secretary of the Interior's Standards for the Treatment of Historic Properties",
+    'Historic Tax Credit Certification',
+    'National Register of Historic Places Restoration',
+  ],
+  hasCredential: {
+    '@type': 'EducationalOccupationalCredential',
+    credentialCategory: 'license',
+    name: "Class 'B' General Building Contractor License",
+    identifier: '465977',
+    recognizedBy: {
+      '@type': 'GovernmentOrganization',
+      name: 'California State License Board (CSLB)',
+    },
+  },
+  memberOf: {
+    '@type': 'Organization',
+    name: 'California Preservation Foundation',
+  },
+  founder: {
+    '@type': 'Person',
+    name: founder.name,
+    jobTitle: founder.jobTitle,
+    memberOf: founder.memberOf.map((name) => ({ '@type': 'Organization', name })),
+  },
+  award: [
+    'Recognized by the California Preservation Foundation',
+    'Recognized by the Governor of the State of California',
+    'Recognized by the Getty Conservation Institute',
+    'Recognized by the City of San Diego',
+  ],
+  review: {
+    '@type': 'Review',
+    reviewBody:
+      "We highly recommend Eagle Restorations. Due to their extensive experience with historic masonry buildings, they approach a project with the appropriate sensitivity and propose solutions to situations as they arise during construction. They demonstrate attention to detail and pride in their work.",
+    author: {
+      '@type': 'Person',
+      name: 'Ann E. Huston',
+      jobTitle: "Contracting Officer's Representative, National Park Service at Channel Islands National Park",
+    },
+  },
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Restoration & Structural Services',
+    itemListElement: services.map((svc) => ({
+      '@type': 'Offer',
+      itemOffered: {
+        '@type': 'Service',
+        name: svc.title,
+        description: svc.items.join('; '),
+        areaServed: { '@type': 'State', name: 'California' },
+      },
+    })),
+  },
+  additionalProperty: [
+    { '@type': 'PropertyValue', name: 'Years in Business', value: '36' },
+    { '@type': 'PropertyValue', name: 'Projects Completed', value: '80+' },
+    { '@type': 'PropertyValue', name: 'Maximum Project Value', value: '$4,300,000' },
   ],
 };
 ---

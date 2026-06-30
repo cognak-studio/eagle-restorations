@@ -1,13 +1,6 @@
 ---
-import { company, nav } from '../data/site.js';
+import { company, nav, services } from '../data/site.js';
 const year = new Date().getFullYear();
-
-const services = [
-  'Historic Restoration',
-  'Seismic & Structural Retrofit',
-  'Adobe Restoration & Reconstruction',
-  'Building Materials Restoration',
-];
 ---
 <footer class="site-footer">
   <!-- CTA band -->
@@ -30,7 +23,7 @@ const services = [
     <div class="ft-col">
       <p class="ft-head">Services</p>
       <ul>
-        {services.map((s) => <li><a href="/about-and-services/">{s}</a></li>)}
+        {services.map((s) => <li><a href="/about-and-services/">{s.title}</a></li>)}
       </ul>
     </div>
 

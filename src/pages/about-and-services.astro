@@ -1,31 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
-import { localImage } from '../data/site.js';
+import { localImage, services } from '../data/site.js';
 import portfolio from '../data/portfolio.json';
-
-const services = [
-  { title: 'Historic Restoration', items: [
-    'Commercial buildings, churches, and federal, state, and local landmarks',
-    'Materials restoration: stained glass, fine carpentry, stone and marble, light fixtures, statues and mouldings',
-    'Door and window fabrication and repair',
-  ]},
-  { title: 'Seismic & Structural Retrofit', items: [
-    'Structural support and bracing',
-    'Interior demo and retrofit',
-    'Foundation bolting',
-  ]},
-  { title: 'Adobe Restoration & Reconstruction', items: [
-    'Adobe mud plastering',
-    'Adobe block repairs and recreation',
-    'Adobe retrofitting',
-    'Period-authentic interior lime plastering',
-  ]},
-  { title: 'Building Materials Restoration', items: [
-    'Restoration of stained glass, fine carpentry, stone and marble, light fixtures, statues and mouldings',
-    'Repairs to brick, historic concrete, tile, and plaster',
-    'Door and window fabrication and repair',
-  ]},
-];
 
 const dirImg = portfolio.find((p) => p.slug === 'leland-stanford-mansion')?.image;
 ---

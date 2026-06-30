@@ -26,7 +26,8 @@
    }
   ],
   "scope_label": "Scope of Work",
-  "scope": "Upgrade electrical and replace 1600+ rosettes"
+  "scope": "Upgrade electrical and replace 1600+ rosettes",
+  "displayTitle": "Balboa Park Spreckles Organ Pavilion"
  },
  {
   "title": "Bank of Italy",
@@ -57,7 +58,8 @@
    }
   ],
   "scope_label": "Scope of Work",
-  "scope": "URM seismic retrofit and historic restoration, including tenant improvements, performed under Historic Tax Credit Certification by National Parks Service"
+  "scope": "URM seismic retrofit and historic restoration, including tenant improvements, performed under Historic Tax Credit Certification by National Parks Service",
+  "displayTitle": "Bank of Italy"
  },
  {
   "title": "Alviso Adobe",
@@ -87,7 +89,8 @@
    }
   ],
   "scope_label": "Scope of Work",
-  "scope": "Adobe Seismic Repairs and Upgrade"
+  "scope": "Adobe Seismic Repairs and Upgrade",
+  "displayTitle": "Alviso Adobe"
  },
  {
   "title": "Bear Building",
@@ -118,7 +121,8 @@
    }
   ],
   "scope_label": "Scope of Work",
-  "scope": "URM seismic upgrade and exterior historic restoration"
+  "scope": "URM seismic upgrade and exterior historic restoration",
+  "displayTitle": "Bear Building"
  },
  {
   "title": "1036 S. Bonnie Brae Street",
@@ -152,7 +156,8 @@
    }
   ],
   "scope_label": "Scope of Work",
-  "scope": "Foundation Replacement and Seismic Upgrade, Exterior Repairs"
+  "scope": "Foundation Replacement and Seismic Upgrade, Exterior Repairs",
+  "displayTitle": "1036 S. Bonnie Brae Street"
  },
  {
   "title": "Braley Building",
@@ -185,7 +190,8 @@
    }
   ],
   "scope_label": "Scope of Work",
-  "scope": "Historic Restoration and Tenant Improvements to Masonry Commercial Building"
+  "scope": "Historic Restoration and Tenant Improvements to Masonry Commercial Building",
+  "displayTitle": "Braley Building"
  },
  {
   "title": "California Science Center",
@@ -214,7 +220,8 @@
    }
   ],
   "scope_label": "Scope of Work",
-  "scope": "Restoration of Historical Exterior Walls Incorporated in New Project, including Masonry, Replica Terra Cotta, Woodwork and Wood Window Restoration"
+  "scope": "Restoration of Historical Exterior Walls Incorporated in New Project, including Masonry, Replica Terra Cotta, Woodwork and Wood Window Restoration",
+  "displayTitle": "California Science Center at Exposition Park"
  },
  {
   "title": "Calvary Presbyterian Church",
@@ -244,7 +251,8 @@
    }
   ],
   "scope_label": "Scope of Work",
-  "scope": "URM Seismic Upgrade, Re-roofing and Interior Restoration"
+  "scope": "URM Seismic Upgrade, Re-roofing and Interior Restoration",
+  "displayTitle": "Calvary Presbyterian Church"
  },
  {
   "title": "Casa de Adobe",
@@ -274,7 +282,8 @@
    }
   ],
   "scope_label": "Scope of Work",
-  "scope": "Restoration of Orno and Chimney"
+  "scope": "Restoration of Orno and Chimney",
+  "displayTitle": "Casa de Adobe"
  },
  {
   "title": "Casa de Bandini",
@@ -309,7 +318,8 @@
    }
   ],
   "scope_label": "Scope of Work",
-  "scope": "Seismic Retrofit and Adobe Repair, Plastering"
+  "scope": "Seismic Retrofit and Adobe Repair, Plastering",
+  "displayTitle": "Casa de Bandini \u2013 Cosmopolitan Hotel"
  },
  {
   "title": "Casa de Pedrorena",
@@ -343,7 +353,8 @@
    }
   ],
   "scope_label": "Scope of Work",
-  "scope": "Repair and Whitewash Exterior"
+  "scope": "Repair and Whitewash Exterior",
+  "displayTitle": "Casa de Pedrorena"
  },
  {
   "title": "Cocoanut Grove",
@@ -373,7 +384,8 @@
    }
   ],
   "scope_label": "Scope of Work",
-  "scope": "Restoration of the Cocoanut Grove Coffee Shop/Lounge"
+  "scope": "Restoration of the Cocoanut Grove Coffee Shop/Lounge",
+  "displayTitle": "Cocoanut Grove \u2013 Ambassador Hotel"
  },
  {
   "title": "Cooper Molera Adobe",
@@ -407,7 +419,8 @@
    }
   ],
   "scope_label": "Scope of Work",
-  "scope": "Adobe Wall Repair, Adobe Masonry, Stone Repair"
+  "scope": "Adobe Wall Repair, Adobe Masonry, Stone Repair",
+  "displayTitle": "Cooper Molera Adobe"
  },
  {
   "title": "Covarrubias Adobe",
@@ -441,7 +454,8 @@
    }
   ],
   "scope_label": "Scope of Work",
-  "scope": "Lime Plastering, Adobe Repairs"
+  "scope": "Lime Plastering, Adobe Repairs",
+  "displayTitle": "Covarrubias Adobe"
  },
  {
   "title": "Leland Stanford Mansion",
@@ -476,7 +490,8 @@
    }
   ],
   "scope_label": "Scope of Work",
-  "scope": "Seismic Stabilization and Historic Restoration of Mansards, Cornices and Roof"
+  "scope": "Seismic Stabilization and Historic Restoration of Mansards, Cornices and Roof",
+  "displayTitle": "Leland Stanford Mansion"
  },
  {
   "title": "Episcopal Church of the Ascension",
@@ -511,7 +526,8 @@
    }
   ],
   "scope_label": "Scope of Work",
-  "scope": "Reconstruction and Seismic Upgrade of Parish Hall Wood and Stone Porch"
+  "scope": "Reconstruction and Seismic Upgrade of Parish Hall Wood and Stone Porch",
+  "displayTitle": "Episcopal Church of the Ascension"
  },
  {
   "title": "Flores Adobe",
@@ -546,7 +562,8 @@
    }
   ],
   "scope_label": "Scope of Work",
-  "scope": "Adobe Seismic Stabilization and Historical Restoration"
+  "scope": "Adobe Seismic Stabilization and Historical Restoration",
+  "displayTitle": "Flores Adobe"
  },
  {
   "title": "First United Methodist Church",
@@ -577,7 +594,8 @@
    }
   ],
   "scope_label": "Scope of Work",
-  "scope": "URM Seismic Stabilization, and Restoration of Ornate Plaster Ceiling and Interior Woodwork"
+  "scope": "URM Seismic Stabilization, and Restoration of Ornate Plaster Ceiling and Interior Woodwork",
+  "displayTitle": "First United Methodist Church"
  },
  {
   "title": "Hotel del Monte",
@@ -607,7 +625,8 @@
    }
   ],
   "scope_label": "Scope of Work",
-  "scope": "Restoration of ornate ceiling in the \u201cLa Novia Room.\u201d"
+  "scope": "Restoration of ornate ceiling in the \u201cLa Novia Room.\u201d",
+  "displayTitle": "Hotel del Monte \u2013 Naval Post Graduate School"
  },
  {
   "title": "Jensen-Alvarado Ranch",
@@ -642,7 +661,8 @@
    }
   ],
   "scope_label": "Scope of Work",
-  "scope": "URM Seismic Stabilization and Historic Restoration"
+  "scope": "URM Seismic Stabilization and Historic Restoration",
+  "displayTitle": "Jensen-Alvarado Ranch"
  },
  {
   "title": "La Quinta Resort \u2013 Azur Adobe",
@@ -673,7 +693,8 @@
    }
   ],
   "scope_label": "Scope of Work",
-  "scope": "Restoration, Plastering and Adobe Masonry"
+  "scope": "Restoration, Plastering and Adobe Masonry",
+  "displayTitle": "La Quinta Resort \u2013 Azur Adobe"
  },
  {
   "title": "Leo Carillo Ranch",
@@ -709,7 +730,8 @@
    }
   ],
   "scope_label": "Scope of Work",
-  "scope": "Adobe Seismic Stabilization and Historical Restoration for Five Buildings"
+  "scope": "Adobe Seismic Stabilization and Historical Restoration for Five Buildings",
+  "displayTitle": "Leo Carillo Ranch"
  },
  {
   "title": "Leonis Adobe",
@@ -745,7 +767,8 @@
    }
   ],
   "scope_label": "Scope of Work",
-  "scope": "Adobe Seismic Stabilization and Historical Restoration"
+  "scope": "Adobe Seismic Stabilization and Historical Restoration",
+  "displayTitle": "Leonis Adobe"
  },
  {
   "title": "Logan Street Elementary School",
@@ -775,7 +798,8 @@
    }
   ],
   "scope_label": "Scope of Work",
-  "scope": "Replacement of Existing Wood Windows with New to Match Originals"
+  "scope": "Replacement of Existing Wood Windows with New to Match Originals",
+  "displayTitle": "Logan Street Elementary School"
  },
  {
   "title": "Lopez Adobe",
@@ -807,7 +831,8 @@
    }
   ],
   "scope_label": "Scope of Work",
-  "scope": "Adobe seismic stabilization and historic restoration"
+  "scope": "Adobe seismic stabilization and historic restoration",
+  "displayTitle": "Lopez Adobe"
  },
  {
   "title": "Los Altos Apartments",
@@ -840,7 +865,8 @@
    }
   ],
   "scope_label": "Scope of Work",
-  "scope": "URM seismic retrofit"
+  "scope": "URM seismic retrofit",
+  "displayTitle": "Los Altos Apartments"
  },
  {
   "title": "Lincoln State Monument Museum of New Mexico",
@@ -871,7 +897,8 @@
    }
   ],
   "scope_label": "Scope of Work",
-  "scope": "Adobe Plastering as Part of Research Project on Adobe Restoration Techniques, Sponsored by the Getty Foundation"
+  "scope": "Adobe Plastering as Part of Research Project on Adobe Restoration Techniques, Sponsored by the Getty Foundation",
+  "displayTitle": "Lincoln State Monument Museum of New Mexico"
  },
  {
   "title": "Mission San Miguel",
@@ -907,7 +934,8 @@
    }
   ],
   "scope_label": "Scope of Work",
-  "scope": "Seismic Stabilization, Phase I-IV"
+  "scope": "Seismic Stabilization, Phase I-IV",
+  "displayTitle": "Mission San Miguel"
  },
  {
   "title": "Mission San Luis Obispo",
@@ -943,7 +971,8 @@
    }
   ],
   "scope_label": "Scope of Work",
-  "scope": "Exterior Wood Restoration"
+  "scope": "Exterior Wood Restoration",
+  "displayTitle": "Mission San Luis Obispo"
  },
  {
   "title": "Montebello Women\u2019s Club",
@@ -973,7 +1002,8 @@
    }
   ],
   "scope_label": "Scope of Work",
-  "scope": "Seismic Upgrade, Accessibility Upgrade and Interior Restoration"
+  "scope": "Seismic Upgrade, Accessibility Upgrade and Interior Restoration",
+  "displayTitle": "Montebello Women\u2019s Club"
  },
  {
   "title": "Mount Whitney Fish Hatchery",
@@ -1003,7 +1033,8 @@
    }
   ],
   "scope_label": "Scope of Work",
-  "scope": "Seismic Retrofit and Restoration"
+  "scope": "Seismic Retrofit and Restoration",
+  "displayTitle": "Mount Whitney Fish Hatchery"
  },
  {
   "title": "Old Governor\u2019s Mansion",
@@ -1037,7 +1068,8 @@
    }
   ],
   "scope_label": "Scope of Work",
-  "scope": "Window Restoration Subcontractor and Exterior Historic Restoration of Ornate Wood Mansion"
+  "scope": "Window Restoration Subcontractor and Exterior Historic Restoration of Ornate Wood Mansion",
+  "displayTitle": "Old Governor\u2019s Mansion"
  },
  {
   "title": "O\u2019Hara Adobe",
@@ -1068,7 +1100,8 @@
    }
   ],
   "scope_label": "Scope of Work",
-  "scope": "Adobe Seismic Repairs and Upgrade"
+  "scope": "Adobe Seismic Repairs and Upgrade",
+  "displayTitle": "O\u2019Hara Adobe"
  },
  {
   "title": "Orcutt Ranch Adobe",
@@ -1102,7 +1135,8 @@
    }
   ],
   "scope_label": "Scope of Work",
-  "scope": "Adobe Seismic Repairs"
+  "scope": "Adobe Seismic Repairs",
+  "displayTitle": "Orcutt Ranch Adobe"
  },
  {
   "title": "Pasadena Playhouse",
@@ -1136,7 +1170,8 @@
    }
   ],
   "scope_label": "Scope of Work",
-  "scope": "URM Seismic Stabilization and Repairs"
+  "scope": "URM Seismic Stabilization and Repairs",
+  "displayTitle": "Pasadena Playhouse"
  },
  {
   "title": "Olivas Adobe",
@@ -1170,7 +1205,8 @@
    }
   ],
   "scope_label": "Scope of Work",
-  "scope": "Adobe Masonry, Lime Plastering"
+  "scope": "Adobe Masonry, Lime Plastering",
+  "displayTitle": "Olivas Adobe"
  },
  {
   "title": "Peirano Building",
@@ -1204,7 +1240,8 @@
    }
   ],
   "scope_label": "Scope of Work",
-  "scope": "URM Building Shell Restoration, Seismic Upgrade and Tenant Improvements in Partially Burned-out 1870\u2019s Brick Commercial Buildings"
+  "scope": "URM Building Shell Restoration, Seismic Upgrade and Tenant Improvements in Partially Burned-out 1870\u2019s Brick Commercial Buildings",
+  "displayTitle": "Peirano Building"
  },
  {
   "title": "Phillips Mansion",
@@ -1239,7 +1276,8 @@
    }
   ],
   "scope_label": "Scope of Work",
-  "scope": "Exterior Restoration and URM Seismic Stabilization, Restoration and Reconstruction of Ornate Exterior Woodwork, and Restoration of Wood Windows"
+  "scope": "Exterior Restoration and URM Seismic Stabilization, Restoration and Reconstruction of Ornate Exterior Woodwork, and Restoration of Wood Windows",
+  "displayTitle": "Phillips Mansion"
  },
  {
   "title": "Pinney House",
@@ -1273,7 +1311,8 @@
    }
   ],
   "scope_label": "Scope of Work",
-  "scope": "Exterior Woodwork Restoration"
+  "scope": "Exterior Woodwork Restoration",
+  "displayTitle": "Pinney House"
  },
  {
   "title": "Pio Pico Mansion",
@@ -1309,7 +1348,8 @@
    }
   ],
   "scope_label": "Scope of Work",
-  "scope": "Adobe Seismic Repair and Stabilization, Interior and Exterior Historic Restoration and Reconstruction of Previously-demolished Portions of the Building"
+  "scope": "Adobe Seismic Repair and Stabilization, Interior and Exterior Historic Restoration and Reconstruction of Previously-demolished Portions of the Building",
+  "displayTitle": "Pio Pico Mansion"
  },
  {
   "title": "Pasadena Residence",
@@ -1340,7 +1380,8 @@
    }
   ],
   "scope_label": "Scope of Work",
-  "scope": "12,000 s.f. URM (unreinforced masonry) seismic stabilization retrofit. Interior and exterior historic restoration."
+  "scope": "12,000 s.f. URM (unreinforced masonry) seismic stabilization retrofit. Interior and exterior historic restoration.",
+  "displayTitle": "Pasadena Residence"
  },
  {
   "title": "Rancho Camulos",
@@ -1375,7 +1416,8 @@
    }
   ],
   "scope_label": "Scope of Work",
-  "scope": "Adobe Seismic Stabilization, Restoration of Main House, and Restoration of Exterior Walls on Small Adobe"
+  "scope": "Adobe Seismic Stabilization, Restoration of Main House, and Restoration of Exterior Walls on Small Adobe",
+  "displayTitle": "Rancho Camulos"
  },
  {
   "title": "Rancho Los Cerritos",
@@ -1410,7 +1452,8 @@
    }
   ],
   "scope_label": "Scope of Work",
-  "scope": "Adobe Seismic Upgrade, and Exterior Historic Restoration including Adobe, Wood Doors and Windows, Tile Roof and Site Work"
+  "scope": "Adobe Seismic Upgrade, and Exterior Historic Restoration including Adobe, Wood Doors and Windows, Tile Roof and Site Work",
+  "displayTitle": "Rancho Los Cerritos"
  },
  {
   "title": "San Gabriel Auditorium",
@@ -1440,7 +1483,8 @@
    }
   ],
   "scope_label": "Scope of Work",
-  "scope": "Seismic Repair and Upgrading to Adobe and URM structure, including Crack Injection and Installation of Steel Bracing"
+  "scope": "Seismic Repair and Upgrading to Adobe and URM structure, including Crack Injection and Installation of Steel Bracing",
+  "displayTitle": "San Gabriel Auditorium"
  },
  {
   "title": "San Pedro Municipal Building",
@@ -1469,7 +1513,8 @@
    }
   ],
   "scope_label": "Scope of Work",
-  "scope": "Subcontractor for Restoration of 225 Historic Wood Windows"
+  "scope": "Subcontractor for Restoration of 225 Historic Wood Windows",
+  "displayTitle": "San Pedro Municipal Building"
  },
  {
   "title": "Second Church of Christ, Scientist of Los Angeles",
@@ -1503,7 +1548,8 @@
    }
   ],
   "scope_label": "Scope of Work",
-  "scope": "Seismic Retrofit and Repair of URM Stone Spires, Re-roofing and Restoration of Ornate Plasterwork"
+  "scope": "Seismic Retrofit and Repair of URM Stone Spires, Re-roofing and Restoration of Ornate Plasterwork",
+  "displayTitle": "Second Church of Christ, Scientist of Los Angeles"
  },
  {
   "title": "25 S. Baldwin Avenue",
@@ -1528,7 +1574,8 @@
    }
   ],
   "scope_label": "Scope of Work",
-  "scope": "URM Retrofit"
+  "scope": "URM Retrofit",
+  "displayTitle": "25 S. Baldwin Avenue"
  },
  {
   "title": "Trinity Episcopal Church",
@@ -1562,7 +1609,8 @@
    }
   ],
   "scope_label": "Scope of Work",
-  "scope": "URM Seismic Upgrade and Historic Restoration of Exterior Stonework, Tile Roofs and Ornate Interior Plasterwork"
+  "scope": "URM Seismic Upgrade and Historic Restoration of Exterior Stonework, Tile Roofs and Ornate Interior Plasterwork",
+  "displayTitle": "Trinity Episcopal Church"
  },
  {
   "title": "Wells Halliday Mansion (Carl Bean AIDS Hospice)",
@@ -1595,7 +1643,8 @@
    }
   ],
   "scope_label": "Scope of Work",
-  "scope": "Historic Restoration and Adaptive Re-use"
+  "scope": "Historic Restoration and Adaptive Re-use",
+  "displayTitle": "Wells Halliday Mansion (Carl Bean AIDS Hospice)"
  },
  {
   "title": "Westminster Church",
@@ -1624,7 +1673,8 @@
    }
   ],
   "scope_label": "Scope of Work",
-  "scope": "URM Seismic Repair and Upgrade, Restoration and Replication of Exterior Stonework"
+  "scope": "URM Seismic Repair and Upgrade, Restoration and Replication of Exterior Stonework",
+  "displayTitle": "Westminster Church"
  },
  {
   "title": "Villa Riviera",
@@ -1657,7 +1707,8 @@
    }
   ],
   "scope_label": "Scope of Work",
-  "scope": "Period authentic bathroom and historic tile restoration in owner-occupied unit"
+  "scope": "Period authentic bathroom and historic tile restoration in owner-occupied unit",
+  "displayTitle": "Villa Riviera"
  },
  {
   "title": "Ortega Adobe",
@@ -1690,7 +1741,8 @@
    }
   ],
   "scope_label": "Scope of Work",
-  "scope": "Shoring of interior beams and repair of lime plaster"
+  "scope": "Shoring of interior beams and repair of lime plaster",
+  "displayTitle": "Ortega Adobe"
  },
  {
   "title": "Reid-Baldwin Adobe",
@@ -1723,7 +1775,8 @@
    }
   ],
   "scope_label": "Scope of Work",
-  "scope": "Structural seismic upgrades. Rebuild roof and veranda to emulate original design."
+  "scope": "Structural seismic upgrades. Rebuild roof and veranda to emulate original design.",
+  "displayTitle": "Reid-Baldwin Adobe"
  },
  {
   "title": "Orella Adobes",
@@ -1756,7 +1809,8 @@
    }
   ],
   "scope_label": "Scope of Work",
-  "scope": "Repair flood damage including removing mud debris and shoring up adobes for forthcoming restoration"
+  "scope": "Repair flood damage including removing mud debris and shoring up adobes for forthcoming restoration",
+  "displayTitle": "Orella Adobes"
  },
  {
   "title": "Wilson Court Bungalows at Caltech",
@@ -1785,7 +1839,8 @@
    }
   ],
   "scope_label": "Scope of Work",
-  "scope": "Relocate and restore eleven residential bungalow units to original historic design"
+  "scope": "Relocate and restore eleven residential bungalow units to original historic design",
+  "displayTitle": "Wilson Court Bungalows at Caltech"
  },
  {
   "title": "McCrea Ranch Bunkhouse",
@@ -1818,7 +1873,8 @@
    }
   ],
   "scope_label": "Scope of Work",
-  "scope": "Raise bunkhouse in order to remove and replace foundation"
+  "scope": "Raise bunkhouse in order to remove and replace foundation",
+  "displayTitle": "McCrea Ranch Bunkhouse"
  },
  {
   "title": "El Molino Viejo",
@@ -1851,7 +1907,8 @@
    }
   ],
   "scope_label": "Scope of Work",
-  "scope": "Restoration and adobe repair/plaster of historic grist mill, Southern California's oldest commercial building. "
+  "scope": "Restoration and adobe repair/plaster of historic grist mill, Southern California's oldest commercial building. ",
+  "displayTitle": "El Molino Viejo (The Old Mill)"
  },
  {
   "title": "Mission San Antonio de Padua",
@@ -1884,7 +1941,8 @@
    }
   ],
   "scope_label": "Scope of Work",
-  "scope": "Adobe restoration and historic woodwork restoration"
+  "scope": "Adobe restoration and historic woodwork restoration",
+  "displayTitle": "Mission San Antonio de Padua"
  },
  {
   "title": "Craig Adobe",
@@ -1913,7 +1971,8 @@
    }
   ],
   "scope_label": "Scope of Work",
-  "scope": "Repair cracking and damaged exterior walls. Rebuild second floor interior and restore to original historic condition."
+  "scope": "Repair cracking and damaged exterior walls. Rebuild second floor interior and restore to original historic condition.",
+  "displayTitle": "Craig Adobe (The Hermitage)"
  },
  {
   "title": "Mission San Luis Rey",
@@ -1946,7 +2005,8 @@
    }
   ],
   "scope_label": "Scope of Work",
-  "scope": "Seismic retrofit for church and interior repairs "
+  "scope": "Seismic retrofit for church and interior repairs ",
+  "displayTitle": "Mission San Luis Rey de Francia"
  },
  {
   "title": "Scottish Rite Cathedral",
@@ -1975,7 +2035,8 @@
    }
   ],
   "scope_label": "Scope of Work",
-  "scope": "Replaster interior ceilings, repaint building interior to historic color palette "
+  "scope": "Replaster interior ceilings, repaint building interior to historic color palette ",
+  "displayTitle": "Scottish Rite Cathedral"
  },
  {
   "title": "Wawona Hotel",
@@ -2008,7 +2069,8 @@
    }
   ],
   "scope_label": "Scope of Work",
-  "scope": "Interior plaster repairs consistent with historic Victorian style"
+  "scope": "Interior plaster repairs consistent with historic Victorian style",
+  "displayTitle": "Wawona Hotel at Yosemite National Park"
  },
  {
   "title": "Reyes Adobe",
@@ -2037,7 +2099,8 @@
    }
   ],
   "scope_label": "Scope of Work",
-  "scope": "Rebuild damaged orno"
+  "scope": "Rebuild damaged orno",
+  "displayTitle": "Reyes Adobe"
  },
  {
   "title": "DAR California State Headquarters",
@@ -2066,7 +2129,8 @@
    }
   ],
   "scope_label": "Scope of Work",
-  "scope": "Rebuild roof, restore damaged exterior wood beams, resurface interior wood floors, exterior paint to historic color palette"
+  "scope": "Rebuild roof, restore damaged exterior wood beams, resurface interior wood floors, exterior paint to historic color palette",
+  "displayTitle": "Daughters of the American Revolution California State Headquarters"
  },
  {
   "title": "Smugglers Cove Ranch",
@@ -2099,7 +2163,8 @@
    }
   ],
   "scope_label": "Scope of Work",
-  "scope": "Seismic upgrade of two-story adobe and stone building. Plastering of exterior and interior walls. Rebuild and replace roof to historic specifications."
+  "scope": "Seismic upgrade of two-story adobe and stone building. Plastering of exterior and interior walls. Rebuild and replace roof to historic specifications.",
+  "displayTitle": "Smugglers Cove Ranch House"
  },
  {
   "title": "Beverly Park Residence",
@@ -2124,7 +2189,8 @@
    }
   ],
   "scope_label": "Scope of Work",
-  "scope": "Restoration, repair, and installation of early-1900s fireplace from England in remodeled Zanuck estate."
+  "scope": "Restoration, repair, and installation of early-1900s fireplace from England in remodeled Zanuck estate.",
+  "displayTitle": "Beverly Park Residence"
  },
  {
   "title": "Killingsworth, Brady & Smith Building",
@@ -2157,7 +2223,8 @@
    }
   ],
   "scope_label": "Scope of Work",
-  "scope": "Roof restoration at offices of KSM Architecture, Inc., formerly the offices of Killingsworth, Brady & Smith, designed by noted architect Edward Killingsworth. The building is recognized for its Mid-Century Modern style and has won an Honor Award from the National American Institute of Architests (AIA). "
+  "scope": "Roof restoration at offices of KSM Architecture, Inc., formerly the offices of Killingsworth, Brady & Smith, designed by noted architect Edward Killingsworth. The building is recognized for its Mid-Century Modern style and has won an Honor Award from the National American Institute of Architests (AIA). ",
+  "displayTitle": "Killingsworth, Brady & Smith Building (KSM Architecture, Inc.)"
  },
  {
   "title": "Melrose Hill Residence",
@@ -2188,7 +2255,8 @@
    }
   ],
   "scope_label": "Scope of Work",
-  "scope": "Fire restoration including rebuild of roof and ceilings and repairs to second floor fire damage"
+  "scope": "Fire restoration including rebuild of roof and ceilings and repairs to second floor fire damage",
+  "displayTitle": "Melrose Hill Residence"
  },
  {
   "title": "L.A. County Hospital State Street Courtyard",
@@ -2217,7 +2285,8 @@
    }
   ],
   "scope_label": "Scope of Work",
-  "scope": "Installation of historic fixtures to upgrade power and lighting in entry courtyard"
+  "scope": "Installation of historic fixtures to upgrade power and lighting in entry courtyard",
+  "displayTitle": "L.A. County Hospital State Street Courtyard"
  },
  {
   "title": "Finis E. Yoakum House",
@@ -2246,7 +2315,8 @@
    }
   ],
   "scope_label": "Scope of Work",
-  "scope": "Debris removal and total fire restoration rebuild of basement and first floor. Restore second and third floors to original condition."
+  "scope": "Debris removal and total fire restoration rebuild of basement and first floor. Restore second and third floors to original condition.",
+  "displayTitle": "Finis E. Yoakum House (S. Avenue 59 Residence)"
  },
  {
   "title": "181 Oak Knoll",
@@ -2275,7 +2345,8 @@
    }
   ],
   "scope_label": "Scope of Work",
-  "scope": "Fire restoration of commercial building designed by Smith and Williams architects "
+  "scope": "Fire restoration of commercial building designed by Smith and Williams architects ",
+  "displayTitle": "181 Oak Knoll"
  },
  {
   "title": "Grandview Substation",
@@ -2304,7 +2375,8 @@
    }
   ],
   "scope_label": "Scope of Work",
-  "scope": "Rebuild damaged facade"
+  "scope": "Rebuild damaged facade",
+  "displayTitle": "Grandview Substation"
  },
  {
   "title": "La Pumada",
@@ -2333,7 +2405,8 @@
    }
   ],
   "scope_label": "Scope of Work",
-  "scope": "Phased restoration and repairs to historic garden statues at residential estate designed by Reginald Johnson"
+  "scope": "Phased restoration and repairs to historic garden statues at residential estate designed by Reginald Johnson",
+  "displayTitle": "La Pumada"
  },
  {
   "title": "EDAW Water Garden",
@@ -2358,7 +2431,8 @@
    }
   ],
   "scope_label": "Scope of Work",
-  "scope": "Relocate Oriental-style water garden features to centralized area on campus. Restored components including pergola, statues, and fountains designed by EDAW (Eckbo, Dean, Austin, & Williams), a noted landscape architecture firm."
+  "scope": "Relocate Oriental-style water garden features to centralized area on campus. Restored components including pergola, statues, and fountains designed by EDAW (Eckbo, Dean, Austin, & Williams), a noted landscape architecture firm.",
+  "displayTitle": "EDAW Water Garden at Ambassador College"
  },
  {
   "title": "Pasadena Heritage House Headquarters",
@@ -2387,7 +2461,8 @@
    }
   ],
   "scope_label": "Scope of Work",
-  "scope": "Seismic retrofit of brick foundation"
+  "scope": "Seismic retrofit of brick foundation",
+  "displayTitle": "Pasadena Heritage House Headquarters"
  },
  {
   "title": "Monrovia Residence",
@@ -2412,7 +2487,8 @@
    }
   ],
   "scope_label": "Scope of Work",
-  "scope": "Complete interior update for Spanish revival residence in deferred maintenance: replace and refinish ceiling, crown moulding, and drywall. Recreate character-defining architectural details including interior arches and plaster fireplace. Kitchen upgrade and gut renovation of two bathrooms. Refinish original 1920s hardwood floors. Salvage and repair original 1920s double hung sash windows. Update knob and tube electrical throughout. Brace and bolt foundation in basement to current California seismic code. Construction of Spanish tile portico over exterior doors. "
+  "scope": "Complete interior update for Spanish revival residence in deferred maintenance: replace and refinish ceiling, crown moulding, and drywall. Recreate character-defining architectural details including interior arches and plaster fireplace. Kitchen upgrade and gut renovation of two bathrooms. Refinish original 1920s hardwood floors. Salvage and repair original 1920s double hung sash windows. Update knob and tube electrical throughout. Brace and bolt foundation in basement to current California seismic code. Construction of Spanish tile portico over exterior doors. ",
+  "displayTitle": "Monrovia Residence"
  },
  {
   "title": "Arcadia ADU",
@@ -2437,7 +2513,8 @@
    }
   ],
   "scope_label": "Scope of Work",
-  "scope": "Complete construction of 1,000 square foot freestanding accessory dwelling unit (ADU) on private property\u2014from framing to finishing, including hardscape and pool"
+  "scope": "Complete construction of 1,000 square foot freestanding accessory dwelling unit (ADU) on private property\u2014from framing to finishing, including hardscape and pool",
+  "displayTitle": "Arcadia ADU"
  },
  {
   "title": "Hindry House",
@@ -2467,7 +2544,8 @@
    }
   ],
   "scope_label": "Scope of Work",
-  "scope": "Two phases of repair to wood beams on second floor deck at historic California Craftsman style house by master architects Arthur and Alfred Heineman"
+  "scope": "Two phases of repair to wood beams on second floor deck at historic California Craftsman style house by master architects Arthur and Alfred Heineman",
+  "displayTitle": "Hindry House"
  },
  {
   "title": "Will Rogers Historic State Park",
@@ -2496,7 +2574,8 @@
    }
   ],
   "scope_label": "Scope of Work",
-  "scope": "Fire restoration to reinforce three remaining main house chimneys following 2025 Palisades Fire. Provide immediate response to preserve remaining Visitor Center rafters and wood shake roofing. Remediate and protect remaining portion of fire-damaged historic blacksmith shop."
+  "scope": "Fire restoration to reinforce three remaining main house chimneys following 2025 Palisades Fire. Provide immediate response to preserve remaining Visitor Center rafters and wood shake roofing. Remediate and protect remaining portion of fire-damaged historic blacksmith shop.",
+  "displayTitle": "Will Rogers State Historic Park"
  },
  {
   "title": "Westridge School",
@@ -2519,6 +2598,7 @@
    }
   ],
   "scope_label": "Scope of Work",
-  "scope": "Custom construction of Westridge School for Girls' donor bench, utilizing poured and molded concrete, western red cedar, mortise and tenon construction, custom CNC patina metal with etched-glass inserts (by Judson Studios), with an etched 70lb bronze plaque. The bench enhances the historic presence in front of the 1906 Robert Pitcairn Jr. house."
+  "scope": "Custom construction of Westridge School for Girls' donor bench, utilizing poured and molded concrete, western red cedar, mortise and tenon construction, custom CNC patina metal with etched-glass inserts (by Judson Studios), with an etched 70lb bronze plaque. The bench enhances the historic presence in front of the 1906 Robert Pitcairn Jr. house.",
+  "displayTitle": "Westridge School Donor Bench"
  }
 ]

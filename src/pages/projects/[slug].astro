@@ -8,6 +8,7 @@ export function getStaticPaths() {
 }
 
 const { project } = Astro.props;
+const heading = project.displayTitle || project.title;
 
 // Related: same primary category, excluding self
 const primary = project.categories[0];
@@ -15,13 +16,13 @@ const related = portfolio
   .filter((p) => p.slug !== project.slug && p.categories.includes(primary) && p.image)
   .slice(0, 3);
 ---
-<Base title={project.title} description={project.scope || `${project.title} — a restoration project by Eagle Restorations.`}>
+<Base title={heading} description={project.scope || `${heading} — a restoration project by Eagle Restorations.`}>
   <article class="proj">
     <section class="proj-hero">
       <div class="container proj-hero-inner">
         <div class="proj-hero-text">
           <p class="cat-line">{project.categories.join(' · ')}</p>
-          <h1>{project.title}</h1>
+          <h1>{heading}</h1>
         </div>
         <a href="/projects/" class="link-gold back">&larr; All Projects</a>
       </div>

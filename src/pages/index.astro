@@ -168,7 +168,8 @@ const firstSlide = localImage(aboutImg) || slideshowImages[0];
   .hero-content {
     position: relative;
     z-index: 1;
-    padding: 112px 0 120px;
+    padding-top: 112px;
+    padding-bottom: 120px;
   }
   .hero-kicker {
     font-family: var(--font-head);
@@ -194,7 +195,7 @@ const firstSlide = localImage(aboutImg) || slideshowImages[0];
   .hero-cta { display: flex; flex-wrap: wrap; gap: 14px; }
 
   @media (max-width: 768px) {
-    .hero-content { padding: 64px 0 72px; }
+    .hero-content { padding-top: 64px; padding-bottom: 72px; }
   }
 
   .about-grid {

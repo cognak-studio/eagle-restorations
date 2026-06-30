@@ -4,6 +4,9 @@ import Base from '../layouts/Base.astro';
 // Populate src/data/awards.json with { title, image, category } entries once the
 // uploads folder is available; the grid renders automatically.
 import awards from '../data/awards.json';
+
+const order = ['Certificates', 'Recognition', 'Project Awards'];
+const cats = order.filter((c) => awards.some((a) => a.category === c));
 ---
 <Base title="Press & Awards" description="Eagle Restorations has been recognized for excellence in historic restoration by the California Preservation Foundation, the State of California, and more.">
   <section class="page-head">
@@ -19,14 +22,22 @@ import awards from '../data/awards.json';
   <section class="section">
     <div class="container">
       {awards.length > 0 ? (
-        <div class="award-masonry">
-          {awards.map((a, i) => (
-            <figure class="award">
-              <img src={a.image} alt={a.title || `Eagle Restorations award ${i + 1}`} loading="lazy" />
-              {a.title && <figcaption>{a.title}</figcaption>}
-            </figure>
-          ))}
-        </div>
+        <>
+          {cats.length > 0 && (
+            <div class="filters" id="awardFilters">
+              <button class="filter active" data-cat="all">All Awards</button>
+              {cats.map((c) => <button class="filter" data-cat={c}>{c}</button>)}
+            </div>
+          )}
+          <div class="award-masonry" id="awardGrid">
+            {awards.map((a, i) => (
+              <figure class="award" data-cat={a.category || ''}>
+                <img src={a.image} alt={a.title || `Eagle Restorations award ${i + 1}`} loading="lazy" />
+                {a.title && <figcaption>{a.title}</figcaption>}
+              </figure>
+            ))}
+          </div>
+        </>
       ) : (
         <div class="recog-list">
           <p class="lead">Eagle's work has been recognized by:</p>
@@ -49,7 +60,26 @@ import awards from '../data/awards.json';
   .page-head h1 { font-size: clamp(2.4rem, 5vw, 3.6rem); margin-bottom: 10px; }
   .page-head p { max-width: 64ch; font-size: 1.1rem; }
 
+  .filters { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 36px; }
+  .filter {
+    font-family: var(--font-head);
+    font-weight: 500;
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 9px 18px;
+    border: 1px solid var(--line);
+    background: #fff;
+    color: var(--ink-soft);
+    border-radius: 100px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+  .filter:hover { border-color: var(--gold); color: var(--ink); }
+  .filter.active { background: var(--ink); color: #fff; border-color: var(--ink); }
+
   .award-masonry { columns: 3; column-gap: 22px; }
+  .award.hide { display: none; }
   .award {
     break-inside: avoid;
     margin: 0 0 22px;
@@ -71,3 +101,18 @@ import awards from '../data/awards.json';
   @media (max-width: 760px) { .award-masonry { columns: 2; } }
   @media (max-width: 480px) { .award-masonry { columns: 1; } }
 </style>
+
+<script>
+  const filters = document.getElementById('awardFilters');
+  const cards = Array.from(document.querySelectorAll('#awardGrid .award'));
+  filters?.addEventListener('click', (e) => {
+    const btn = e.target.closest('.filter');
+    if (!btn) return;
+    document.querySelectorAll('#awardFilters .filter').forEach((b) => b.classList.remove('active'));
+    btn.classList.add('active');
+    const cat = btn.dataset.cat;
+    cards.forEach((c) => {
+      c.classList.toggle('hide', cat !== 'all' && c.dataset.cat !== cat);
+    });
+  });
+</script>

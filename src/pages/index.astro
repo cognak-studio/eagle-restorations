@@ -82,7 +82,9 @@ const firstSlide = localImage(aboutImg) || slideshowImages[0];
           <img class="slide is-active" data-layer="0" src={firstSlide}
                alt="Historic restoration project by Eagle Restorations" />
           <img class="slide" data-layer="1" alt="" aria-hidden="true" />
-          <span class="slide-cursor" aria-hidden="true">Next Image</span>
+          <span class="slide-cursor" aria-hidden="true">
+            <span class="slide-cursor-pill">Next Image</span>
+          </span>
         </div>
       </div>
       <div class="about-copy">
@@ -233,11 +235,17 @@ const firstSlide = localImage(aboutImg) || slideshowImages[0];
     position: absolute;
     top: 0;
     left: 0;
+    pointer-events: none;
+    opacity: 0;
+    z-index: 2;
+    transition: opacity 0.2s ease;
+    transform: translate(-9999px, -9999px);
+  }
+  .slide-cursor-pill {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     white-space: nowrap;
-    pointer-events: none;
     background: var(--gold);
     color: var(--brand-dark);
     font-family: var(--font-head);
@@ -247,17 +255,27 @@ const firstSlide = localImage(aboutImg) || slideshowImages[0];
     text-transform: uppercase;
     padding: 13px 24px;
     border-radius: 999px;
-    opacity: 0;
-    z-index: 2;
     box-shadow: 0 10px 22px -6px rgba(20, 18, 12, 0.4);
-    transition: opacity 0.2s ease;
-    transform: translate(-9999px, -9999px);
   }
   .slideshow.has-cursor-pill { cursor: none; }
   .slideshow.has-cursor-pill .slide-cursor { opacity: 1; }
 
+  @keyframes cursor-pill-bounce {
+    0%   { transform: scale(1); }
+    35%  { transform: scale(0.76); }
+    65%  { transform: scale(1.14); }
+    100% { transform: scale(1); }
+  }
+  .slide-cursor-pill.is-bouncing {
+    animation: cursor-pill-bounce 0.42s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
   @media (hover: none), (pointer: coarse) {
     .slide-cursor { display: none; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .slide-cursor-pill.is-bouncing { animation: none; }
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -396,6 +414,7 @@ const firstSlide = localImage(aboutImg) || slideshowImages[0];
 
     // Custom "Next Image" cursor pill (pointer devices only)
     const cursorPill = box.querySelector('.slide-cursor');
+    const cursorPillInner = box.querySelector('.slide-cursor-pill');
     const canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
     function moveCursorPill(e) {
@@ -403,6 +422,18 @@ const firstSlide = localImage(aboutImg) || slideshowImages[0];
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
       cursorPill.style.transform = 'translate(' + x + 'px, ' + y + 'px) translate(-50%, -50%)';
+    }
+
+    function bounceCursorPill() {
+      if (!cursorPillInner) return;
+      cursorPillInner.classList.remove('is-bouncing');
+      void cursorPillInner.offsetWidth; // force reflow so the animation can retrigger
+      cursorPillInner.classList.add('is-bouncing');
+    }
+    if (cursorPillInner) {
+      cursorPillInner.addEventListener('animationend', function () {
+        cursorPillInner.classList.remove('is-bouncing');
+      });
     }
 
     box.addEventListener('mouseenter', function (e) {
@@ -419,7 +450,11 @@ const firstSlide = localImage(aboutImg) || slideshowImages[0];
       if (cursorPill) box.classList.remove('has-cursor-pill');
     });
     if (cursorPill && canHover) box.addEventListener('mousemove', moveCursorPill);
-    box.addEventListener('click', function () { advance(); start(); });
+    box.addEventListener('click', function () {
+      advance();
+      start();
+      if (canHover) bounceCursorPill();
+    });
 
     if (!reduce) start();
   })();

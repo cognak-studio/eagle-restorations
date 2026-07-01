@@ -36,12 +36,26 @@ restoration, seismic retrofit, and adobe reconstruction.
 
 ## Hero
 
-The homepage hero is a single-column content block with a comment marking where a
-planned **WebGL background** can mount (`position: absolute; inset: 0; z-index: 0`).
-Lenis exposes scroll (`lenis.on('scroll', …)`) to drive canvas animation in sync.
+The homepage hero is a single-column content block over a **WebGL background**
+(`src/components/HeroCanvas.astro`) — a dependency-free fragment shader: slow
+drifting gold "dust" (fbm noise + sparse motes) at low opacity, reacting to
+mouse position and scroll. Sits `position: absolute; inset: 0; z-index: 0`
+behind `.hero-content` (`z-index: 1`).
+
+- No libraries — raw WebGL1, single fullscreen triangle.
+- Reads live scroll from `window.lenis.scroll` (exposed in `Base.astro`),
+  falling back to `window.scrollY`.
+- Pauses via `IntersectionObserver` when the hero scrolls out of view, and on
+  `visibilitychange` when the tab is hidden.
+- Skips mounting entirely under `prefers-reduced-motion: reduce` — hero falls
+  back to the plain `--bg-light` background.
+- Tuning knobs live in the fragment shader in `HeroCanvas.astro`: `haze`/`motes`
+  alpha multipliers, drift speed (`u_time * 0.028`), and the gold/ink mix.
 
 ## Known follow-ups
 
+- **WebGL hero (2026-06-30):** first pass — expect to tune density/speed/opacity
+  once it's live and reviewed against real copy and screen sizes.
 - Full **mobile audit** pending — dial in the slideshow and image layouts on small screens.
 - Footer CTA also shows on the Contact page (mildly redundant; left intentionally).
 - ~~Subpage headers (Projects/Contact/Press) and project-detail layout could get the

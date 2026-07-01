@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import HeroCanvas from '../components/HeroCanvas.astro';
 import { company, stats, localImage } from '../data/site.js';
 import portfolio from '../data/portfolio.json';
 
@@ -55,7 +56,7 @@ const firstSlide = localImage(aboutImg) || slideshowImages[0];
 <Base>
   <!-- Hero -->
   <section class="hero">
-    <!-- WebGL / canvas background can mount here: position:absolute; inset:0; z-index:0 -->
+    <HeroCanvas />
     <div class="hero-content container">
       <p class="hero-kicker">
         Class&nbsp;'B' Licensed General Contractor
@@ -83,7 +84,10 @@ const firstSlide = localImage(aboutImg) || slideshowImages[0];
                alt="Historic restoration project by Eagle Restorations" />
           <img class="slide" data-layer="1" alt="" aria-hidden="true" />
           <span class="slide-cursor" aria-hidden="true">
-            <span class="slide-cursor-pill">Next Image</span>
+            <span class="slide-cursor-pill">
+              <span class="pill-flash"></span>
+              <span class="pill-label">Next Image</span>
+            </span>
           </span>
         </div>
       </div>
@@ -242,12 +246,13 @@ const firstSlide = localImage(aboutImg) || slideshowImages[0];
     transform: translate(-9999px, -9999px);
   }
   .slide-cursor-pill {
+    position: relative;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     white-space: nowrap;
+    overflow: hidden;
     background: var(--gold);
-    color: var(--brand-dark);
     font-family: var(--font-head);
     font-weight: 700;
     font-size: 0.72rem;
@@ -256,6 +261,18 @@ const firstSlide = localImage(aboutImg) || slideshowImages[0];
     padding: 13px 24px;
     border-radius: 999px;
     box-shadow: 0 10px 22px -6px rgba(20, 18, 12, 0.4);
+  }
+  .pill-flash {
+    position: absolute;
+    inset: 0;
+    background: var(--brand-dark);
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+  .pill-label {
+    position: relative;
+    z-index: 1;
+    color: var(--brand-dark);
   }
   .slideshow.has-cursor-pill { cursor: none; }
   .slideshow.has-cursor-pill .slide-cursor { opacity: 1; }
@@ -270,12 +287,34 @@ const firstSlide = localImage(aboutImg) || slideshowImages[0];
     animation: cursor-pill-bounce 0.42s cubic-bezier(0.34, 1.56, 0.64, 1);
   }
 
+  /* Black-to-yellow wipe: fills left-to-right, holds, then recedes left-to-right back to yellow */
+  @keyframes pill-flash-wipe {
+    0%   { transform: scaleX(0); transform-origin: left; }
+    45%  { transform: scaleX(1); transform-origin: left; }
+    55%  { transform: scaleX(1); transform-origin: right; }
+    100% { transform: scaleX(0); transform-origin: right; }
+  }
+  @keyframes pill-label-flash {
+    0%   { color: var(--brand-dark); }
+    45%  { color: var(--gold); }
+    55%  { color: var(--gold); }
+    100% { color: var(--brand-dark); }
+  }
+  .slide-cursor-pill.is-flashing .pill-flash {
+    animation: pill-flash-wipe 0.56s ease-in-out;
+  }
+  .slide-cursor-pill.is-flashing .pill-label {
+    animation: pill-label-flash 0.56s ease-in-out;
+  }
+
   @media (hover: none), (pointer: coarse) {
     .slide-cursor { display: none; }
   }
 
   @media (prefers-reduced-motion: reduce) {
     .slide-cursor-pill.is-bouncing { animation: none; }
+    .slide-cursor-pill.is-flashing .pill-flash,
+    .slide-cursor-pill.is-flashing .pill-label { animation: none; }
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -426,13 +465,19 @@ const firstSlide = localImage(aboutImg) || slideshowImages[0];
 
     function bounceCursorPill() {
       if (!cursorPillInner) return;
-      cursorPillInner.classList.remove('is-bouncing');
-      void cursorPillInner.offsetWidth; // force reflow so the animation can retrigger
-      cursorPillInner.classList.add('is-bouncing');
+      cursorPillInner.classList.remove('is-bouncing', 'is-flashing');
+      void cursorPillInner.offsetWidth; // force reflow so the animations can retrigger
+      cursorPillInner.classList.add('is-bouncing', 'is-flashing');
     }
     if (cursorPillInner) {
-      cursorPillInner.addEventListener('animationend', function () {
-        cursorPillInner.classList.remove('is-bouncing');
+      // Animation events bubble up from the .pill-flash / .pill-label children,
+      // so remove each class only once its own animation actually finishes.
+      cursorPillInner.addEventListener('animationend', function (e) {
+        if (e.animationName === 'cursor-pill-bounce') {
+          cursorPillInner.classList.remove('is-bouncing');
+        } else if (e.animationName === 'pill-flash-wipe' || e.animationName === 'pill-label-flash') {
+          cursorPillInner.classList.remove('is-flashing');
+        }
       });
     }
 

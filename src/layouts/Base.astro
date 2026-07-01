@@ -201,6 +201,9 @@ const orgSchema = {
       const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       if (!reduce) {
         const lenis = new Lenis({ lerp: 0.1, smoothWheel: true });
+        // Exposed so other scripts (e.g. the homepage hero canvas) can read
+        // live scroll position without instantiating their own Lenis.
+        (window as any).lenis = lenis;
 
         function raf(time: number) {
           lenis.raf(time);

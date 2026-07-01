@@ -82,6 +82,7 @@ const firstSlide = localImage(aboutImg) || slideshowImages[0];
           <img class="slide is-active" data-layer="0" src={firstSlide}
                alt="Historic restoration project by Eagle Restorations" />
           <img class="slide" data-layer="1" alt="" aria-hidden="true" />
+          <span class="slide-cursor" aria-hidden="true">Next Image</span>
         </div>
       </div>
       <div class="about-copy">
@@ -228,6 +229,37 @@ const firstSlide = localImage(aboutImg) || slideshowImages[0];
   }
   .slide.is-active { opacity: 1; }
 
+  .slide-cursor {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    pointer-events: none;
+    background: var(--gold);
+    color: var(--brand-dark);
+    font-family: var(--font-head);
+    font-weight: 700;
+    font-size: 0.72rem;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    padding: 13px 24px;
+    border-radius: 999px;
+    opacity: 0;
+    z-index: 2;
+    box-shadow: 0 10px 22px -6px rgba(20, 18, 12, 0.4);
+    transition: opacity 0.2s ease;
+    transform: translate(-9999px, -9999px);
+  }
+  .slideshow.has-cursor-pill { cursor: none; }
+  .slideshow.has-cursor-pill .slide-cursor { opacity: 1; }
+
+  @media (hover: none), (pointer: coarse) {
+    .slide-cursor { display: none; }
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .slide { transition: none; }
   }
@@ -362,8 +394,31 @@ const firstSlide = localImage(aboutImg) || slideshowImages[0];
     function start() { stop(); if (!paused) timer = setInterval(advance, INTERVAL); }
     function stop() { if (timer) { clearInterval(timer); timer = null; } }
 
-    box.addEventListener('mouseenter', function () { paused = true; stop(); });
-    box.addEventListener('mouseleave', function () { paused = false; start(); });
+    // Custom "Next Image" cursor pill (pointer devices only)
+    const cursorPill = box.querySelector('.slide-cursor');
+    const canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+    function moveCursorPill(e) {
+      const rect = box.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      cursorPill.style.transform = 'translate(' + x + 'px, ' + y + 'px) translate(-50%, -50%)';
+    }
+
+    box.addEventListener('mouseenter', function (e) {
+      paused = true;
+      stop();
+      if (cursorPill && canHover) {
+        moveCursorPill(e);
+        box.classList.add('has-cursor-pill');
+      }
+    });
+    box.addEventListener('mouseleave', function () {
+      paused = false;
+      start();
+      if (cursorPill) box.classList.remove('has-cursor-pill');
+    });
+    if (cursorPill && canHover) box.addEventListener('mousemove', moveCursorPill);
     box.addEventListener('click', function () { advance(); start(); });
 
     if (!reduce) start();

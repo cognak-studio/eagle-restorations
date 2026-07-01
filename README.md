@@ -37,25 +37,31 @@ restoration, seismic retrofit, and adobe reconstruction.
 ## Hero
 
 The homepage hero is a single-column content block over a **WebGL background**
-(`src/components/HeroCanvas.astro`) — a dependency-free fragment shader: slow
-drifting gold "dust" (fbm noise + sparse motes) at low opacity, reacting to
-mouse position and scroll. Sits `position: absolute; inset: 0; z-index: 0`
-behind `.hero-content` (`z-index: 1`).
+(`src/components/HeroCanvas.astro`) built as a scene in
+[**Unicorn Studio**](https://unicorn.studio) (project id `UtOrFoOSCxh53JBMPnH4`)
+and embedded via their runtime SDK — not a hand-rolled shader. Sits
+`position: absolute; z-index: 0` behind `.hero-content` (`z-index: 1`).
 
-- No libraries — raw WebGL1, single fullscreen triangle.
-- Reads live scroll from `window.lenis.scroll` (exposed in `Base.astro`),
-  falling back to `window.scrollY`.
-- Pauses via `IntersectionObserver` when the hero scrolls out of view, and on
-  `visibilitychange` when the tab is hidden.
-- Skips mounting entirely under `prefers-reduced-motion: reduce` — hero falls
-  back to the plain `--bg-light` background.
-- Tuning knobs live in the fragment shader in `HeroCanvas.astro`: `haze`/`motes`
-  alpha multipliers, drift speed (`u_time * 0.028`), and the gold/ink mix.
+- Embed follows Unicorn Studio's [embed guide](https://www.unicorn.studio/docs/embed/):
+  a `div[data-us-project]` plus their SDK loader snippet, both in
+  `HeroCanvas.astro`. SDK pinned to `unicornstudio.js@v2.2.6` via jsDelivr.
+- **Bottom-anchored, oversized vs. the hero panel** (`bottom: 0; height: 125%`)
+  so `.hero`'s `overflow: hidden` crops from the top (sky/empty space) rather
+  than the bottom, per direction from Pierce.
+- Wired to **Lenis** virtual scroll: `lenis.on('scroll', …)` in `Base.astro`
+  calls `UnicornStudio.setScroll()` so the scene's scroll-driven motion tracks
+  Lenis's transform-based smoothing instead of native (unused) `window.scrollY`.
+- Skips mounting under `prefers-reduced-motion: reduce` (strips
+  `data-us-project` before `UnicornStudio.init()` runs) — hero falls back to
+  the plain `--bg-light` background.
+- To swap scenes, change the `projectId` default in `HeroCanvas.astro` or pass
+  `<HeroCanvas projectId="..." />`.
 
 ## Known follow-ups
 
-- **WebGL hero (2026-06-30):** first pass — expect to tune density/speed/opacity
-  once it's live and reviewed against real copy and screen sizes.
+- **WebGL hero (2026-06-30):** first pass with the real Unicorn Studio scene —
+  confirm the bottom-anchor/crop behavior looks right once live, especially on
+  short/wide desktop viewports.
 - Full **mobile audit** pending — dial in the slideshow and image layouts on small screens.
 - Footer CTA also shows on the Contact page (mildly redundant; left intentionally).
 - ~~Subpage headers (Projects/Contact/Press) and project-detail layout could get the

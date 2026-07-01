@@ -205,6 +205,15 @@ const orgSchema = {
         // live scroll position without instantiating their own Lenis.
         (window as any).lenis = lenis;
 
+        // Keep the Unicorn Studio hero scene's scroll-driven motion in sync
+        // with Lenis's virtual scroll (native window.scrollY doesn't move
+        // with Lenis's transform-based smoothing). Per Unicorn Studio's docs:
+        // https://www.unicorn.studio/docs/embed/#virtual-scroll
+        lenis.on('scroll', ({ scroll }: { scroll: number }) => {
+          const us = (window as any).UnicornStudio;
+          if (us && typeof us.setScroll === 'function') us.setScroll(scroll);
+        });
+
         function raf(time: number) {
           lenis.raf(time);
           requestAnimationFrame(raf);

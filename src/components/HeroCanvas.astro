@@ -1,236 +1,77 @@
 ---
-// WebGL background for the homepage hero — replaces the flat --bg-light fill
-// with a slow-drifting warm cream/gold gradient, a soft light "glow" that
-// tracks the mouse, and visible gold dust motes, like sun through a window
-// in an old building. No dependencies — a single fullscreen-triangle shader,
-// fully opaque so it paints over .hero's background outright. Sits behind
-// .hero-content (z-index:0 vs 1) inside the .hero section.
+// WebGL hero background — the actual scene, built in Unicorn Studio's
+// no-code editor (https://unicorn.studio), not a hand-rolled shader.
+// Embedded via Unicorn Studio's runtime SDK per their embed guide:
+// https://www.unicorn.studio/docs/embed/
+//
+// Replaces .hero's flat --bg-light fill. Wired to Lenis smooth-scroll via
+// UnicornStudio.setScroll() (see the lenis.on('scroll', …) call in
+// Base.astro), so scroll-driven motion in the scene stays in sync with the
+// site's virtual scroll instead of drifting from native window.scrollY.
+const { projectId = 'UtOrFoOSCxh53JBMPnH4' } = Astro.props;
 ---
-<canvas id="hero-gl" class="hero-canvas" aria-hidden="true"></canvas>
+<div
+  id="hero-unicorn"
+  class="hero-unicorn"
+  data-us-project={projectId}
+  data-us-scale="1"
+  data-us-dpi="1.5"
+  data-us-lazyload="true"
+  data-us-production="true"
+  data-us-alttext="Decorative animated background"
+  data-us-arialabel="Decorative animated background"
+></div>
 
 <style>
-  .hero-canvas {
+  /* Bottom-anchored and oversized vs. the hero panel: .hero has
+     overflow:hidden, so whatever doesn't fit gets clipped off the top
+     (sky/empty space) while the bottom of the scene always stays flush
+     with the bottom of the hero. */
+  .hero-unicorn {
     position: absolute;
-    inset: 0;
-    z-index: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     width: 100%;
-    height: 100%;
-    display: block;
-    pointer-events: none;
+    height: 125%;
+    z-index: 0;
   }
 </style>
 
 <script is:inline>
   (function () {
-    var canvas = document.getElementById('hero-gl');
-    if (!canvas) return;
+    var el = document.getElementById('hero-unicorn');
+    if (!el) return;
 
-    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    // Respect reduced-motion by simply not mounting the effect — the hero
-    // falls back to its plain --bg-light background, same as before.
-    if (reduceMotion) return;
+    // Skip the scene under reduced motion — hero falls back to the plain
+    // --bg-light background from .hero. Must run before UnicornStudio.init()
+    // picks up the data-us-project attribute below.
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      el.removeAttribute('data-us-project');
+      return;
+    }
 
-    var gl = canvas.getContext('webgl', { alpha: true, antialias: false, premultipliedAlpha: true })
-      || canvas.getContext('experimental-webgl', { alpha: true, antialias: false });
-    if (!gl) return;
-
-    var vertSrc = [
-      'attribute vec2 a_pos;',
-      'void main() {',
-      '  gl_Position = vec4(a_pos, 0.0, 1.0);',
-      '}',
-    ].join('\n');
-
-    var fragSrc = [
-      'precision mediump float;',
-      'uniform vec2 u_resolution;',
-      'uniform float u_time;',
-      'uniform vec2 u_mouse;',
-      'uniform float u_scroll;',
-      '',
-      'vec2 hash2(vec2 p) {',
-      '  p = vec2(dot(p, vec2(127.1, 311.7)), dot(p, vec2(269.5, 183.3)));',
-      '  return -1.0 + 2.0 * fract(sin(p) * 43758.5453123);',
-      '}',
-      '',
-      'float noise(vec2 p) {',
-      '  vec2 i = floor(p);',
-      '  vec2 f = fract(p);',
-      '  vec2 u = f * f * (3.0 - 2.0 * f);',
-      '  float a = dot(hash2(i + vec2(0.0, 0.0)), f - vec2(0.0, 0.0));',
-      '  float b = dot(hash2(i + vec2(1.0, 0.0)), f - vec2(1.0, 0.0));',
-      '  float c = dot(hash2(i + vec2(0.0, 1.0)), f - vec2(0.0, 1.0));',
-      '  float d = dot(hash2(i + vec2(1.0, 1.0)), f - vec2(1.0, 1.0));',
-      '  return mix(mix(a, b, u.x), mix(c, d, u.x), u.y);',
-      '}',
-      '',
-      'float fbm(vec2 p) {',
-      '  float v = 0.0;',
-      '  float amp = 0.5;',
-      '  for (int i = 0; i < 5; i++) {',
-      '    v += amp * noise(p);',
-      '    p *= 2.02;',
-      '    amp *= 0.55;',
-      '  }',
-      '  return v;',
-      '}',
-      '',
-      '// sparse bright flecks, like dust catching light',
-      'float motes(vec2 p, float thresh) {',
-      '  vec2 g = floor(p);',
-      '  vec2 f = fract(p);',
-      '  float m = 0.0;',
-      '  for (int y = -1; y <= 1; y++) {',
-      '    for (int x = -1; x <= 1; x++) {',
-      '      vec2 cell = vec2(float(x), float(y));',
-      '      vec2 h = hash2(g + cell) * 0.5 + 0.5;',
-      '      vec2 center = cell + h;',
-      '      float d = length(f - center);',
-      '      float size = mix(0.02, 0.09, fract(h.x * 7.0));',
-      '      float bright = step(thresh, h.y);',
-      '      m += bright * smoothstep(size, 0.0, d);',
-      '    }',
-      '  }',
-      '  return clamp(m, 0.0, 1.0);',
-      '}',
-      '',
-      'void main() {',
-      '  vec2 uv = gl_FragCoord.xy / u_resolution.xy;',
-      '  vec2 p = uv;',
-      '  p.x *= u_resolution.x / u_resolution.y;',
-      '',
-      '  float drift = u_time * 0.035;',
-      '  vec2 flow = p * 1.15 + vec2(drift * 0.5, -drift * 0.7 + u_scroll * 0.35);',
-      '  flow += (u_mouse - 0.5) * 0.18;',
-      '  float cloud = fbm(flow) * 0.5 + 0.5;',
-      '',
-      '  vec3 base1 = vec3(0.937, 0.945, 0.953);',
-      '  vec3 base2 = vec3(0.965, 0.902, 0.769);',
-      '  vec3 color = mix(base1, base2, smoothstep(0.25, 0.85, cloud));',
-      '',
-      '  vec2 glowCenter = vec2(0.32 + (u_mouse.x - 0.5) * 0.25, 0.30 - u_scroll * 0.18);',
-      '  float glow = 1.0 - smoothstep(0.0, 1.0, length((uv - glowCenter) * vec2(1.3, 1.0)));',
-      '  vec3 goldLight = vec3(0.976, 0.882, 0.671);',
-      '  color = mix(color, goldLight, glow * 0.4);',
-      '',
-      '  vec2 moteP = p * 6.5 + vec2(drift * 1.1, -drift * 1.4 + u_scroll * 0.9);',
-      '  float m1 = motes(moteP, 0.9);',
-      '  float m2 = motes(moteP * 1.9 + 11.3, 0.94);',
-      '  vec3 gold = vec3(0.847, 0.643, 0.157);',
-      '  color = mix(color, vec3(1.0, 0.96, 0.85), m1 * 0.85);',
-      '  color += gold * m2 * 0.35;',
-      '',
-      '  float grain = noise(uv * u_resolution / 2.4) * 0.02;',
-      '  color += grain;',
-      '',
-      '  gl_FragColor = vec4(clamp(color, 0.0, 1.0), 1.0);',
-      '}',
-    ].join('\n');
-
-    function compile(type, src) {
-      var sh = gl.createShader(type);
-      gl.shaderSource(sh, src);
-      gl.compileShader(sh);
-      if (!gl.getShaderParameter(sh, gl.COMPILE_STATUS)) {
-        gl.deleteShader(sh);
-        return null;
+    // Unicorn Studio's standard SDK loader snippet (embed guide, "Native"
+    // path): load the runtime once, then init any data-us-project elements.
+    var u = window.UnicornStudio;
+    if (u && u.init) {
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', function () { u.init(); });
+      } else {
+        u.init();
       }
-      return sh;
+    } else {
+      window.UnicornStudio = { isInitialized: false };
+      var i = document.createElement('script');
+      i.src = 'https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v2.2.6/dist/unicornStudio.umd.js';
+      i.onload = function () {
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', function () { window.UnicornStudio.init(); });
+        } else {
+          window.UnicornStudio.init();
+        }
+      };
+      (document.head || document.body).appendChild(i);
     }
-
-    var vs = compile(gl.VERTEX_SHADER, vertSrc);
-    var fs = compile(gl.FRAGMENT_SHADER, fragSrc);
-    if (!vs || !fs) return;
-
-    var program = gl.createProgram();
-    gl.attachShader(program, vs);
-    gl.attachShader(program, fs);
-    gl.linkProgram(program);
-    if (!gl.getProgramParameter(program, gl.LINK_STATUS)) return;
-    gl.useProgram(program);
-
-    var posBuf = gl.createBuffer();
-    gl.bindBuffer(gl.ARRAY_BUFFER, posBuf);
-    // Single triangle covering the full clip space — cheaper than a quad.
-    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 3, -1, -1, 3]), gl.STATIC_DRAW);
-    var posLoc = gl.getAttribLocation(program, 'a_pos');
-    gl.enableVertexAttribArray(posLoc);
-    gl.vertexAttribPointer(posLoc, 2, gl.FLOAT, false, 0, 0);
-
-    var u_resolution = gl.getUniformLocation(program, 'u_resolution');
-    var u_time = gl.getUniformLocation(program, 'u_time');
-    var u_mouse = gl.getUniformLocation(program, 'u_mouse');
-    var u_scroll = gl.getUniformLocation(program, 'u_scroll');
-
-    gl.enable(gl.BLEND);
-    gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
-
-    var section = canvas.closest('.hero') || canvas.parentElement;
-    var dpr = Math.min(window.devicePixelRatio || 1, 1.5);
-    var mouse = { x: 0.5, y: 0.5 };
-    var mouseTarget = { x: 0.5, y: 0.5 };
-    var canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
-
-    function resize() {
-      var rect = section.getBoundingClientRect();
-      var w = Math.max(1, Math.round(rect.width * dpr));
-      var h = Math.max(1, Math.round(rect.height * dpr));
-      if (canvas.width !== w || canvas.height !== h) {
-        canvas.width = w;
-        canvas.height = h;
-      }
-      gl.viewport(0, 0, canvas.width, canvas.height);
-    }
-
-    var ro = window.ResizeObserver ? new ResizeObserver(resize) : null;
-    if (ro) ro.observe(section);
-    window.addEventListener('resize', resize);
-    resize();
-
-    if (canHover) {
-      section.addEventListener('mousemove', function (e) {
-        var rect = section.getBoundingClientRect();
-        mouseTarget.x = (e.clientX - rect.left) / rect.width;
-        mouseTarget.y = (e.clientY - rect.top) / rect.height;
-      });
-    }
-
-    var visible = true;
-    if (window.IntersectionObserver) {
-      var io = new IntersectionObserver(function (entries) {
-        entries.forEach(function (en) { visible = en.isIntersecting; });
-      }, { threshold: 0.01 });
-      io.observe(section);
-    }
-
-    var running = true;
-    document.addEventListener('visibilitychange', function () {
-      running = document.visibilityState === 'visible';
-    });
-
-    var start = performance.now();
-    var raf = null;
-
-    function frame(now) {
-      raf = requestAnimationFrame(frame);
-      if (!running || !visible) return;
-
-      mouse.x += (mouseTarget.x - mouse.x) * 0.06;
-      mouse.y += (mouseTarget.y - mouse.y) * 0.06;
-
-      var scrollY = window.lenis && typeof window.lenis.scroll === 'number'
-        ? window.lenis.scroll
-        : window.scrollY || 0;
-      var heroH = section.offsetHeight || 1;
-      var scrollProgress = Math.max(0, Math.min(1.5, scrollY / heroH));
-
-      gl.useProgram(program);
-      gl.uniform2f(u_resolution, canvas.width, canvas.height);
-      gl.uniform1f(u_time, (now - start) / 1000);
-      gl.uniform2f(u_mouse, mouse.x, mouse.y);
-      gl.uniform1f(u_scroll, scrollProgress);
-      gl.drawArrays(gl.TRIANGLES, 0, 3);
-    }
-    raf = requestAnimationFrame(frame);
   })();
 </script>

@@ -44,8 +44,17 @@ Lenis exposes scroll (`lenis.on('scroll', …)`) to drive canvas animation in sy
 
 - Full **mobile audit** pending — dial in the slideshow and image layouts on small screens.
 - Footer CTA also shows on the Contact page (mildly redundant; left intentionally).
-- Subpage headers (Projects/Contact/Press) and project-detail layout could get the
-  same elevated treatment as the homepage/About.
+- ~~Subpage headers (Projects/Contact/Press) and project-detail layout could get the
+  same elevated treatment as the homepage/About.~~ Done.
+
+## Fixed bugs
+
+- **Homepage hero alignment (2026-06-30):** `.hero-content`'s own `padding: 112px 0 120px`
+  was overriding the `.container` class's `0 24px` horizontal padding (same specificity,
+  later in cascade), so the hero sat flush at the outer edge — 24px left of the logo,
+  about-section photo, and every other section. Fixed by splitting into
+  `padding-top`/`padding-bottom` only (desktop + the `768px` breakpoint), so it inherits
+  the standard container gutter like everything else.
 
 ## Content notes
 

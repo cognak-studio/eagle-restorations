@@ -7,6 +7,8 @@ restoration, seismic retrofit, and adobe reconstruction.
 
 - **Astro** (static output) — `npm run dev` / `npm run build` / `npm run preview`
 - **Lenis** smooth scroll (sitewide, via `Base.astro`)
+- **Astro View Transitions** (`<ViewTransitions />` in `Base.astro`) for smooth
+  crossfade navigation between pages, sitewide
 - Hosted on **Vercel**, deploys on push to `master` (`origin` → `github.com/cognak-studio/eagle-restorations`)
 - Content/config live in `src/data/` (`site.js`, `portfolio.json`, `awards.json`)
 
@@ -33,35 +35,55 @@ restoration, seismic retrofit, and adobe reconstruction.
 - **About-section slideshow:** two-layer crossfade pulling from all project images
   (`src/pages/index.astro`); random order, preloads next, `object-fit: cover`, square
   corners, tight static shadow, 3s interval, hover pauses, click advances.
+- **Page transitions:** Astro's built-in View Transitions (default crossfade),
+  sitewide. Automatically disabled under `prefers-reduced-motion: reduce`.
+  All page-specific inline scripts (reveal animation, stats count-up,
+  slideshow, hero canvas) run on the `astro:page-load` lifecycle event rather
+  than plain top-level execution, since Astro doesn't auto-rerun scripts on
+  client-side navigations — see comments in `Base.astro`, `index.astro`, and
+  `HeroCanvas.astro`. The hero scene and slideshow also clean up
+  (`UnicornStudio.destroy()`, clear the slideshow interval) on
+  `astro:before-swap` so navigating away doesn't leak a running WebGL context
+  or timer.
 
 ## Hero
 
 The homepage hero is a single-column content block over a **WebGL background**
 (`src/components/HeroCanvas.astro`) built as a scene in
-[**Unicorn Studio**](https://unicorn.studio) (project id `UtOrFoOSCxh53JBMPnH4`)
+[**Unicorn Studio**](https://unicorn.studio) (project id `XRccr6ECgdKFWpApifBr`)
 and embedded via their runtime SDK — not a hand-rolled shader. Sits
-`position: absolute; z-index: 0` behind `.hero-content` (`z-index: 1`).
+`position: absolute; inset: 0; z-index: 0` behind `.hero-content` (`z-index: 1`).
 
 - Embed follows Unicorn Studio's [embed guide](https://www.unicorn.studio/docs/embed/):
   a `div[data-us-project]` plus their SDK loader snippet, both in
   `HeroCanvas.astro`. SDK pinned to `unicornstudio.js@v2.2.6` via jsDelivr.
-- **Bottom-anchored, oversized vs. the hero panel** (`bottom: 0; height: 125%`)
-  so `.hero`'s `overflow: hidden` crops from the top (sky/empty space) rather
-  than the bottom, per direction from Pierce.
+- **Fills the container exactly** (`inset: 0`) — an earlier attempt oversized
+  the container to force a top-crop, but the scene fits-to-contain within
+  whatever box it's given rather than cover-crop it, so the taller box just
+  shrank the scene and left empty margins on the sides. Any crop/anchor
+  behavior now lives in the Unicorn Studio scene itself.
+- **`.hero { min-height: max(600px, 100svh) }`** — the hero fills the
+  viewport on load (falls back to `100vh` for browsers without `svh`
+  support; 600px floor for short/landscape screens).
+- **Fades in** from a flat placeholder gray (`--hero-placeholder` in
+  `global.css`, a first-pass estimate of the scene's overall tone) once
+  `UnicornStudio.init()` resolves, instead of popping in — reduces perceived
+  pageload weight, matching the pattern used on cognak.com's homepage hero.
 - Wired to **Lenis** virtual scroll: `lenis.on('scroll', …)` in `Base.astro`
   calls `UnicornStudio.setScroll()` so the scene's scroll-driven motion tracks
   Lenis's transform-based smoothing instead of native (unused) `window.scrollY`.
 - Skips mounting under `prefers-reduced-motion: reduce` (strips
   `data-us-project` before `UnicornStudio.init()` runs) — hero falls back to
-  the plain `--bg-light` background.
-- To swap scenes, change the `projectId` default in `HeroCanvas.astro` or pass
-  `<HeroCanvas projectId="..." />`.
+  the flat placeholder gray.
+- `data-us-project` includes a `?update={cacheBust}` query param — Unicorn
+  Studio's CDN (and browsers on top of it) can take a minute or two to pick
+  up scene edits published in the editor; bump `cacheBust` in
+  `HeroCanvas.astro` to force a fresh fetch if an edit isn't showing up live.
+- To swap scenes, change the `projectId`/`cacheBust` defaults in
+  `HeroCanvas.astro` or pass `<HeroCanvas projectId="..." cacheBust="..." />`.
 
 ## Known follow-ups
 
-- **WebGL hero (2026-06-30):** first pass with the real Unicorn Studio scene —
-  confirm the bottom-anchor/crop behavior looks right once live, especially on
-  short/wide desktop viewports.
 - Full **mobile audit** pending — dial in the slideshow and image layouts on small screens.
 - Footer CTA also shows on the Contact page (mildly redundant; left intentionally).
 - ~~Subpage headers (Projects/Contact/Press) and project-detail layout could get the

@@ -25,6 +25,11 @@ public/wp-content/uploads/**/*.JPG
 # heavy source PNG for the OG image — only the optimized .jpg is deployed
 public/og-image.png
 
+# heavy source originals for hero images — only the optimized .webp versions are tracked/deployed
+public/about.png
+public/altadena.jpg
+public/jeff-seidner.png
+
 # Raw desktop font (do not publish)
 public/fonts/*.otf
 public/fonts/README.txt

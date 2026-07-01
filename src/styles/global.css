@@ -122,10 +122,10 @@ img { max-width: 100%; display: block; }
 }
 .eyebrow::before {
   content: "";
-  width: 5px;
+  width: 7px;
   height: 1.4em;
   background: var(--gold);
-  border-radius: 2px;
+  border-radius: 0;
   flex: none;
 }
 
@@ -143,16 +143,27 @@ img { max-width: 100%; display: block; }
   border: 1.5px solid transparent;
   border-radius: var(--radius);
   text-transform: uppercase;
-  transition: background 0.18s ease;
+  transition: background 0.22s ease, color 0.22s ease, transform 0.22s ease, box-shadow 0.22s ease;
 }
-.btn:hover { background: var(--gold-dark); text-decoration: none; }
+.btn:hover {
+  background: var(--brand-dark);
+  color: var(--gold);
+  text-decoration: none;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px -10px rgba(35, 31, 32, 0.5);
+}
 
 .btn-outline {
   background: transparent;
   color: var(--ink);
   border: 1.5px solid var(--ink);
 }
-.btn-outline:hover { background: var(--ink); color: #fff; }
+.btn-outline:hover {
+  background: var(--ink);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px -10px rgba(44, 44, 44, 0.35);
+}
 
 .link-gold {
   font-family: var(--font-head);

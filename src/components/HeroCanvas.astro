@@ -42,9 +42,13 @@ const { projectId = 'XRccr6ECgdKFWpApifBr', cacheBust = '1' } = Astro.props;
     /* Starts invisible over .hero's flat placeholder gray (see index.astro),
        fades in once the scene has actually initialized — avoids a jarring
        pop-in while the SDK/scene assets load, and hides the initial unstyled
-       flash on slow connections. */
+       flash on slow connections. Slow/long on purpose: the scene is a big
+       texture and briefly glitches (a line across the upper half) on its
+       first few rendered frames, so the fade needs enough time — combined
+       with the READY_DELAY_MS buffer below — to fully cover it rather than
+       reveal it mid-glitch. */
     opacity: 0;
-    transition: opacity 0.9s ease;
+    transition: opacity 1.8s ease;
   }
   .hero-unicorn.is-ready {
     opacity: 1;
@@ -72,8 +76,13 @@ const { projectId = 'XRccr6ECgdKFWpApifBr', cacheBust = '1' } = Astro.props;
       return;
     }
 
+    // init() resolving means the scene has mounted, but it still takes a
+    // few frames to actually settle (the glitch line mentioned above) —
+    // hold the fade-in behind this extra buffer so it's never visibly
+    // revealed mid-glitch.
+    var READY_DELAY_MS = 500;
     function ready() {
-      el.classList.add('is-ready');
+      setTimeout(function () { el.classList.add('is-ready'); }, READY_DELAY_MS);
     }
 
     // Unicorn Studio's standard SDK loader snippet (embed guide, "Native"

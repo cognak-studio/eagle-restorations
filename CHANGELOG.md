@@ -67,6 +67,12 @@ assets, not referenced by the site code.
   without this, everything past the first page view would've silently
   stopped working. Added `astro:before-swap` cleanup for the WebGL context
   and the slideshow's interval timer so navigating away doesn't leak either.
+- Fade timing tuned twice: the scene briefly glitches (a line across its
+  upper half) on its first few rendered frames since it's a large texture,
+  so a `READY_DELAY_MS` buffer holds the reveal until it settles, on top of
+  the opacity transition itself. Went 0.9s transition/no delay → 1.8s/500ms
+  (too slow) → settled on **1.3s transition / 400ms delay**
+  (`HeroCanvas.astro`).
 
 ## Current state
 
@@ -85,7 +91,28 @@ assets, not referenced by the site code.
   the fade-in looks like a color jump.
 - This sandbox has no GitHub push credentials — every commit in this session
   needed a manual `git push` from Pierce's machine to actually deploy.
+  **Double-check `git log`/Vercel match what's below before assuming any of
+  this is live** — pushes happened in batches throughout, not one at a time.
 - No live-browser verification was possible from this environment (no GPU/
   root access for headless rendering), so visual checks relied on
   screenshots Pierce shared plus `curl`-level verification that the right
   markup/project ID was being served.
+
+## Session commits (newest first)
+
+```
+b047a1c dial fade-in back slightly (1.8s -> 1.3s, 500ms -> 400ms delay)
+88490f5 lengthen hero fade-in and add a settle delay to hide the first-frame glitch
+191a6ad update README, add CHANGELOG for the hero project
+3e925a8 fade in hero from gray placeholder, add sitewide view transitions
+5180a88 switch hero to unicorn studio project XRccr6ECgdKFWpApifBr
+1dcbbe5 revert hero to black-and-white unicorn studio scene
+a2d8222 switch hero to unicorn studio project IZBtJxkR0YhKeBcDEXvl
+2deb33e bump cache-bust after unicorn studio crop fix
+b699041 fix pillarboxing (stop oversizing hero scene container), add cache-bust
+0ffbac2 make hero fill the viewport (100svh, 600px floor)
+4f2e7e9 raise hero height across breakpoints to expose more sky behind the copy
+58e6b9b swap hand-rolled shader for real Unicorn Studio embed, lenis virtual scroll
+3e16b21 make webgl hero opaque and visible, replacing flat gray bg
+cd8c218 add webgl hero
+```

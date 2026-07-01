@@ -171,11 +171,15 @@ const firstSlide = localImage(aboutImg) || slideshowImages[0];
     background: var(--bg-light);
     position: relative;
     overflow: hidden;
-    /* Taller than the content needs — pushes the bottom of the section (and
-       the bottom-anchored Unicorn Studio scene, see HeroCanvas.astro) further
-       down, which exposes more of the scene's sky at the top, where the hero
-       copy sits. */
-    min-height: 880px;
+    /* Fills the viewport — pushes the bottom of the section (and the
+       bottom-anchored Unicorn Studio scene, see HeroCanvas.astro) as far
+       down as the screen allows, exposing more of the scene's sky at the
+       top, where the hero copy sits. 100svh (falls back to 100vh in
+       browsers that don't support it) avoids the mobile-browser-chrome
+       jump that plain 100vh causes; the 600px floor keeps short/landscape
+       screens from squeezing the copy. */
+    min-height: max(600px, 100vh);
+    min-height: max(600px, 100svh);
   }
   .hero-content {
     position: relative;
@@ -206,12 +210,7 @@ const firstSlide = localImage(aboutImg) || slideshowImages[0];
   }
   .hero-cta { display: flex; flex-wrap: wrap; gap: 14px; }
 
-  @media (max-width: 1024px) {
-    .hero { min-height: 720px; }
-  }
-
   @media (max-width: 768px) {
-    .hero { min-height: 600px; }
     .hero-content { padding-top: 64px; padding-bottom: 72px; }
   }
 

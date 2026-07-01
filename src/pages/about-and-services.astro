@@ -2,10 +2,25 @@
 import Base from '../layouts/Base.astro';
 import { localImage, services } from '../data/site.js';
 import portfolio from '../data/portfolio.json';
+import faqs from '../data/faq.json';
 
 const dirImg = portfolio.find((p) => p.slug === 'leland-stanford-mansion')?.image;
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: f.answer,
+    },
+  })),
+};
 ---
 <Base title="About & Services" description="Eagle Restorations is a Class 'B' licensed general contractor specializing in historic restoration, seismic retrofit, and adobe reconstruction across California.">
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   <section class="page-head">
     <div class="container">
       <h1>About Eagle Restorations</h1>
@@ -60,6 +75,25 @@ const dirImg = portfolio.find((p) => p.slug === 'leland-stanford-mansion')?.imag
             <h3>{svc.title}</h3>
             <ul>{svc.items.map((i) => <li>{i}</li>)}</ul>
           </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="eyebrow">Frequently Asked Questions</h2>
+      <div class="faq-list">
+        {faqs.map((faq) => (
+          <details class="faq-item">
+            <summary>
+              <span>{faq.question}</span>
+              <span class="faq-icon" aria-hidden="true"></span>
+            </summary>
+            <div class="faq-answer">
+              <p>{faq.answer}</p>
+            </div>
+          </details>
         ))}
       </div>
     </div>
@@ -143,11 +177,47 @@ const dirImg = portfolio.find((p) => p.slug === 'leland-stanford-mansion')?.imag
   .dir-media img, .dir-media .img-placeholder { width: 100%; border-radius: var(--radius); aspect-ratio: 4 / 5; object-fit: cover; }
   .role { font-family: var(--font-head); color: var(--brand-dark); text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.8rem; margin-top: -10px; }
 
+  /* FAQ accordion */
+  .faq-list { max-width: 860px; border-top: 1px solid var(--gold); }
+  .faq-item { border-bottom: 1px solid var(--gold); }
+  .faq-item summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 22px 2px;
+    cursor: pointer;
+    list-style: none;
+    font-family: var(--font-head);
+    font-weight: 600;
+    font-size: 1.05rem;
+    color: var(--ink);
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::marker { content: ''; }
+  .faq-item summary:hover { color: var(--gold-dark); }
+
+  .faq-icon { position: relative; flex: none; width: 18px; height: 18px; }
+  .faq-icon::before,
+  .faq-icon::after {
+    content: '';
+    position: absolute;
+    background: var(--gold-dark);
+    transition: transform 0.25s ease;
+  }
+  .faq-icon::before { top: 50%; left: 0; right: 0; height: 2px; transform: translateY(-50%); }
+  .faq-icon::after { left: 50%; top: 0; bottom: 0; width: 2px; transform: translateX(-50%); }
+  .faq-item[open] .faq-icon::after { transform: translateX(-50%) rotate(90deg); }
+
+  .faq-answer { padding: 0 2px 24px; }
+  .faq-answer p { margin: 0; max-width: 68ch; color: var(--ink-soft); font-size: 0.98rem; line-height: 1.65; }
+
   @media (max-width: 940px) { .svc-grid { grid-template-columns: repeat(2, 1fr); } }
   @media (max-width: 720px) {
     .svc-grid { grid-template-columns: 1fr; }
     .dir-grid { grid-template-columns: 1fr; gap: 26px; }
     .intro-grid { grid-template-columns: 1fr; gap: 28px; }
     .intro-media img { aspect-ratio: 4 / 3; height: auto; }
+    .faq-item summary { font-size: 1rem; }
   }
 </style>

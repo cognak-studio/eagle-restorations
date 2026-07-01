@@ -13,12 +13,12 @@
   --gold: #d8a428;
   --gold-dark: #b3851c;
   --brand-dark: #231f20;
-  --ink: #2c2c2c;
+  --ink: var(--brand-dark);
   --ink-soft: #5d5d5d;
   --bg: #ffffff;
   --bg-light: #eef1f3;
   --bg-soft: #f6f7f8;
-  --footer: #292929;
+  --footer: var(--brand-dark);
   --line: #e3e3e3;
   --maxw: 1200px;
   --radius: 4px;

@@ -1,0 +1,93 @@
+---
+import Base from '../layouts/Base.astro';
+import { company } from '../data/site.js';
+---
+<Base title="Privacy Policy" description="How Eagle Restorations Group, Inc. handles personal information collected through eagle-restorations.com.">
+  <section class="page-head">
+    <div class="container">
+      <h1>Privacy Policy</h1>
+      <p class="muted">Last updated {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long' })}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container legal-copy">
+      <p>
+        {company.name} ("Eagle Restorations," "we," "us") is a historic restoration and
+        structural retrofit contractor based in Arcadia, California. This page explains what
+        information we collect through eagle-restorations.com and how it's used.
+      </p>
+
+      <h2>Information We Collect</h2>
+      <p>
+        When you submit our contact form, we collect the information you provide — typically
+        your name, email address, phone number, and message. We don't collect personal
+        information automatically through analytics or advertising cookies; this site does not
+        currently run Google Analytics, Google Ads, or any similar tracking. If that changes,
+        this policy will be updated to reflect it.
+      </p>
+
+      <h2>How We Use It</h2>
+      <p>
+        Information submitted through the contact form is used solely to respond to your
+        inquiry — to discuss a potential project, answer a question, or follow up as needed.
+        We don't sell, rent, or share your information with third parties for marketing
+        purposes.
+      </p>
+
+      <h2>Third-Party Services</h2>
+      <p>
+        Our contact form is processed by <a href="https://formspree.io" target="_blank" rel="noopener noreferrer">Formspree</a>,
+        a third-party form-handling service, which delivers submissions to our inbox. This site's
+        typeface is served by Google Fonts, which may receive your device's IP address to serve
+        font files — Google's handling of that data is governed by
+        {' '}<a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google's Privacy Policy</a>.
+      </p>
+
+      <h2>Cookies</h2>
+      <p>
+        This site does not set any tracking or advertising cookies. Any cookies present are
+        limited to what's strictly necessary for the site to function.
+      </p>
+
+      <h2>Your Rights</h2>
+      <p>
+        California residents may have rights under the California Consumer Privacy Act (CCPA)
+        to know what personal information we hold and to request its deletion. Any visitor may
+        request access to, correction of, or deletion of information they've submitted to us by
+        contacting <a href={`mailto:${company.email}`}>{company.email}</a>.
+      </p>
+
+      <h2>Intellectual Property</h2>
+      <p>
+        The photographs, project descriptions, and other content on eagle-restorations.com are
+        the property of {company.name} and are protected by copyright. Nothing on this site may
+        be reproduced or redistributed without prior written permission.
+      </p>
+
+      <h2>Questions</h2>
+      <p>
+        If you have questions about this policy, contact us at
+        {' '}<a href={`mailto:${company.email}`}>{company.email}</a> or
+        {' '}<a href={`tel:${company.phoneHref}`}>{company.phone}</a>.
+      </p>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .page-head { background: var(--bg-light); padding: 70px 0; }
+  .page-head h1 { font-size: clamp(2.4rem, 5vw, 3.6rem); margin-bottom: 8px; }
+
+  .legal-copy { max-width: 72ch; }
+  .legal-copy h2 {
+    font-family: var(--font-head);
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 2em 0 0.6em;
+  }
+  .legal-copy h2:first-child { margin-top: 0; }
+  .legal-copy p { color: var(--ink-soft); }
+  .legal-copy a { color: var(--brand-dark); text-decoration: underline; }
+  .legal-copy a:hover { color: var(--gold-dark); }
+</style>

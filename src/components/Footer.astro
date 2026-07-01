@@ -40,7 +40,7 @@ const year = new Date().getFullYear();
 
   <div class="container">
     <div class="ft-legal">
-      &copy; {year} {company.name} &middot; {company.license} &middot; Bonded &amp; Insured
+      &copy; {year} {company.name} &middot; {company.license} &middot; Bonded &amp; Insured &middot; <a href="/privacy-policy/">Privacy Policy</a>
     </div>
   </div>
 </footer>
@@ -52,7 +52,7 @@ const year = new Date().getFullYear();
   }
 
   /* CTA band */
-  .ft-cta { background: #1e1e1e; }
+  .ft-cta { background: var(--brand-dark); border-bottom: 1px solid rgba(255, 255, 255, 0.08); }
   .ft-cta-inner {
     display: flex;
     align-items: center;
@@ -100,6 +100,8 @@ const year = new Date().getFullYear();
     font-size: 0.8rem;
     color: #8f8f8f;
   }
+  .ft-legal a { color: #8f8f8f; text-decoration: underline; }
+  .ft-legal a:hover { color: var(--gold); }
 
   @media (max-width: 760px) {
     .ft-cta-inner { padding: 22px 24px; }

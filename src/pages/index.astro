@@ -168,7 +168,7 @@ const firstSlide = localImage(aboutImg) || slideshowImages[0];
 
 <style>
   .hero {
-    background: var(--bg-light);
+    background: var(--hero-placeholder);
     position: relative;
     overflow: hidden;
     /* Fills the viewport — pushes the bottom of the section (and the
@@ -421,7 +421,11 @@ const firstSlide = localImage(aboutImg) || slideshowImages[0];
 </style>
 
 <script define:vars={{ images: slideshowImages }}>
-  (function () {
+  // astro:page-load so this rewires the slideshow every time the homepage is
+  // (re)displayed via a view-transition navigation, not just the true first
+  // load — each firing gets its own fresh DOM refs since the page's markup
+  // is freshly rendered each time.
+  document.addEventListener('astro:page-load', function () {
     const box = document.getElementById('aboutSlideshow');
     if (!box || !Array.isArray(images) || images.length < 2) return;
 
@@ -511,35 +515,49 @@ const firstSlide = localImage(aboutImg) || slideshowImages[0];
     });
 
     if (!reduce) start();
-  })();
+
+    // Stop the interval before this page's content is swapped out by a view
+    // transition, so a stale timer doesn't keep firing against detached
+    // slideshow nodes in the background.
+    document.addEventListener('astro:before-swap', function cleanup() {
+      stop();
+      document.removeEventListener('astro:before-swap', cleanup);
+    }, { once: true });
+  });
 </script>
 
 <script>
-  const nums = document.querySelectorAll('.stat-num');
-  if (nums.length) {
-    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((en) => {
-        if (!en.isIntersecting) return;
-        io.unobserve(en.target);
-        const el = en.target;
-        const m = el.textContent.trim().match(/^(\d[\d,]*)(\D*)$/);
-        if (!m) return;
-        const target = parseInt(m[1].replace(/,/g, ''), 10);
-        const suffix = m[2] || '';
-        if (reduce) { el.textContent = target.toLocaleString() + suffix; return; }
-        const dur = 1500;
-        const t0 = performance.now();
-        function tick(now) {
-          const p = Math.min((now - t0) / dur, 1);
-          const eased = 1 - Math.pow(1 - p, 3);
-          el.textContent = Math.round(eased * target).toLocaleString() + suffix;
-          if (p < 1) requestAnimationFrame(tick);
-          else el.textContent = target.toLocaleString() + suffix;
-        }
-        requestAnimationFrame(tick);
-      });
-    }, { threshold: 0.5 });
-    nums.forEach((n) => io.observe(n));
-  }
+  // Registered once (module scripts aren't re-injected by view transitions),
+  // but the listener itself persists on `document` and fires again on every
+  // navigation back to the homepage, re-querying whatever .stat-num elements
+  // that page currently has.
+  document.addEventListener('astro:page-load', () => {
+    const nums = document.querySelectorAll('.stat-num');
+    if (nums.length) {
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((en) => {
+          if (!en.isIntersecting) return;
+          io.unobserve(en.target);
+          const el = en.target;
+          const m = el.textContent.trim().match(/^(\d[\d,]*)(\D*)$/);
+          if (!m) return;
+          const target = parseInt(m[1].replace(/,/g, ''), 10);
+          const suffix = m[2] || '';
+          if (reduce) { el.textContent = target.toLocaleString() + suffix; return; }
+          const dur = 1500;
+          const t0 = performance.now();
+          function tick(now) {
+            const p = Math.min((now - t0) / dur, 1);
+            const eased = 1 - Math.pow(1 - p, 3);
+            el.textContent = Math.round(eased * target).toLocaleString() + suffix;
+            if (p < 1) requestAnimationFrame(tick);
+            else el.textContent = target.toLocaleString() + suffix;
+          }
+          requestAnimationFrame(tick);
+        });
+      }, { threshold: 0.5 });
+      nums.forEach((n) => io.observe(n));
+    }
+  });
 </script>

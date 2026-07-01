@@ -4,7 +4,8 @@
 // Embedded via Unicorn Studio's runtime SDK per their embed guide:
 // https://www.unicorn.studio/docs/embed/
 //
-// Replaces .hero's flat --bg-light fill. Wired to Lenis smooth-scroll via
+// Fades in over .hero's flat placeholder-gray fill (see index.astro) once
+// ready, instead of popping in. Wired to Lenis smooth-scroll via
 // UnicornStudio.setScroll() (see the lenis.on('scroll', …) call in
 // Base.astro), so scroll-driven motion in the scene stays in sync with the
 // site's virtual scroll instead of drifting from native window.scrollY.
@@ -38,43 +39,70 @@ const { projectId = 'XRccr6ECgdKFWpApifBr', cacheBust = '1' } = Astro.props;
     width: 100%;
     height: 100%;
     z-index: 0;
+    /* Starts invisible over .hero's flat placeholder gray (see index.astro),
+       fades in once the scene has actually initialized — avoids a jarring
+       pop-in while the SDK/scene assets load, and hides the initial unstyled
+       flash on slow connections. */
+    opacity: 0;
+    transition: opacity 0.9s ease;
+  }
+  .hero-unicorn.is-ready {
+    opacity: 1;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero-unicorn {
+      transition: none;
+    }
   }
 </style>
 
 <script is:inline>
-  (function () {
+  // astro:page-load (not a plain top-level IIFE) so this reruns on every
+  // view-transition navigation back to the homepage, not just the very
+  // first load — inline scripts don't auto-rerun under Astro's transitions.
+  document.addEventListener('astro:page-load', function () {
     var el = document.getElementById('hero-unicorn');
-    if (!el) return;
+    if (!el) return; // not on this page
 
     // Skip the scene under reduced motion — hero falls back to the plain
-    // --bg-light background from .hero. Must run before UnicornStudio.init()
-    // picks up the data-us-project attribute below.
+    // placeholder-gray background from .hero. Must run before
+    // UnicornStudio.init() picks up the data-us-project attribute below.
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       el.removeAttribute('data-us-project');
       return;
     }
 
+    function ready() {
+      el.classList.add('is-ready');
+    }
+
     // Unicorn Studio's standard SDK loader snippet (embed guide, "Native"
     // path): load the runtime once, then init any data-us-project elements.
+    // init() returns a promise that resolves once the scene is actually
+    // ready — that's what triggers the fade-in. onerror/catch still fade
+    // in (to the flat placeholder) so a failed load doesn't stay stuck gray.
     var u = window.UnicornStudio;
     if (u && u.init) {
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', function () { u.init(); });
-      } else {
-        u.init();
-      }
+      Promise.resolve(u.init()).then(ready).catch(ready);
     } else {
       window.UnicornStudio = { isInitialized: false };
       var i = document.createElement('script');
       i.src = 'https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v2.2.6/dist/unicornStudio.umd.js';
       i.onload = function () {
-        if (document.readyState === 'loading') {
-          document.addEventListener('DOMContentLoaded', function () { window.UnicornStudio.init(); });
-        } else {
-          window.UnicornStudio.init();
-        }
+        Promise.resolve(window.UnicornStudio.init()).then(ready).catch(ready);
       };
+      i.onerror = ready;
       (document.head || document.body).appendChild(i);
     }
-  })();
+
+    // Tear down the WebGL context before this page's content is swapped
+    // out by a view transition, so navigating away doesn't leave a live
+    // scene running in the background.
+    document.addEventListener('astro:before-swap', function cleanup() {
+      if (window.UnicornStudio && typeof window.UnicornStudio.destroy === 'function') {
+        window.UnicornStudio.destroy();
+      }
+      document.removeEventListener('astro:before-swap', cleanup);
+    }, { once: true });
+  });
 </script>

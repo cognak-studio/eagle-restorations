@@ -18,6 +18,11 @@
   --bg: #ffffff;
   --bg-light: #eef1f3;
   --bg-soft: #f6f7f8;
+  /* Approximates the homepage hero's Unicorn Studio scene's overall gray
+     tone — shown immediately behind the hero, before the WebGL scene fades
+     in (see HeroCanvas.astro), so there's no color jump on load. First-pass
+     estimate; nudge to match the live scene if it looks off. */
+  --hero-placeholder: #cfcfcf;
   --footer: var(--brand-dark);
   --line: #e3e3e3;
   --maxw: 1200px;

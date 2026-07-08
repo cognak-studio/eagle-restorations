@@ -4,6 +4,14 @@
 // Embedded via Unicorn Studio's runtime SDK per their embed guide:
 // https://www.unicorn.studio/docs/embed/
 //
+// Desktop-only. Mobile gets a lightweight canvas "dot grid" instead (below)
+// — the WebGL scene never fully solved mobile (tall/narrow crop reveals
+// busy image content the copy can't sit on legibly, see the .hero-scrim
+// history in index.astro), and loading a full WebGL runtime + texture on a
+// phone is real weight for a background that has to fight the copy for
+// attention anyway. Below 768px this component skips the Unicorn Studio SDK
+// entirely rather than loading it and hiding the result.
+//
 // Fades in over .hero's flat placeholder-gray fill (see index.astro) once
 // ready, instead of popping in. Wired to Lenis smooth-scroll via
 // UnicornStudio.setScroll() (see the lenis.on('scroll', …) call in
@@ -26,6 +34,8 @@ const { projectId = 'XRccr6ECgdKFWpApifBr', cacheBust = '1' } = Astro.props;
   data-us-alttext="Decorative animated background"
   data-us-arialabel="Decorative animated background"
 ></div>
+
+<canvas id="hero-dotgrid" class="hero-dotgrid" aria-hidden="true"></canvas>
 
 <style>
   /* Fills the hero panel exactly. (Previously oversized to 125% height to
@@ -58,6 +68,25 @@ const { projectId = 'XRccr6ECgdKFWpApifBr', cacheBust = '1' } = Astro.props;
       transition: none;
     }
   }
+
+  /* Mobile fallback: a light-gray field with a subtle animated dot grid
+     (perlin noise driving each dot's darkness) instead of the WebGL scene —
+     see the component comment above. Drawn immediately (no fade needed,
+     nothing to glitch) and swapped in purely by CSS breakpoint so there's
+     no flash of the wrong background before JS runs. */
+  .hero-dotgrid {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    display: none;
+    background: var(--bg-soft);
+  }
+  @media (max-width: 768px) {
+    .hero-unicorn { display: none; }
+    .hero-dotgrid { display: block; }
+  }
 </style>
 
 <script is:inline>
@@ -65,14 +94,31 @@ const { projectId = 'XRccr6ECgdKFWpApifBr', cacheBust = '1' } = Astro.props;
   // view-transition navigation back to the homepage, not just the very
   // first load — inline scripts don't auto-rerun under Astro's transitions.
   document.addEventListener('astro:page-load', function () {
-    var el = document.getElementById('hero-unicorn');
-    if (!el) return; // not on this page
+    var unicornEl = document.getElementById('hero-unicorn');
+    var gridEl = document.getElementById('hero-dotgrid');
+    if (!unicornEl && !gridEl) return; // not on this page
+
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    // Checked once per page-load, same as the reduced-motion check below —
+    // this isn't meant to react live to a mid-session resize/rotation, just
+    // to pick the right background for the device this page loaded on.
+    var isMobile = window.matchMedia('(max-width: 768px)').matches;
+
+    if (isMobile) {
+      // Never touch the Unicorn Studio SDK on mobile — don't load it, don't
+      // init it, don't pay for the texture download.
+      if (unicornEl) unicornEl.removeAttribute('data-us-project');
+      if (gridEl) startDotGrid(gridEl, reduce);
+      return;
+    }
+
+    if (!unicornEl) return;
 
     // Skip the scene under reduced motion — hero falls back to the plain
     // placeholder-gray background from .hero. Must run before
     // UnicornStudio.init() picks up the data-us-project attribute below.
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      el.removeAttribute('data-us-project');
+    if (reduce) {
+      unicornEl.removeAttribute('data-us-project');
       return;
     }
 
@@ -82,7 +128,7 @@ const { projectId = 'XRccr6ECgdKFWpApifBr', cacheBust = '1' } = Astro.props;
     // revealed mid-glitch.
     var READY_DELAY_MS = 400;
     function ready() {
-      setTimeout(function () { el.classList.add('is-ready'); }, READY_DELAY_MS);
+      setTimeout(function () { unicornEl.classList.add('is-ready'); }, READY_DELAY_MS);
     }
 
     // Unicorn Studio's standard SDK loader snippet (embed guide, "Native"
@@ -114,4 +160,101 @@ const { projectId = 'XRccr6ECgdKFWpApifBr', cacheBust = '1' } = Astro.props;
       document.removeEventListener('astro:before-swap', cleanup);
     }, { once: true });
   });
+
+  // Minimal seeded 2D Perlin noise — classic lattice-gradient noise with a
+  // fixed permutation table (no external dependency; this is the whole
+  // reason it's hand-rolled rather than an npm package for a handful of
+  // background dots). Returns smooth, continuous values roughly in -1..1.
+  function makeNoise2D(seed) {
+    var p = new Uint8Array(256);
+    var perm = new Uint8Array(512);
+    var s = seed >>> 0 || 1;
+    function rand() {
+      s = (s * 1664525 + 1013904223) >>> 0;
+      return s / 4294967296;
+    }
+    for (var i = 0; i < 256; i++) p[i] = i;
+    for (var i = 255; i > 0; i--) {
+      var j = Math.floor(rand() * (i + 1));
+      var t = p[i]; p[i] = p[j]; p[j] = t;
+    }
+    for (var i = 0; i < 512; i++) perm[i] = p[i & 255];
+
+    function fade(t) { return t * t * t * (t * (t * 6 - 15) + 10); }
+    function lerp(a, b, t) { return a + t * (b - a); }
+    function grad(hash, x, y) {
+      var h = hash & 7;
+      var u = h < 4 ? x : y;
+      var v = h < 4 ? y : x;
+      return ((h & 1) ? -u : u) + ((h & 2) ? -2 * v : 2 * v);
+    }
+
+    return function noise2D(x, y) {
+      var X = Math.floor(x) & 255, Y = Math.floor(y) & 255;
+      var xf = x - Math.floor(x), yf = y - Math.floor(y);
+      var u = fade(xf), v = fade(yf);
+      var aa = perm[X + perm[Y]], ab = perm[X + perm[Y + 1]];
+      var ba = perm[X + 1 + perm[Y]], bb = perm[X + 1 + perm[Y + 1]];
+      return lerp(
+        lerp(grad(aa, xf, yf), grad(ba, xf - 1, yf), u),
+        lerp(grad(ab, xf, yf - 1), grad(bb, xf - 1, yf - 1), u),
+        v
+      );
+    };
+  }
+
+  function startDotGrid(canvas, reduce) {
+    var ctx = canvas.getContext('2d');
+    if (!ctx) return;
+    var noise = makeNoise2D(1337);
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var spacing = 26; // px between dots
+    var w = 0, h = 0, cols = 0, rows = 0, raf = null;
+
+    function resize() {
+      var rect = canvas.getBoundingClientRect();
+      w = rect.width; h = rect.height;
+      canvas.width = Math.round(w * dpr);
+      canvas.height = Math.round(h * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      cols = Math.ceil(w / spacing) + 1;
+      rows = Math.ceil(h / spacing) + 1;
+      draw(lastT);
+    }
+
+    var lastT = 0;
+    function draw(t) {
+      lastT = t;
+      ctx.clearRect(0, 0, w, h);
+      var time = t * 0.00012; // slow organic drift
+      for (var yi = 0; yi < rows; yi++) {
+        for (var xi = 0; xi < cols; xi++) {
+          var n = noise(xi * 0.18 + time, yi * 0.18 + time * 0.7); // -1..1
+          var a = (n + 1) / 2; // 0..1
+          a = Math.pow(a, 3); // most dots stay faint; only a few "activate"
+          var alpha = 0.05 + a * 0.28;
+          var r = 1.1 + a * 1.1;
+          ctx.beginPath();
+          ctx.fillStyle = 'rgba(35, 31, 32, ' + alpha.toFixed(3) + ')';
+          ctx.arc(xi * spacing, yi * spacing, r, 0, Math.PI * 2);
+          ctx.fill();
+        }
+      }
+    }
+
+    function frame(t) {
+      draw(t);
+      raf = requestAnimationFrame(frame);
+    }
+
+    resize();
+    window.addEventListener('resize', resize);
+    if (!reduce) raf = requestAnimationFrame(frame);
+
+    document.addEventListener('astro:before-swap', function cleanup() {
+      if (raf) cancelAnimationFrame(raf);
+      window.removeEventListener('resize', resize);
+      document.removeEventListener('astro:before-swap', cleanup);
+    }, { once: true });
+  }
 </script>

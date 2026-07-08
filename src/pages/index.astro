@@ -242,23 +242,19 @@ const firstSlide = localImage(aboutImg) || slideshowImages[0];
   .hero-cta { display: flex; flex-wrap: wrap; gap: 14px; }
 
   @media (max-width: 768px) {
+    /* Mobile no longer runs the WebGL scene (see HeroCanvas.astro) — it's a
+       flat dot-grid background instead, so the hero just needs to be the
+       actual viewport height, not a taller floor sized to give a busy scene
+       room to crop into. */
     .hero {
-      min-height: max(750px, 100vh);
-      min-height: max(750px, 100svh);
+      min-height: 100vh;
+      min-height: 100svh;
     }
     .hero-content { padding-top: 54px; padding-bottom: 72px; }
-    /* Taller/narrower hero here reveals much more of the scene's vertical
-       range behind the whole copy block (not just the top, as on desktop),
-       so the veil needs to stay strong for longer before fading out. */
-    .hero-scrim {
-      background: linear-gradient(
-        180deg,
-        rgba(255, 255, 255, 0.88) 0%,
-        rgba(255, 255, 255, 0.84) 55%,
-        rgba(255, 255, 255, 0.6) 75%,
-        rgba(255, 255, 255, 0.2) 92%
-      );
-    }
+    /* No scrim on mobile — it existed only to keep copy legible over the
+       WebGL scene's varying brightness. The dot-grid background is flat and
+       light, so the existing dark text already has plenty of contrast. */
+    .hero-scrim { display: none; }
   }
 
   .about-grid {

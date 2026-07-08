@@ -53,8 +53,10 @@ const related = portfolio
 
       {project.scope && (
         <div class="container scope">
-          <h2 class="eyebrow">{project.scope_label || 'Scope of Work'}</h2>
-          <p>{project.scope}</p>
+          <div class="scope-inner">
+            <h2 class="eyebrow">{project.scope_label || 'Scope of Work'}</h2>
+            <p>{project.scope}</p>
+          </div>
         </div>
       )}
     </section>
@@ -111,7 +113,14 @@ const related = portfolio
   }
   .fact dd { margin: 0; font-weight: 600; color: var(--ink); }
 
-  .scope { margin-top: 56px; max-width: 760px; }
+  /* .scope reuses the plain .container class (same max-width + auto-margin
+     centering as the hero/detail-grid above it), so its left edge lines up
+     with the logo, nav, and hero image. The old version put max-width:760px
+     directly on that same centered box, which re-centered the *narrower*
+     box in the middle of the page instead of keeping it flush left — this
+     inner wrapper caps the reading width without re-centering anything. */
+  .scope { margin-top: 56px; }
+  .scope-inner { max-width: 760px; }
   .scope .eyebrow { font-size: 1.4rem; }
   .scope p { font-size: 1.12rem; }
 

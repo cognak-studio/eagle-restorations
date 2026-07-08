@@ -161,12 +161,15 @@ img { max-width: 100%; display: block; }
 .btn-outline {
   background: #f5f3ef;
   color: var(--brand-dark);
-  border: 1.5px solid var(--brand-dark);
+  /* No visible outline (was 1.5px solid var(--brand-dark)) — the cream
+     background alone differentiates it from the filled .btn. Border stays
+     transparent (not removed) so it keeps the same 1.5px box as .btn and
+     the two variants still line up at identical heights. */
+  border: 1.5px solid transparent;
 }
 .btn-outline:hover {
   background: var(--brand-dark);
   color: #fff;
-  border-color: var(--brand-dark);
   transform: translateY(-2px);
   box-shadow: 0 12px 24px -10px rgba(44, 44, 44, 0.35);
 }

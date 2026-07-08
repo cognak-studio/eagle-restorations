@@ -18,6 +18,10 @@
   --bg: #ffffff;
   --bg-light: #eef1f3;
   --bg-soft: #f6f7f8;
+  /* The brand's "off-white" — was a flatter #f5f3ef, warmed up to read as
+     cream rather than light gray. Used wherever an off-white sits next to
+     brand-dark/gold instead of plain #fff. */
+  --cream: #f7f0e2;
   /* Approximates the homepage hero's Unicorn Studio scene's overall gray
      tone — shown immediately behind the hero, before the WebGL scene fades
      in (see HeroCanvas.astro), so there's no color jump on load. First-pass
@@ -159,7 +163,7 @@ img { max-width: 100%; display: block; }
 }
 
 .btn-outline {
-  background: #f5f3ef;
+  background: var(--cream);
   color: var(--brand-dark);
   /* No visible outline (was 1.5px solid var(--brand-dark)) — the cream
      background alone differentiates it from the filled .btn. Border stays

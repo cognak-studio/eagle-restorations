@@ -479,6 +479,9 @@ const firstSlide = localImage(aboutImg) || slideshowImages[0];
        above. This floor is sized to actually fit 3-up next to the longest
        real stat value ("1790") with room to spare. */
     .stats-mobile .stat-num { font-size: clamp(2.2rem, 8vw, 3.2rem); }
+    /* Default 16px body size wrapped "Oldest Historic Project" onto 3 lines
+       in this ~100px-wide column — sized down so every label fits on 2. */
+    .stats-mobile .stat-label { font-size: 0.8rem; line-height: 1.3; }
   }
 </style>
 

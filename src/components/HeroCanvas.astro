@@ -208,7 +208,7 @@ const { projectId = 'XRccr6ECgdKFWpApifBr', cacheBust = '1' } = Astro.props;
     if (!ctx) return;
     var noise = makeNoise2D(1337);
     var dpr = Math.min(window.devicePixelRatio || 1, 2);
-    var spacing = 26; // px between dots
+    var spacing = 16; // px between dots
     var w = 0, h = 0, cols = 0, rows = 0, raf = null;
 
     function resize() {
@@ -229,11 +229,13 @@ const { projectId = 'XRccr6ECgdKFWpApifBr', cacheBust = '1' } = Astro.props;
       var time = t * 0.00012; // slow organic drift
       for (var yi = 0; yi < rows; yi++) {
         for (var xi = 0; xi < cols; xi++) {
-          var n = noise(xi * 0.18 + time, yi * 0.18 + time * 0.7); // -1..1
+          // Spatial frequency scaled to the tighter spacing so the noise
+          // "blobs" stay about the same real-world size as before.
+          var n = noise(xi * 0.11 + time, yi * 0.11 + time * 0.7); // -1..1
           var a = (n + 1) / 2; // 0..1
           a = Math.pow(a, 3); // most dots stay faint; only a few "activate"
-          var alpha = 0.05 + a * 0.28;
-          var r = 1.1 + a * 1.1;
+          var alpha = 0.035 + a * 0.09; // very faint — barely darker than bg
+          var r = 0.55 + a * 0.45; // small dots
           ctx.beginPath();
           ctx.fillStyle = 'rgba(35, 31, 32, ' + alpha.toFixed(3) + ')';
           ctx.arc(xi * spacing, yi * spacing, r, 0, Math.PI * 2);

@@ -1,5 +1,7 @@
 // Central site config + helpers
 
+import portfolio from './portfolio.json';
+
 export const company = {
   name: 'Eagle Restorations Group, Inc.',
   shortName: 'Eagle Restorations',
@@ -11,6 +13,10 @@ export const company = {
   phoneHref: '+16269300188',
   address: '5441 Cogswell Rd Suite A, Arcadia, CA 91006',
   hours: 'Mon – Fri: 9:00am – 5:00pm',
+  // Single source of truth for "founded 1991" — drives both the homepage
+  // "Years of Experience" stat and the structured-data foundingDate below,
+  // so the two can't drift apart.
+  foundedYear: 1991,
 };
 
 // Contact form handler. Create a free form at https://formspree.io (or Web3Forms),
@@ -30,9 +36,19 @@ export const announcement = {
   href: '/altadena-fire/',
 };
 
+// Years of Experience and Projects Completed are derived, not hand-typed —
+// years counts back from company.foundedYear so it's correct on every
+// rebuild without anyone having to remember to bump it, and the project
+// count comes straight from portfolio.json's real length (currently 80,
+// so "80+" below is accurate; if it ever drops under 80 the "+" reads
+// wrong for a marketing stat, so this only auto-derives at 80 or above —
+// smaller counts should get a literal, non-"+" number set by hand instead).
+const yearsOfExperience = new Date().getFullYear() - company.foundedYear;
+const projectsCompleted = portfolio.length >= 80 ? `${portfolio.length}+` : String(portfolio.length);
+
 export const stats = [
-  { value: '36', label: 'Years of Experience' },
-  { value: '80+', label: 'Projects Completed' },
+  { value: String(yearsOfExperience), label: 'Years of Experience' },
+  { value: projectsCompleted, label: 'Projects Completed' },
   { value: '1790', label: 'Oldest Historic Project' },
 ];
 

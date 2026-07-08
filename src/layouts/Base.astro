@@ -28,7 +28,7 @@ const orgSchema = {
   logo: `${siteUrl}eagle-restorations-logo.svg`,
   description: desc,
   priceRange: '$$$$',
-  foundingDate: '1991',
+  foundingDate: String(company.foundedYear),
   address: {
     '@type': 'PostalAddress',
     streetAddress: '5441 Cogswell Rd Suite A',

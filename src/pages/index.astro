@@ -434,7 +434,10 @@ const firstSlide = localImage(aboutImg) || slideshowImages[0];
     flex-direction: column;
     justify-content: flex-end;
     padding: 22px;
-    background: linear-gradient(to top, rgba(35,31,32,0.6) 0%, rgba(35,31,32,0) 55%);
+    /* Darker and reaching further up the card than before (was 0.6 → 0%
+       at 55%) — on bright project photos the title/category text was
+       sitting on too-light a patch to read comfortably. */
+    background: linear-gradient(to top, rgba(35,31,32,0.82) 0%, rgba(35,31,32,0) 70%);
     color: #fff;
   }
   .feat-cat {
@@ -451,7 +454,12 @@ const firstSlide = localImage(aboutImg) || slideshowImages[0];
     border-radius: 0;
     margin-bottom: 8px;
   }
-  .feat-title { font-family: var(--font-head); font-weight: 600; font-size: 1.25rem; }
+  .feat-title {
+    font-family: var(--font-head);
+    font-weight: 600;
+    font-size: 1.25rem;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.45);
+  }
 
   @media (max-width: 940px) {
     .svc-grid { grid-template-columns: repeat(2, 1fr); }

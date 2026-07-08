@@ -93,6 +93,14 @@ const firstSlide = localImage(aboutImg) || slideshowImages[0];
       </div>
       <div class="about-copy">
         <h2 class="eyebrow">About Eagle Restorations</h2>
+        <div class="stats-grid stats-mobile">
+          {stats.map((s) => (
+            <div class="stat">
+              <div class="stat-num">{s.value}</div>
+              <div class="stat-label">{s.label}</div>
+            </div>
+          ))}
+        </div>
         <p class="lead">
           {company.name} specializes in the restoration and seismic repair and upgrading of
           historic buildings. Eagle was incorporated in 1991, and has completed over 80 projects,
@@ -211,6 +219,10 @@ const firstSlide = localImage(aboutImg) || slideshowImages[0];
   .hero-cta { display: flex; flex-wrap: wrap; gap: 14px; }
 
   @media (max-width: 768px) {
+    .hero {
+      min-height: max(750px, 100vh);
+      min-height: max(750px, 100svh);
+    }
     .hero-content { padding-top: 64px; padding-bottom: 72px; }
   }
 
@@ -413,10 +425,15 @@ const firstSlide = localImage(aboutImg) || slideshowImages[0];
   @media (max-width: 940px) {
     .svc-grid { grid-template-columns: repeat(2, 1fr); }
   }
+  .stats-mobile { display: none; }
+
   @media (max-width: 720px) {
     .about-grid { grid-template-columns: 1fr; gap: 30px; }
-    .stats-grid { grid-template-columns: 1fr; gap: 20px; text-align: center; }
+    .stats-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; }
     .svc-grid, .feat-grid { grid-template-columns: 1fr; }
+    .stats-band { display: none; }
+    .stats-mobile { display: grid; margin: 16px 0 24px; }
+    .stats-mobile .stat-num { font-size: clamp(6rem, 14vw, 10rem); }
   }
 </style>
 

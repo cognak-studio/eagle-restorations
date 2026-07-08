@@ -62,7 +62,8 @@ const path = Astro.url.pathname;
   .brand { display: flex; align-items: center; }
   .brand:hover { text-decoration: none; }
   .brand-logo { height: 46px; width: auto; display: block; }
-  @media (max-width: 480px) { .brand-logo { height: 38px; } }
+  @media (max-width: 940px) { .brand-logo { height: 51px; } }
+  @media (max-width: 480px) { .brand-logo { height: 42px; } }
 
   .main-nav {
     margin-left: auto;
@@ -119,11 +120,19 @@ const path = Astro.url.pathname;
     font-size: 1.05rem;
   }
   .mobile-nav.open { display: flex; }
-  .mobile-nav .btn { width: max-content; margin-top: 8px; }
+  .mobile-nav .btn {
+    width: max-content;
+    margin-top: 8px;
+    /* Reset .mobile-nav a overrides so .btn base styles apply correctly */
+    padding: 15px 30px;
+    font-size: 0.8rem;
+    color: var(--brand-dark);
+  }
 
   @media (max-width: 940px) {
     .main-nav, .quote-btn { display: none; }
     .nav-toggle { display: flex; }
+    .announce { display: none; }
   }
 </style>
 

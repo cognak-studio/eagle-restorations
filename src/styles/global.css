@@ -159,14 +159,14 @@ img { max-width: 100%; display: block; }
 }
 
 .btn-outline {
-  background: #3d3838;
-  color: #fff;
-  border: 1.5px solid #3d3838;
+  background: #f5f3ef;
+  color: var(--brand-dark);
+  border: 1.5px solid var(--brand-dark);
 }
 .btn-outline:hover {
-  background: #000;
+  background: var(--brand-dark);
   color: #fff;
-  border-color: #000;
+  border-color: var(--brand-dark);
   transform: translateY(-2px);
   box-shadow: 0 12px 24px -10px rgba(44, 44, 44, 0.35);
 }

@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import HeroCanvas from '../components/HeroCanvas.astro';
+import Arrow from '../components/Arrow.astro';
 import { company, stats, localImage } from '../data/site.js';
 import portfolio from '../data/portfolio.json';
 
@@ -117,7 +118,7 @@ const firstSlide = localImage(aboutImg) || slideshowImages[0];
           in meeting both the technical and administrative requirements of historic restoration work.
           Its core group of experienced restoration craftspeople are "hands-on" on every project.
         </p>
-        <a href="/about-and-services/" class="link-gold">Read More &rarr;</a>
+        <a href="/about-and-services/" class="link-gold">Read More<Arrow /></a>
       </div>
     </div>
   </section>
@@ -156,7 +157,7 @@ const firstSlide = localImage(aboutImg) || slideshowImages[0];
     <div class="container">
       <div class="feat-head">
         <h2 class="eyebrow">Featured Projects</h2>
-        <a href="/projects/" class="link-gold">View All Projects &rarr;</a>
+        <a href="/projects/" class="link-gold">View All Projects<Arrow /></a>
       </div>
       <div class="feat-grid">
         {featured.map((p) => (

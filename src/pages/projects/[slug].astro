@@ -1,5 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
+import Arrow from '../../components/Arrow.astro';
 import { localImage } from '../../data/site.js';
 import portfolio from '../../data/portfolio.json';
 
@@ -24,7 +25,7 @@ const related = portfolio
           <p class="cat-line">{project.categories.join(' · ')}</p>
           <h1>{heading}</h1>
         </div>
-        <a href="/projects/" class="link-gold back">&larr; All Projects</a>
+        <a href="/projects/" class="link-gold back"><Arrow dir="left" />All Projects</a>
       </div>
     </section>
 

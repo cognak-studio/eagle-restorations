@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import Arrow from '../components/Arrow.astro';
 ---
 <Base title="Page Not Found" description="The page you're looking for doesn't exist.">
   <section class="nf">
@@ -12,7 +13,7 @@ import Base from '../layouts/Base.astro';
       <div class="nf-actions">
         <a href="/" class="btn">Back to Home</a>
         <a href="/projects/" class="btn btn-outline">View Projects</a>
-        <a href="/contact/" class="link-gold nf-contact">Contact Us &rarr;</a>
+        <a href="/contact/" class="link-gold nf-contact">Contact Us<Arrow /></a>
       </div>
     </div>
   </section>

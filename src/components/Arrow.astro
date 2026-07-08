@@ -1,0 +1,42 @@
+---
+// Replaces the plain "&rarr;"/"&larr;" text glyphs used next to links like
+// "Read More", "View All Projects", and the project-detail back link. The
+// Unicode arrow character's vertical position comes from whatever font the
+// browser falls back to for that glyph (Inter's own metrics don't
+// necessarily apply), which on some mobile devices sits noticeably lower
+// than the surrounding text — inconsistent and not fixable with a single
+// nudge that works everywhere. An inline SVG (currentColor, sized to 1em)
+// sidesteps that entirely: it's positioned the same way regardless of
+// platform font substitution.
+const { dir = 'right' } = Astro.props;
+---
+<svg
+  class="arrow-icon"
+  data-dir={dir}
+  width="1em"
+  height="1em"
+  viewBox="0 0 16 16"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.6"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  aria-hidden="true"
+  focusable="false"
+>
+  {dir === 'left' ? (
+    <path d="M14 8H3M7.5 3.5 3 8l4.5 4.5" />
+  ) : (
+    <path d="M2 8h11M8.5 3.5 13 8l-4.5 4.5" />
+  )}
+</svg>
+
+<style is:global>
+  .arrow-icon {
+    display: inline-block;
+    vertical-align: -0.15em;
+    flex: none;
+  }
+  .arrow-icon[data-dir='right'] { margin-left: 0.4em; }
+  .arrow-icon[data-dir='left'] { margin-right: 0.4em; }
+</style>

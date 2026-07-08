@@ -84,7 +84,7 @@ and embedded via their runtime SDK — not a hand-rolled shader. Sits
 
 ## Known follow-ups
 
-- Full **mobile audit** pending — dial in the slideshow and image layouts on small screens.
+- ~~Full **mobile audit** pending — dial in the slideshow and image layouts on small screens.~~ Done (2026-07-08) — see Fixed bugs.
 - Footer CTA also shows on the Contact page (mildly redundant; left intentionally).
 - ~~Subpage headers (Projects/Contact/Press) and project-detail layout could get the
   same elevated treatment as the homepage/About.~~ Done.
@@ -97,6 +97,28 @@ and embedded via their runtime SDK — not a hand-rolled shader. Sits
   about-section photo, and every other section. Fixed by splitting into
   `padding-top`/`padding-bottom` only (desktop + the `768px` breakpoint), so it inherits
   the standard container gutter like everything else.
+
+- **Hero text illegible over the WebGL scene on mobile (2026-07-08):** the tall/narrow
+  mobile hero exposes far more of the scene's vertical range than the wide/short desktop
+  one (mostly sky), so the kicker/h1/sub could land directly on dark foliage or the
+  building and drop well below readable contrast — confirmed with a real headless-browser
+  screenshot at 390×844, not just guessed at. Fixed with a `.hero-scrim` layer (a light
+  gradient) sandwiched between the canvas (`z-index: 0`) and `.hero-content`
+  (`z-index: 1`) in `index.astro`, stronger and longer on the `768px` mobile breakpoint
+  since the copy block spans nearly the full hero height there. The scene still reads
+  through clearly by the hero's lower third.
+
+- **Mobile "grid blowout" overflowing the whole page (2026-07-08):** the mobile-only big
+  stat numbers (`.stats-mobile .stat-num`) had a `clamp()` floor of 6rem/96px — bigger
+  than their 3-column grid could ever fit at phone widths. CSS grid items default to
+  `min-width: auto` (their content's min-content size), so the unshrinkable digits forced
+  their column, and with it the whole single-column `.about-grid` track below 720px,
+  out to ~556px in a 390px viewport — confirmed via `document.documentElement.scrollWidth`
+  (580 vs. 390 clientWidth). That's also why the about-section slideshow image appeared
+  to run off the right edge: it's `width: 100%` of the same blown-out column. Fixed by
+  lowering the mobile stat-num floor to actually fit (`clamp(2.2rem, 8vw, 3.2rem)`) and
+  adding `min-width: 0` on `.stats-grid .stat` as a defensive backstop against future
+  blowouts. Verified scrollWidth now equals clientWidth on every page.
 
 ## Content notes
 

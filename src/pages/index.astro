@@ -57,6 +57,7 @@ const firstSlide = localImage(aboutImg) || slideshowImages[0];
   <!-- Hero -->
   <section class="hero">
     <HeroCanvas />
+    <div class="hero-scrim" aria-hidden="true"></div>
     <div class="hero-content container">
       <p class="hero-kicker">
         Class&nbsp;'B' Licensed General Contractor
@@ -189,6 +190,28 @@ const firstSlide = localImage(aboutImg) || slideshowImages[0];
     min-height: max(600px, 100vh);
     min-height: max(600px, 100svh);
   }
+  /* Guarantees the hero copy stays legible regardless of what part of the
+     WebGL scene happens to sit behind it. The scene is a busy black-and-white
+     photo (sky, hillside, trees, building) and, unlike the wide/short desktop
+     hero (mostly sky), the tall mobile hero exposes much more of the image's
+     vertical range — the kicker/h1/sub can land directly on dark foliage or
+     the building, well below the WCAG contrast floor for the existing dark
+     text. This sits between the canvas (z-index 0) and .hero-content
+     (z-index 1) and fades out well before the hero's bottom edge so the
+     scene itself still reads clearly there. */
+  .hero-scrim {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.82) 0%,
+      rgba(255, 255, 255, 0.72) 38%,
+      rgba(255, 255, 255, 0.4) 62%,
+      rgba(255, 255, 255, 0) 82%
+    );
+  }
   .hero-content {
     position: relative;
     z-index: 1;
@@ -224,6 +247,18 @@ const firstSlide = localImage(aboutImg) || slideshowImages[0];
       min-height: max(750px, 100svh);
     }
     .hero-content { padding-top: 64px; padding-bottom: 72px; }
+    /* Taller/narrower hero here reveals much more of the scene's vertical
+       range behind the whole copy block (not just the top, as on desktop),
+       so the veil needs to stay strong for longer before fading out. */
+    .hero-scrim {
+      background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.88) 0%,
+        rgba(255, 255, 255, 0.84) 55%,
+        rgba(255, 255, 255, 0.6) 75%,
+        rgba(255, 255, 255, 0.2) 92%
+      );
+    }
   }
 
   .about-grid {
@@ -430,10 +465,24 @@ const firstSlide = localImage(aboutImg) || slideshowImages[0];
   @media (max-width: 720px) {
     .about-grid { grid-template-columns: 1fr; gap: 30px; }
     .stats-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    /* Grid items default to min-width:auto (their content's min-content
+       size), which lets a wide, unshrinkable child force its whole track
+       wider than the 1fr share it was given — a "grid blowout." That's what
+       was happening here: the huge stat-num digits couldn't shrink, so the
+       column grew past the viewport, and since .about-media/.slideshow sit
+       in the same single-column track (below, in the stacked mobile
+       .about-grid), the whole page picked up ~190px of horizontal overflow
+       and the slideshow image ran off the right edge. min-width: 0 lets the
+       grid actually honor the 1fr track instead of growing to fit content. */
+    .stats-grid .stat { min-width: 0; }
     .svc-grid, .feat-grid { grid-template-columns: 1fr; }
     .stats-band { display: none; }
     .stats-mobile { display: grid; margin: 16px 0 24px; }
-    .stats-mobile .stat-num { font-size: clamp(6rem, 14vw, 10rem); }
+    /* Previous floor (6rem/96px) was larger than the ~100px-wide column
+       could ever fit at this viewport, which is what caused the blowout
+       above. This floor is sized to actually fit 3-up next to the longest
+       real stat value ("1790") with room to spare. */
+    .stats-mobile .stat-num { font-size: clamp(2.2rem, 8vw, 3.2rem); }
   }
 </style>
 

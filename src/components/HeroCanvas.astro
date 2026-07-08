@@ -226,7 +226,7 @@ const { projectId = 'XRccr6ECgdKFWpApifBr', cacheBust = '1' } = Astro.props;
     function draw(t) {
       lastT = t;
       ctx.clearRect(0, 0, w, h);
-      var time = t * 0.00012; // slow organic drift
+      var time = t * 0.0006; // organic drift — was 0.00012, felt frozen
       for (var yi = 0; yi < rows; yi++) {
         for (var xi = 0; xi < cols; xi++) {
           // Spatial frequency scaled to the tighter spacing so the noise

@@ -94,16 +94,24 @@ const path = Astro.url.pathname;
 
   .nav-toggle {
     display: none;
-    background: none;
-    border: 0;
+    align-items: center;
+    justify-content: center;
     flex-direction: column;
     gap: 5px;
+    width: 46px;
+    height: 46px;
+    background: var(--brand-dark);
+    border: 0;
+    border-radius: 50%;
     cursor: pointer;
-    padding: 6px;
+    padding: 0;
     margin-left: auto;
+    flex: none;
+    transition: opacity 0.15s ease;
   }
+  .nav-toggle:hover { opacity: 0.85; }
   .nav-toggle span {
-    width: 26px; height: 2px; background: var(--ink); display: block;
+    width: 20px; height: 2px; border-radius: 2px; background: #fff; display: block;
   }
 
   .mobile-nav {

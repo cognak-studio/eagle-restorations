@@ -33,7 +33,7 @@ const related = portfolio
       <div class="container detail-grid">
         <div class="detail-media">
           {project.image
-            ? <img src={localImage(project.image)} alt={project.title} />
+            ? <img src={localImage(project.image)} alt={project.title} fetchpriority="high" />
             : <div class="img-placeholder"></div>}
         </div>
 

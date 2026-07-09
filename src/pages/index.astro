@@ -445,7 +445,10 @@ const firstSlide = localImage(aboutImg) || slideshowImages[0];
     align-self: flex-start;
     display: inline-block;
     background: #8a683e;
-    color: var(--cream);
+    /* Plain white, not --cream — cream-on-brown only hit 4.21:1 (fails the
+       4.5:1 AA text threshold at this size); white clears it at 5.08:1 and
+       reads almost identically against this brown. */
+    color: #fff;
     font-family: var(--font-head);
     font-weight: 700;
     text-transform: uppercase;

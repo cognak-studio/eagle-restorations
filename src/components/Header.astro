@@ -137,7 +137,15 @@ const path = Astro.url.pathname;
 </style>
 
 <script>
-  const t = document.getElementById('navToggle');
-  const m = document.getElementById('mobileNav');
-  t?.addEventListener('click', () => m?.classList.toggle('open'));
+  // astro:page-load (not a plain top-level run) so this re-attaches on every
+  // view-transition navigation, not just the very first page load — the
+  // header's DOM (including #navToggle/#mobileNav) is swapped for fresh
+  // nodes on each transition, which silently drops the click listener
+  // attached to the old button. Without this, the toggle only ever works
+  // immediately after a hard refresh.
+  document.addEventListener('astro:page-load', function () {
+    const t = document.getElementById('navToggle');
+    const m = document.getElementById('mobileNav');
+    t?.addEventListener('click', () => m?.classList.toggle('open'));
+  });
 </script>

@@ -233,9 +233,9 @@ const { projectId = 'XRccr6ECgdKFWpApifBr', cacheBust = '1' } = Astro.props;
           // "blobs" stay about the same real-world size as before.
           var n = noise(xi * 0.11 + time, yi * 0.11 + time * 0.7); // -1..1
           var a = (n + 1) / 2; // 0..1
-          a = Math.pow(a, 3); // most dots stay faint; only a few "activate"
-          var alpha = 0.035 + a * 0.09; // very faint — barely darker than bg
-          var r = 0.55 + a * 0.45; // small dots
+          a = Math.pow(a, 1.4); // most dots visible now; was Math.pow(a, 2)
+          var alpha = 0.07 + a * 0.32; // strong contrast — was 0.05 + a * 0.18
+          var r = 0.8 + a * 1.1; // larger dots — was 0.65 + a * 0.7
           ctx.beginPath();
           ctx.fillStyle = 'rgba(35, 31, 32, ' + alpha.toFixed(3) + ')';
           ctx.arc(xi * spacing, yi * spacing, r, 0, Math.PI * 2);

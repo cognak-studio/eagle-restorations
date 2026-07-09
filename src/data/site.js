@@ -32,7 +32,7 @@ export const nav = [
 ];
 
 export const announcement = {
-  text: 'Affected by the fires in Altadena? We are here to help you rebuild',
+  text: "Affected by the fires in Altadena? We're here to help you rebuild",
   href: '/altadena-fire/',
 };
 

@@ -29,7 +29,7 @@
      instead: R and G kept close together (not R>>G, which is what reads as
      pink) with B pulled down a bit for the brown undertone. Used wherever
      an off-white sits next to brand-dark/gold instead of plain #fff. */
-  --cream: #f0e9de;
+  --cream: #ece0cc;
   /* Approximates the homepage hero's Unicorn Studio scene's overall gray
      tone — shown immediately behind the hero, before the WebGL scene fades
      in (see HeroCanvas.astro), so there's no color jump on load. First-pass

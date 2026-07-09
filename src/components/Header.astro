@@ -24,7 +24,7 @@ const path = Astro.url.pathname;
 
     <a href="/contact/" class="btn quote-btn">Plan Your Restoration</a>
 
-    <button class="nav-toggle" aria-label="Menu" id="navToggle">
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false" id="navToggle">
       <span></span><span></span><span></span>
     </button>
   </div>
@@ -112,7 +112,16 @@ const path = Astro.url.pathname;
   .nav-toggle:hover { opacity: 0.85; }
   .nav-toggle span {
     width: 20px; height: 2px; border-radius: 2px; background: #fff; display: block;
+    transition: transform 0.28s ease, opacity 0.2s ease;
   }
+  /* Morph the 3 bars into an X: top/bottom bars slide toward the middle bar's
+     position (translateY covers the gap + the bar itself) and rotate into an
+     X; the middle bar just fades out rather than rotating, which reads
+     cleaner than a 4-line X. transform-origin stays centered (the default)
+     so both bars rotate in place once translated. */
+  .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-toggle.open span:nth-child(2) { opacity: 0; }
+  .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
   .mobile-nav {
     display: none;
@@ -154,6 +163,10 @@ const path = Astro.url.pathname;
   document.addEventListener('astro:page-load', function () {
     const t = document.getElementById('navToggle');
     const m = document.getElementById('mobileNav');
-    t?.addEventListener('click', () => m?.classList.toggle('open'));
+    t?.addEventListener('click', () => {
+      const isOpen = m?.classList.toggle('open');
+      t.classList.toggle('open', isOpen);
+      t.setAttribute('aria-expanded', String(!!isOpen));
+    });
   });
 </script>

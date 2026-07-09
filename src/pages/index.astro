@@ -216,7 +216,10 @@ const firstSlide = localImage(aboutImg) || slideshowImages[0];
   .hero-content {
     position: relative;
     z-index: 1;
-    padding-top: 112px;
+    /* 25% less top space than the original 112px, per request — brings the
+       kicker closer to the header instead of leaving so much empty room
+       above it. Bottom padding is untouched. */
+    padding-top: 84px;
     padding-bottom: 120px;
   }
   .hero-kicker {
@@ -305,7 +308,8 @@ const firstSlide = localImage(aboutImg) || slideshowImages[0];
       min-height: 100vh;
       min-height: 100svh;
     }
-    .hero-content { padding-top: 54px; padding-bottom: 72px; }
+    /* Same 25% reduction as desktop (54px → 40px). */
+    .hero-content { padding-top: 40px; padding-bottom: 72px; }
     /* No scrim on mobile — it existed only to keep copy legible over the
        WebGL scene's varying brightness. The dot-grid background is flat and
        light, so the existing dark text already has plenty of contrast. */

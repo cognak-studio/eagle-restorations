@@ -24,12 +24,13 @@
   --bg: #ffffff;
   --bg-light: #eef1f3;
   --bg-soft: #f6f7f8;
-  /* The brand's "off-white" — was a flatter #f5f3ef, then went too far
-     toward yellow-cream (#f7f0e2). This is a very light warm brown/taupe
-     instead: R and G kept close together (not R>>G, which is what reads as
-     pink) with B pulled down a bit for the brown undertone. Used wherever
-     an off-white sits next to brand-dark/gold instead of plain #fff. */
-  --cream: #ece0cc;
+  /* The brand's "off-white" — went through a flatter #f5f3ef, then too far
+     toward yellow-cream (#f7f0e2), then too warm/brown (#f0e9de, #ece0cc).
+     Settled here with R, G, and B all close together (B barely pulled down)
+     so it reads as a clean neutral off-white rather than yellow or brown.
+     Used wherever an off-white sits next to brand-dark/gold instead of
+     plain #fff. */
+  --cream: #efece6;
   /* Approximates the homepage hero's Unicorn Studio scene's overall gray
      tone — shown immediately behind the hero, before the WebGL scene fades
      in (see HeroCanvas.astro), so there's no color jump on load. First-pass
@@ -193,10 +194,7 @@ img { max-width: 100%; display: block; }
 }
 
 .btn-outline {
-  /* Light gray, deliberately darker than --hero-placeholder (#cfcfcf) so the
-     button still reads as a distinct shape against the hero's WebGL scene
-     backdrop instead of blending into it. Black text for contrast. */
-  background: #b6b6b6;
+  background: var(--cream);
   color: var(--brand-dark);
   /* No visible outline (was 1.5px solid var(--brand-dark)) — the background
      color alone differentiates it from the filled .btn. Border stays

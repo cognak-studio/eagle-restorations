@@ -122,6 +122,27 @@ const orgSchema = {
 <!doctype html>
 <html lang="en">
   <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JD337BXLY3"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      // send_page_view disabled here; page_view is sent manually below on
+      // astro:page-load so it fires correctly for view-transition
+      // navigations too, not just the very first full page load.
+      gtag('config', 'G-JD337BXLY3', { send_page_view: false });
+    </script>
+    <script is:inline>
+      document.addEventListener('astro:page-load', function () {
+        if (typeof gtag === 'function') {
+          gtag('event', 'page_view', {
+            page_location: location.href,
+            page_title: document.title,
+          });
+        }
+      });
+    </script>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{fullTitle}</title>

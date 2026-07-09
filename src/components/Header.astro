@@ -62,11 +62,11 @@ const path = Astro.url.pathname;
   .brand { display: flex; align-items: center; }
   .brand:hover { text-decoration: none; }
   .brand-logo { height: 46px; width: auto; display: block; }
-  /* +15% again vs. the previous 58.65px/48.3px. Height-only scaling (width
+  /* -5% vs. the previous 67.45px/55.55px. Height-only scaling (width
      stays auto) keeps the logo's left edge flush with the container padding,
      since the flex item just grows to the right. */
-  @media (max-width: 940px) { .brand-logo { height: 67.45px; } }
-  @media (max-width: 480px) { .brand-logo { height: 55.55px; } }
+  @media (max-width: 940px) { .brand-logo { height: 64.08px; } }
+  @media (max-width: 480px) { .brand-logo { height: 52.77px; } }
 
   .main-nav {
     margin-left: auto;

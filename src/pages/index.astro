@@ -271,6 +271,31 @@ const firstSlide = localImage(aboutImg) || slideshowImages[0];
     }
   }
 
+  @media (min-width: 1024px) and (max-height: 980px) {
+    /* Laptop-class browser windows (14–16" MacBook, roughly 850–950px tall
+       at full-window width) are wide enough relative to their height that
+       100vh isn't a tall enough box for the scene's bottom-anchored crop to
+       clear the busy hillside/colonnade band before it reaches the hero
+       copy near the top — the text ends up sitting on the busiest part of
+       the image instead of sky. Extra height here reveals more of the
+       scene's sky at the top; the bottom stays anchored (unchanged) and
+       simply extends further below the fold, which is fine since the
+       readable copy lives near the top of the section, not the bottom.
+       Caution: an earlier attempt at extra height (growing .hero-unicorn
+       independently of its parent, to 125%) changed the box's aspect ratio
+       enough that Unicorn Studio's SDK fell back to fit-to-contain instead
+       of cover-crop, leaving empty margins on the sides — see the
+       .hero-unicorn comment in HeroCanvas.astro. This grows .hero itself
+       (with .hero-unicorn still matching it 1:1), a smaller aspect-ratio
+       shift than that attempt, but verify on an actual laptop-size window
+       that the scene still crops-to-cover rather than letterboxing before
+       trusting this. */
+    .hero {
+      min-height: max(700px, 122vh);
+      min-height: max(700px, 122svh);
+    }
+  }
+
   @media (max-width: 768px) {
     /* Mobile no longer runs the WebGL scene (see HeroCanvas.astro) — it's a
        flat dot-grid background instead, so the hero just needs to be the

@@ -381,18 +381,6 @@ const firstSlide = localImage(aboutImg) || slideshowImages[0];
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
   }
-  /* The dedicated full-width stats band (as opposed to the compact
-     .stats-mobile version inline with the About copy): equal 1fr columns
-     left each number sitting at the left edge of its own third, so the
-     third stat never actually reached the container's right edge. Sizing
-     each column to its content and spacing them with the leftover room
-     puts the first stat flush left and the last stat flush right, same as
-     the image/text above it. */
-  .stats-band .stats-grid {
-    grid-template-columns: repeat(3, auto);
-    justify-content: space-between;
-    gap: 0;
-  }
   .stat-num {
     font-family: var(--font-head);
     font-weight: 300;

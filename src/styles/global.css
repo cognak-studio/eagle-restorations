@@ -193,10 +193,15 @@ img { max-width: 100%; display: block; }
 }
 
 .btn-outline {
-  background: var(--cream);
-  color: var(--brand-dark);
-  /* No visible outline (was 1.5px solid var(--brand-dark)) — the cream
-     background alone differentiates it from the filled .btn. Border stays
+  /* Matches the Featured Projects card tag (.feat-cat) background exactly,
+     rather than the cream off-white — ties the alt CTA to that same brown
+     accent used elsewhere on the homepage. Text is white, not brand-dark:
+     brand-dark on this brown fails WCAG AA contrast, and white is the same
+     pairing .feat-cat already uses against this exact color (5.08:1). */
+  background: #8a683e;
+  color: #fff;
+  /* No visible outline (was 1.5px solid var(--brand-dark)) — the background
+     color alone differentiates it from the filled .btn. Border stays
      transparent (not removed) so it keeps the same 1.5px box as .btn and
      the two variants still line up at identical heights. */
   border: 1.5px solid transparent;

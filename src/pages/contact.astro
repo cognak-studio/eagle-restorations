@@ -110,6 +110,7 @@ import { company, formEndpoint } from '../data/site.js';
       const body = encodeURIComponent(
         `Name: ${data.get('name') || ''}\nEmail: ${data.get('email') || ''}\nPhone: ${data.get('phone') || ''}\n\n${data.get('message') || ''}`
       );
+      if (typeof gtag === 'function') gtag('event', 'generate_lead', { form_name: 'contact', method: 'mailto' });
       window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
       return;
     }
@@ -122,6 +123,10 @@ import { company, formEndpoint } from '../data/site.js';
         form.reset();
         status.textContent = 'Thanks — your message has been sent. We\'ll be in touch soon.';
         status.className = 'form-status ok';
+        // GA4 lead conversion event — marked as a conversion in the GA4 admin
+        // console so form submissions show up as actual conversions, not
+        // just page views.
+        if (typeof gtag === 'function') gtag('event', 'generate_lead', { form_name: 'contact', method: 'formspree' });
       } else {
         throw new Error('bad response');
       }

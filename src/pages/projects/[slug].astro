@@ -17,7 +17,11 @@ const related = portfolio
   .filter((p) => p.slug !== project.slug && p.categories.includes(primary) && p.image)
   .slice(0, 3);
 ---
-<Base title={heading} description={project.scope || `${heading} — a restoration project by Eagle Restorations.`}>
+<Base
+  title={heading}
+  description={project.scope || `${heading} — a restoration project by Eagle Restorations.`}
+  image={project.image ? localImage(project.image) : undefined}
+>
   <article class="proj">
     <section class="proj-hero">
       <div class="container proj-hero-inner">

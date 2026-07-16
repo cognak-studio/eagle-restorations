@@ -49,7 +49,7 @@ const projectsCompleted = portfolio.length >= 80 ? `${portfolio.length}+` : Stri
 export const stats = [
   { value: String(yearsOfExperience), label: 'Years of Experience' },
   { value: projectsCompleted, label: 'Projects Completed' },
-  { value: '1790', label: 'Oldest Historic Project' },
+  { value: '1790', label: 'Oldest Historic Project', plain: true },
 ];
 
 // Single source of truth for service offerings — used on the About & Services

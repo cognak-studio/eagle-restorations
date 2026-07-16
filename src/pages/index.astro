@@ -48,9 +48,15 @@ const featured = featuredSlugs
 const aboutImg = portfolio.find((p) => p.slug === 'mission-san-miguel')?.image
   ?? featured[0]?.image;
 
+// The placeholder image used by projects that have no real photo yet.
+// Projects still on this default are excluded from the slideshow.
+const DEFAULT_IMAGE = '/wp-content/uploads/2021/01/eagle-project.webp';
+
 // Every project image across the site, for the about-section slideshow
 const slideshowImages = [...new Set(
-  portfolio.filter((p) => p.image).map((p) => localImage(p.image))
+  portfolio
+    .filter((p) => p.image && localImage(p.image) !== DEFAULT_IMAGE)
+    .map((p) => localImage(p.image))
 )];
 const firstSlide = localImage(aboutImg) || slideshowImages[0];
 ---
@@ -98,7 +104,7 @@ const firstSlide = localImage(aboutImg) || slideshowImages[0];
         <div class="stats-grid stats-mobile">
           {stats.map((s) => (
             <div class="stat">
-              <div class="stat-num">{s.value}</div>
+              <div class="stat-num" data-plain={s.plain ? '' : undefined}>{s.value}</div>
               <div class="stat-label">{s.label}</div>
             </div>
           ))}
@@ -128,7 +134,7 @@ const firstSlide = localImage(aboutImg) || slideshowImages[0];
     <div class="container stats-grid">
       {stats.map((s) => (
         <div class="stat">
-          <div class="stat-num">{s.value}</div>
+          <div class="stat-num" data-plain={s.plain ? '' : undefined}>{s.value}</div>
           <div class="stat-label">{s.label}</div>
         </div>
       ))}
@@ -679,15 +685,17 @@ const firstSlide = localImage(aboutImg) || slideshowImages[0];
           if (!m) return;
           const target = parseInt(m[1].replace(/,/g, ''), 10);
           const suffix = m[2] || '';
-          if (reduce) { el.textContent = target.toLocaleString() + suffix; return; }
+          // Years (e.g. 1790) opt out of thousands separators via data-plain.
+          const fmt = (n) => (el.dataset.plain !== undefined ? String(n) : n.toLocaleString());
+          if (reduce) { el.textContent = fmt(target) + suffix; return; }
           const dur = 1500;
           const t0 = performance.now();
           function tick(now) {
             const p = Math.min((now - t0) / dur, 1);
             const eased = 1 - Math.pow(1 - p, 3);
-            el.textContent = Math.round(eased * target).toLocaleString() + suffix;
+            el.textContent = fmt(Math.round(eased * target)) + suffix;
             if (p < 1) requestAnimationFrame(tick);
-            else el.textContent = target.toLocaleString() + suffix;
+            else el.textContent = fmt(target) + suffix;
           }
           requestAnimationFrame(tick);
         });

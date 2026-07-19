@@ -19,5 +19,12 @@
 - Effect after next deploy + recrawl: images drop out of Google/Bing image search. Takes days-to-weeks for existing indexed images to clear (can expedite via Search Console removal tool).
 - IMPORTANT caveat told to Pierce: this stops search discoverability, but cannot make a public site's images un-copyable — anyone viewing the site can still save/reverse-search a copy. Stronger anti-extortion measures (EXIF/IPTC copyright metadata, watermarks, hotlink blocking) were offered; Pierce chose search-indexing blocking only for now.
 
+## 2026-07-19
+
+### Add "Rebuilding Altadena" to the mobile nav
+- The announcement bar (which links to `/altadena-fire/`) is hidden on mobile (`.announce { display: none }` under `@media (max-width: 940px)`), so mobile visitors had no link to the Altadena fire page.
+- `src/components/Header.astro`: added `<a href="/altadena-fire/">Rebuilding Altadena</a>` to the `.mobile-nav` block only — placed right after the `{nav.map(...)}` output (i.e. below "Press & Awards") and above the "Plan Your Restoration" button.
+- Desktop nav and the `nav` array in `site.js` were left untouched, so the change is mobile-only by design (desktop already surfaces the page via the announcement bar).
+
 ### Note on build
 - `npm run build` currently crashes in the sandbox at vite dependency optimization (`msg.includes is not a function`) — a Node 22 vs. old Astro/vite incompatibility in the sandbox, NOT related to these edits. Logic was validated directly with node. Verify with a real build/deploy on Pierce's machine.
